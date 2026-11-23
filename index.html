@@ -123,15 +123,21 @@
       box-shadow: 0 2px 0 #7f1d1d, 0 8px 16px rgba(220, 38, 38, 0.25);
     }
 
+    .secondary-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
     .btn-arena {
       width: 100%;
-      margin-top: 14px;
       border: 1px solid rgba(251, 191, 36, 0.45);
       border-radius: 15px;
-      padding: 14px 18px;
-      font-size: 16px;
+      padding: 13px 14px;
+      font-size: 14px;
       font-weight: 800;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
       color: #fde68a;
       background: linear-gradient(180deg, rgba(120, 53, 15, 0.65) 0%, rgba(69, 26, 3, 0.85) 100%);
       cursor: pointer;
@@ -145,6 +151,30 @@
     }
 
     .btn-arena:active {
+      transform: translateY(2px);
+    }
+
+    .btn-complaints {
+      width: 100%;
+      border: 1px solid rgba(248, 113, 113, 0.4);
+      border-radius: 15px;
+      padding: 13px 14px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: #fecaca;
+      background: linear-gradient(180deg, rgba(60, 20, 28, 0.75) 0%, rgba(28, 12, 16, 0.9) 100%);
+      cursor: pointer;
+      transition: transform 0.08s ease, filter 0.15s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-complaints:hover {
+      filter: brightness(1.12);
+    }
+
+    .btn-complaints:active {
       transform: translateY(2px);
     }
 
@@ -280,7 +310,7 @@
     .hp-bar-fill {
       height: 100%;
       width: 100%;
-      transition: width 0.14s ease;
+      transition: width 0.12s ease;
     }
 
     .hp-gordura {
@@ -341,54 +371,231 @@
     canvas#arenaCanvas {
       width: 100%;
       height: 230px;
-      background: linear-gradient(180deg, #161824 0%, #1d1522 72%, #2b1d19 72%, #1c1311 100%);
+      background: linear-gradient(180deg, #161824 0%, #1d1522 75%, #2b1d19 75%, #1c1311 100%);
       border: 1px solid #333342;
       border-radius: 14px;
       display: block;
       margin-bottom: 12px;
     }
 
-    .controls-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1.5fr;
-      gap: 10px;
+    .pad-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
       user-select: none;
       -webkit-user-select: none;
-      touch-action: manipulation;
+      touch-action: none;
     }
 
-    .ctrl-btn {
-      padding: 15px 10px;
+    .analog-base {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(39, 39, 46, 0.9) 0%, rgba(18, 18, 24, 0.95) 75%);
+      border: 2px solid rgba(251, 191, 36, 0.4);
+      position: relative;
+      flex-shrink: 0;
+      touch-action: none;
+    }
+
+    .analog-stick {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
+      border: 2px solid #fef3c7;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.55);
+      pointer-events: none;
+    }
+
+    .shoot-box {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-shoot {
+      width: 100%;
+      padding: 16px 14px;
       border-radius: 14px;
-      border: 1px solid #3f3f46;
-      background: #1f1f27;
+      border: 1px solid #f87171;
+      background: linear-gradient(180deg, #ef4444, #991b1b);
       color: #ffffff;
       font-size: 16px;
       font-weight: 900;
+      letter-spacing: 0.03em;
       cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
 
-    .ctrl-btn:active,
-    .ctrl-btn.pressed {
-      transform: scale(0.96);
-      background: #323240;
+    .btn-shoot:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
     }
 
-    .ctrl-hit {
-      background: linear-gradient(180deg, #ef4444, #991b1b);
-      border-color: #f87171;
-    }
-
-    .ctrl-hit:active,
-    .ctrl-hit.pressed {
-      background: linear-gradient(180deg, #dc2626, #7f1d1d);
+    .ammo-hint {
+      font-size: 12px;
+      color: #d4d4d8;
     }
 
     .queue-info {
       margin-top: 10px;
       font-size: 12px;
       color: #a1a1aa;
+    }
+
+    /* RECLAMAÇÕES SOBRE O GORDURA */
+    .complaints-card {
+      width: 100%;
+      max-width: 500px;
+      background: rgba(18, 18, 22, 0.95);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+      z-index: 2;
+      text-align: left;
+    }
+
+    .complaints-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .complaints-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fca5a5;
+    }
+
+    .rating-summary {
+      background: #121217;
+      border: 1px solid #27272a;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .rating-avg {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fbbf24;
+    }
+
+    .star-picker {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .star-btn {
+      background: transparent;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #52525b;
+      line-height: 1;
+      transition: transform 0.08s ease, color 0.12s ease;
+    }
+
+    .star-btn.active {
+      color: #fbbf24;
+      transform: scale(1.08);
+    }
+
+    .complaint-input {
+      width: 100%;
+      min-height: 76px;
+      resize: vertical;
+      background: #111116;
+      border: 1px solid #2e2e38;
+      border-radius: 12px;
+      padding: 11px 12px;
+      color: #f4f4f5;
+      font-family: inherit;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .complaint-input:focus {
+      outline: none;
+      border-color: #ef4444;
+    }
+
+    .btn-send-complaint {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #ffffff;
+      background: linear-gradient(180deg, #ef4444, #b91c1c);
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+
+    .complaints-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+      padding-right: 2px;
+    }
+
+    .complaint-item {
+      background: #121217;
+      border: 1px solid #27272a;
+      border-radius: 14px;
+      padding: 11px 13px;
+    }
+
+    .complaint-item-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+
+    .complaint-stars {
+      color: #fbbf24;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+
+    .complaint-time {
+      color: #71717a;
+      font-size: 11px;
+    }
+
+    .complaint-msg {
+      color: #e4e4e7;
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .empty-complaints {
+      text-align: center;
+      color: #71717a;
+      font-size: 13px;
+      padding: 16px 8px;
     }
   </style>
 </head>
@@ -405,14 +612,18 @@
     </div>
 
     <button id="actionBtn" class="btn-red" type="button">#FORAGORDURA</button>
-    <button id="openArenaBtn" class="btn-arena" type="button">Gordura X Fafá</button>
+
+    <div class="secondary-actions">
+      <button id="openArenaBtn" class="btn-arena" type="button">Gordura X Fafá</button>
+      <button id="openComplaintsBtn" class="btn-complaints" type="button">Reclamações sobre o gordura</button>
+    </div>
   </main>
 
-  <!-- TELA 2: ARENA 2D MULTIJOGADOR -->
+  <!-- TELA 2: ARENA 2D (BOLAS + ANALÓGICO + TIRO ÚNICO) -->
   <section id="arenaView" class="arena-card hidden">
     <div class="arena-top">
       <div class="arena-title">Gordura X Fafá</div>
-      <button id="backCounterBtn" class="btn-small" type="button">Voltar</button>
+      <button id="backFromArenaBtn" class="btn-small" type="button">Voltar</button>
     </div>
 
     <div class="hp-grid">
@@ -446,19 +657,59 @@
 
     <canvas id="arenaCanvas" width="480" height="230"></canvas>
 
-    <div class="controls-row">
-      <button id="btnLeft" class="ctrl-btn" type="button">◀ ESQ</button>
-      <button id="btnRight" class="ctrl-btn" type="button">DIR ▶</button>
-      <button id="btnHit" class="ctrl-btn ctrl-hit" type="button">SOCO 💥</button>
+    <div class="pad-controls">
+      <div id="analogBase" class="analog-base" title="Arraste para mover">
+        <div id="analogStick" class="analog-stick"></div>
+      </div>
+
+      <div class="shoot-box">
+        <button id="btnShoot" class="btn-shoot" type="button">ATIRAR (1 TIRO)</button>
+        <div id="ammoHint" class="ammo-hint">Arma pronta • Recarga rápida após cada tiro</div>
+      </div>
     </div>
 
     <div id="queueText" class="queue-info">Fila: ninguém esperando</div>
+  </section>
+
+  <!-- TELA 3: RECLAMAÇÕES SOBRE O GORDURA -->
+  <section id="complaintsView" class="complaints-card hidden">
+    <div class="complaints-header">
+      <div class="complaints-title">Reclamações sobre o gordura</div>
+      <button id="backFromComplaintsBtn" class="btn-small" type="button">Voltar</button>
+    </div>
+
+    <div class="rating-summary">
+      <span>Nota geral do gordura</span>
+      <span id="ratingSummaryText" class="rating-avg">★ 0.0 (0)</span>
+    </div>
+
+    <div class="star-picker" aria-label="Escolha de 1 a 5 estrelas">
+      <button class="star-btn active" data-star="1" type="button">★</button>
+      <button class="star-btn active" data-star="2" type="button">★</button>
+      <button class="star-btn active" data-star="3" type="button">★</button>
+      <button class="star-btn" data-star="4" type="button">★</button>
+      <button class="star-btn" data-star="5" type="button">★</button>
+    </div>
+
+    <textarea
+      id="complaintInput"
+      class="complaint-input"
+      maxlength="240"
+      placeholder="Manda quantas reclamações quiser sobre o gordura..."
+    ></textarea>
+
+    <button id="sendComplaintBtn" class="btn-send-complaint" type="button">Enviar reclamação</button>
+
+    <div id="complaintsList" class="complaints-list">
+      <div class="empty-complaints">Nenhuma reclamação ainda. Seja o primeiro!</div>
+    </div>
   </section>
 
   <script>
     const DATABASE_URL = "https://fora-gordura-default-rtdb.firebaseio.com";
     const NODE_PATH = "/foragordura/cliques.json";
     const ARENA_PATH = "/foragordura/arena.json";
+    const COMPLAINTS_PATH = "/foragordura/reclamacoes.json";
 
     const FRASES_ZOEIRA = [
       "FORA!!",
@@ -468,8 +719,12 @@
 
     const counterView = document.getElementById("counterView");
     const arenaView = document.getElementById("arenaView");
+    const complaintsView = document.getElementById("complaintsView");
+
     const openArenaBtn = document.getElementById("openArenaBtn");
-    const backCounterBtn = document.getElementById("backCounterBtn");
+    const openComplaintsBtn = document.getElementById("openComplaintsBtn");
+    const backFromArenaBtn = document.getElementById("backFromArenaBtn");
+    const backFromComplaintsBtn = document.getElementById("backFromComplaintsBtn");
 
     const counterEl = document.getElementById("counter");
     const btnEl = document.getElementById("actionBtn");
@@ -483,22 +738,27 @@
       counterEl.textContent = currentCount.toLocaleString("pt-BR");
     }
 
-    function playClickSound() {
+    function ensureAudioContext() {
       const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContextClass) return;
-
+      if (!AudioContextClass) return null;
       if (!audioCtx) {
         audioCtx = new AudioContextClass();
       }
       if (audioCtx.state === "suspended") {
         audioCtx.resume();
       }
+      return audioCtx;
+    }
 
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
+    function playClickSound() {
+      const ctxAudio = ensureAudioContext();
+      if (!ctxAudio) return;
+
+      const osc = ctxAudio.createOscillator();
+      const gain = ctxAudio.createGain();
 
       osc.type = "triangle";
-      const now = audioCtx.currentTime;
+      const now = ctxAudio.currentTime;
       osc.frequency.setValueAtTime(240, now);
       osc.frequency.exponentialRampToValueAtTime(90, now + 0.08);
 
@@ -506,39 +766,32 @@
       gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
 
       osc.connect(gain);
-      gain.connect(audioCtx.destination);
+      gain.connect(ctxAudio.destination);
 
       osc.start(now);
       osc.stop(now + 0.085);
     }
 
-    function playHitSound() {
-      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContextClass) return;
+    function playShotSound() {
+      const ctxAudio = ensureAudioContext();
+      if (!ctxAudio) return;
 
-      if (!audioCtx) {
-        audioCtx = new AudioContextClass();
-      }
-      if (audioCtx.state === "suspended") {
-        audioCtx.resume();
-      }
+      const osc = ctxAudio.createOscillator();
+      const gain = ctxAudio.createGain();
 
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
+      osc.type = "square";
+      const now = ctxAudio.currentTime;
+      osc.frequency.setValueAtTime(520, now);
+      osc.frequency.exponentialRampToValueAtTime(110, now + 0.09);
 
-      osc.type = "sawtooth";
-      const now = audioCtx.currentTime;
-      osc.frequency.setValueAtTime(150, now);
-      osc.frequency.exponentialRampToValueAtTime(48, now + 0.11);
-
-      gain.gain.setValueAtTime(0.22, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
+      gain.gain.setValueAtTime(0.14, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
 
       osc.connect(gain);
-      gain.connect(audioCtx.destination);
+      gain.connect(ctxAudio.destination);
 
       osc.start(now);
-      osc.stop(now + 0.12);
+      osc.stop(now + 0.095);
     }
 
     function spawnDisgustEmoji(originEl) {
@@ -647,7 +900,7 @@
     listenRealtime();
 
     // =========================================================
-    // ARENA 2D: GORDURA X FAFÁ (2 POR VEZ + FILA + SAÍDA)
+    // ARENA 2D: BOLAS + ANALÓGICO + TIRO ÚNICO + FILA/SAÍDA
     // =========================================================
     const myId = "p_" + Math.random().toString(36).slice(2, 9);
     const canvas = document.getElementById("arenaCanvas");
@@ -663,12 +916,15 @@
     const pickFafaBtn = document.getElementById("pickFafaBtn");
     const queueText = document.getElementById("queueText");
 
-    const btnLeft = document.getElementById("btnLeft");
-    const btnRight = document.getElementById("btnRight");
-    const btnHit = document.getElementById("btnHit");
+    const analogBase = document.getElementById("analogBase");
+    const analogStick = document.getElementById("analogStick");
+    const btnShoot = document.getElementById("btnShoot");
+    const ammoHint = document.getElementById("ammoHint");
 
-    const STALE_MS = 7500;
-    const ATTACK_COOLDOWN_MS = 450;
+    const STALE_MS = 8500;
+    const RELOAD_MS = 950;
+    const BULLET_SPEED = 8.5;
+    const BULLET_DAMAGE = 25;
 
     function createFreshArena(message = "Escolha Gordura ou Fafá para começar!") {
       return {
@@ -678,22 +934,33 @@
         updatedAt: Date.now(),
         queue: [],
         fighters: {
-          gordura: null, // { id, x, hp, facing, punchAt, lastSeen }
+          gordura: null, // { id, x, y, hp, aimX, aimY, lastSeen }
           fafa: null
-        }
+        },
+        bullets: [] // { id, owner, x, y, vx, vy, active }
       };
     }
 
     let arenaState = createFreshArena();
     let arenaSource = null;
+    let rafId = null;
+    let syncTimer = null;
     let heartbeatTimer = null;
-    let moveLoopTimer = null;
-    let lastPunchLocal = 0;
+    let isSyncing = false;
+    let nextReloadAt = 0;
 
-    let inputState = {
-      left: false,
-      right: false
-    };
+    let analogVec = { x: 0, y: 0, active: false, pointerId: null };
+    let keysDown = { left: false, right: false, up: false, down: false };
+
+    function getMyRole(state = arenaState) {
+      if (state.fighters?.gordura?.id === myId) return "gordura";
+      if (state.fighters?.fafa?.id === myId) return "fafa";
+      return null;
+    }
+
+    function isInQueue(state = arenaState) {
+      return Array.isArray(state.queue) && state.queue.some((q) => q.id === myId);
+    }
 
     async function getArenaRemote() {
       const res = await fetch(`${DATABASE_URL}${ARENA_PATH}`);
@@ -710,11 +977,12 @@
         fighters: {
           gordura: data.fighters?.gordura || null,
           fafa: data.fighters?.fafa || null
-        }
+        },
+        bullets: Array.isArray(data.bullets) ? data.bullets : []
       };
     }
 
-    async function setArenaRemote(nextState) {
+    async function putArenaRemote(nextState) {
       nextState.updatedAt = Date.now();
       await fetch(`${DATABASE_URL}${ARENA_PATH}`, {
         method: "PUT",
@@ -722,14 +990,13 @@
         body: JSON.stringify(nextState)
       });
       arenaState = nextState;
-      syncArenaUI();
+      syncArenaHUD();
     }
 
     function cleanStaleAndPromote(state) {
       const now = Date.now();
       let changed = false;
 
-      // Remove quem saiu ou ficou inativo
       ["gordura", "fafa"].forEach((role) => {
         const f = state.fighters[role];
         if (f && now - (f.lastSeen || 0) > STALE_MS) {
@@ -738,9 +1005,8 @@
         }
       });
 
-      // Limpa fila inativa ou duplicada
       const seen = new Set();
-      const filteredQueue = state.queue.filter((item) => {
+      const filteredQueue = (state.queue || []).filter((item) => {
         if (!item || !item.id || seen.has(item.id)) {
           changed = true;
           return false;
@@ -749,10 +1015,7 @@
           changed = true;
           return false;
         }
-        if (
-          state.fighters.gordura?.id === item.id ||
-          state.fighters.fafa?.id === item.id
-        ) {
+        if (state.fighters.gordura?.id === item.id || state.fighters.fafa?.id === item.id) {
           changed = true;
           return false;
         }
@@ -760,7 +1023,7 @@
         return true;
       });
 
-      if (filteredQueue.length !== state.queue.length) {
+      if (filteredQueue.length !== (state.queue || []).length) {
         state.queue = filteredQueue;
         changed = true;
       }
@@ -768,17 +1031,18 @@
       const g = state.fighters.gordura;
       const f = state.fighters.fafa;
 
-      // Se um saiu no meio da luta: encerra a luta e puxa próximo se houver
       if (state.status === "fighting" && (!g || !f)) {
+        state.bullets = [];
         const nextInQueue = state.queue.shift();
         if (nextInQueue) {
           const freeRole = !g ? "gordura" : "fafa";
           state.fighters[freeRole] = {
             id: nextInQueue.id,
             x: freeRole === "gordura" ? 110 : 370,
+            y: 145,
             hp: 100,
-            facing: freeRole === "gordura" ? 1 : -1,
-            punchAt: 0,
+            aimX: freeRole === "gordura" ? 1 : -1,
+            aimY: 0,
             lastSeen: now
           };
           state.status = "waiting";
@@ -787,32 +1051,34 @@
         } else {
           state.status = "waiting";
           state.winner = null;
-          state.message = "O oponente saiu! Luta encerrada. Escolha ou aguarde.";
+          state.message = "O oponente saiu! Luta encerrada.";
         }
         changed = true;
       }
 
-      // Se ambos estão presentes e não acabou, luta ativa
       if (state.fighters.gordura && state.fighters.fafa && state.status === "waiting") {
         state.status = "fighting";
         state.winner = null;
+        state.bullets = [];
         state.fighters.gordura.hp = 100;
         state.fighters.fafa.hp = 100;
         state.fighters.gordura.x = 110;
+        state.fighters.gordura.y = 145;
         state.fighters.fafa.x = 370;
-        state.message = "LUTA VALENDO! Gordura X Fafá!";
+        state.fighters.fafa.y = 145;
+        state.message = "LUTA VALENDO! Bolas em campo — tiro único!";
         changed = true;
       }
 
-      // Se ninguém está lutando, mas tem alguém na fila, puxa até 2
       if (!state.fighters.gordura && state.queue.length > 0) {
         const p = state.queue.shift();
         state.fighters.gordura = {
           id: p.id,
           x: 110,
+          y: 145,
           hp: 100,
-          facing: 1,
-          punchAt: 0,
+          aimX: 1,
+          aimY: 0,
           lastSeen: now
         };
         state.status = state.fighters.fafa ? "fighting" : "waiting";
@@ -825,9 +1091,10 @@
         state.fighters.fafa = {
           id: p.id,
           x: 370,
+          y: 145,
           hp: 100,
-          facing: -1,
-          punchAt: 0,
+          aimX: -1,
+          aimY: 0,
           lastSeen: now
         };
         state.status = state.fighters.gordura ? "fighting" : "waiting";
@@ -838,38 +1105,24 @@
       return changed;
     }
 
-    function getMyRole(state = arenaState) {
-      if (state.fighters.gordura?.id === myId) return "gordura";
-      if (state.fighters.fafa?.id === myId) return "fafa";
-      return null;
-    }
-
-    function isInQueue(state = arenaState) {
-      return state.queue.some((q) => q.id === myId);
-    }
-
     async function chooseFighter(role) {
       try {
         const latest = await getArenaRemote();
         cleanStaleAndPromote(latest);
 
-        const activeCount =
-          (latest.fighters.gordura ? 1 : 0) + (latest.fighters.fafa ? 1 : 0);
+        if (getMyRole(latest)) return;
 
-        const alreadyRole = getMyRole(latest);
-        if (alreadyRole) return;
+        const activeCount = (latest.fighters.gordura ? 1 : 0) + (latest.fighters.fafa ? 1 : 0);
 
-        // Se já tem 2 lutando, vai para a fila
         if (activeCount >= 2) {
           if (!isInQueue(latest)) {
             latest.queue.push({ id: myId, preferred: role, lastSeen: Date.now() });
             latest.message = `Arena cheia (2/2)! Você entrou na fila (${latest.queue.length}º).`;
-            await setArenaRemote(latest);
+            await putArenaRemote(latest);
           }
           return;
         }
 
-        // Se o boneco escolhido já estiver ocupado pelo outro lutador, pega o outro disponível
         let chosen = role;
         if (chosen === "gordura" && latest.fighters.gordura) {
           chosen = !latest.fighters.fafa ? "fafa" : null;
@@ -880,40 +1133,42 @@
         if (!chosen) {
           if (!isInQueue(latest)) {
             latest.queue.push({ id: myId, preferred: role, lastSeen: Date.now() });
-            await setArenaRemote(latest);
+            await putArenaRemote(latest);
           }
           return;
         }
 
-        // Remove da fila se estivesse lá
         latest.queue = latest.queue.filter((q) => q.id !== myId);
-
         latest.fighters[chosen] = {
           id: myId,
           x: chosen === "gordura" ? 110 : 370,
+          y: 145,
           hp: 100,
-          facing: chosen === "gordura" ? 1 : -1,
-          punchAt: 0,
+          aimX: chosen === "gordura" ? 1 : -1,
+          aimY: 0,
           lastSeen: Date.now()
         };
 
         if (latest.fighters.gordura && latest.fighters.fafa) {
           latest.status = "fighting";
           latest.winner = null;
+          latest.bullets = [];
           latest.fighters.gordura.hp = 100;
           latest.fighters.fafa.hp = 100;
           latest.fighters.gordura.x = 110;
+          latest.fighters.gordura.y = 145;
           latest.fighters.fafa.x = 370;
-          latest.message = "LUTA VALENDO! Gordura X Fafá!";
+          latest.fighters.fafa.y = 145;
+          latest.message = "LUTA VALENDO! Bolas em campo — tiro único!";
         } else {
           latest.status = "waiting";
           latest.winner = null;
           latest.message = `Você entrou como ${chosen.toUpperCase()}! Esperando o outro jogador...`;
         }
 
-        await setArenaRemote(latest);
+        await putArenaRemote(latest);
       } catch (err) {
-        console.error("Erro ao escolher lutador:", err);
+        console.error("Erro ao escolher bola:", err);
       }
     }
 
@@ -937,122 +1192,198 @@
 
         if (changed) {
           cleanStaleAndPromote(latest);
-          await setArenaRemote(latest);
+          await putArenaRemote(latest);
         }
       } catch (err) {
         console.error("Erro ao sair da arena:", err);
       }
     }
 
-    async function sendHeartbeat() {
-      if (arenaView.classList.contains("hidden")) return;
-      try {
-        const latest = await getArenaRemote();
-        const role = getMyRole(latest);
-        const qIdx = latest.queue.findIndex((q) => q.id === myId);
-        let changed = cleanStaleAndPromote(latest);
-
-        if (role && latest.fighters[role]) {
-          latest.fighters[role].lastSeen = Date.now();
-          changed = true;
-        } else if (qIdx !== -1) {
-          latest.queue[qIdx].lastSeen = Date.now();
-          changed = true;
-        }
-
-        if (changed) {
-          await setArenaRemote(latest);
-        }
-      } catch (err) {
-        console.error("Erro no heartbeat:", err);
-      }
-    }
-
-    async function stepMovement() {
-      if (arenaView.classList.contains("hidden")) return;
-      const role = getMyRole(arenaState);
-      if (!role || arenaState.status !== "fighting") return;
-
-      const dir = (inputState.right ? 1 : 0) - (inputState.left ? 1 : 0);
-      if (dir === 0) return;
-
-      try {
-        const latest = await getArenaRemote();
-        if (latest.status !== "fighting" || !latest.fighters[role]) return;
-
-        const me = latest.fighters[role];
-        const speed = role === "gordura" ? 11 : 14;
-        me.x = Math.min(435, Math.max(45, me.x + dir * speed));
-        me.facing = dir;
-        me.lastSeen = Date.now();
-
-        await setArenaRemote(latest);
-      } catch (err) {
-        console.error("Erro ao mover:", err);
-      }
-    }
-
-    async function triggerPunch() {
+    async function shootSingleBullet() {
       const role = getMyRole(arenaState);
       if (!role || arenaState.status !== "fighting") return;
 
       const now = Date.now();
-      if (now - lastPunchLocal < ATTACK_COOLDOWN_MS) return;
-      lastPunchLocal = now;
+      if (now < nextReloadAt) return;
 
-      playHitSound();
+      const me = arenaState.fighters[role];
+      if (!me) return;
+
+      const activeMyBullets = (arenaState.bullets || []).filter(
+        (b) => b.active && b.owner === role
+      );
+      if (activeMyBullets.length >= 1) return;
+
+      nextReloadAt = now + RELOAD_MS;
+      playShotSound();
+
+      let dx = me.aimX ?? (role === "gordura" ? 1 : -1);
+      let dy = me.aimY ?? 0;
+      const len = Math.hypot(dx, dy) || 1;
+      dx /= len;
+      dy /= len;
+
+      const radius = role === "gordura" ? 22 : 17;
+      const bullet = {
+        id: "b_" + now + "_" + Math.random().toString(36).slice(2, 6),
+        owner: role,
+        x: me.x + dx * (radius + 8),
+        y: me.y + dy * (radius + 8),
+        vx: dx * BULLET_SPEED,
+        vy: dy * BULLET_SPEED,
+        active: true
+      };
+
+      arenaState.bullets.push(bullet);
+      syncArenaHUD();
 
       try {
         const latest = await getArenaRemote();
         if (latest.status !== "fighting" || !latest.fighters[role]) return;
-
-        const attacker = latest.fighters[role];
-        const defenderRole = role === "gordura" ? "fafa" : "gordura";
-        const defender = latest.fighters[defenderRole];
-
-        attacker.punchAt = now;
-        attacker.lastSeen = now;
-
-        if (defender) {
-          const dist = Math.abs(attacker.x - defender.x);
-          const reach = role === "gordura" ? 78 : 74;
-          const dmg = role === "gordura" ? 16 : 14;
-
-          if (dist <= reach) {
-            defender.hp = Math.max(0, (defender.hp ?? 100) - dmg);
-            defender.x = Math.min(
-              435,
-              Math.max(45, defender.x + attacker.facing * 24)
-            );
-
-            if (defender.hp <= 0) {
-              latest.status = "finished";
-              latest.winner = role;
-              latest.message = `${role.toUpperCase()} VENCEU A LUTA!`;
-
-              // Após 3 segundos, limpa a luta e puxa fila se houver
-              setTimeout(async () => {
-                try {
-                  const after = await getArenaRemote();
-                  if (after.status === "finished") {
-                    const reset = createFreshArena("Luta encerrada! Escolha Gordura ou Fafá para a próxima.");
-                    reset.queue = after.queue || [];
-                    cleanStaleAndPromote(reset);
-                    await setArenaRemote(reset);
-                  }
-                } catch (e) {}
-              }, 3000);
-            }
-          }
-        }
-
-        await setArenaRemote(latest);
+        latest.fighters[role].x = me.x;
+        latest.fighters[role].y = me.y;
+        latest.fighters[role].aimX = dx;
+        latest.fighters[role].aimY = dy;
+        latest.fighters[role].lastSeen = now;
+        latest.bullets = Array.isArray(latest.bullets) ? latest.bullets : [];
+        latest.bullets.push(bullet);
+        await putArenaRemote(latest);
       } catch (err) {
-        console.error("Erro ao socar:", err);
+        console.error("Erro ao atirar:", err);
       }
     }
 
-    function syncArenaUI() {
+    function updateLocalPhysics() {
+      if (arenaView.classList.contains("hidden")) return;
+
+      const role = getMyRole(arenaState);
+      const now = Date.now();
+
+      if (now < nextReloadAt) {
+        const rem = ((nextReloadAt - now) / 1000).toFixed(1);
+        btnShoot.disabled = true;
+        ammoHint.textContent = `Recarregando tiro... (${rem}s)`;
+      } else if (role && arenaState.status === "fighting") {
+        btnShoot.disabled = false;
+        ammoHint.textContent = "Tiro único pronto!";
+      } else {
+        btnShoot.disabled = true;
+        ammoHint.textContent = "Aguardando luta para atirar";
+      }
+
+      if (role && arenaState.status === "fighting" && arenaState.fighters[role]) {
+        const me = arenaState.fighters[role];
+
+        let moveX = analogVec.active ? analogVec.x : 0;
+        let moveY = analogVec.active ? analogVec.y : 0;
+
+        if (!analogVec.active) {
+          moveX = (keysDown.right ? 1 : 0) - (keysDown.left ? 1 : 0);
+          moveY = (keysDown.down ? 1 : 0) - (keysDown.up ? 1 : 0);
+        }
+
+        const mag = Math.hypot(moveX, moveY);
+        if (mag > 0.08) {
+          const nx = mag > 1 ? moveX / mag : moveX;
+          const ny = mag > 1 ? moveY / mag : moveY;
+          const speed = role === "gordura" ? 3.4 : 4.2;
+          const radius = role === "gordura" ? 22 : 17;
+
+          me.x = Math.min(canvas.width - radius - 10, Math.max(radius + 10, me.x + nx * speed));
+          me.y = Math.min(198 - radius, Math.max(42 + radius, me.y + ny * speed));
+          me.aimX = nx;
+          me.aimY = ny;
+        }
+      }
+
+      // Movimenta tiros e checa colisão com a bola adversária
+      if (Array.isArray(arenaState.bullets) && arenaState.bullets.length > 0) {
+        const remaining = [];
+        for (const b of arenaState.bullets) {
+          if (!b || !b.active) continue;
+          b.x += b.vx;
+          b.y += b.vy;
+
+          if (b.x < -12 || b.x > canvas.width + 12 || b.y < -12 || b.y > canvas.height + 12) {
+            continue;
+          }
+
+          const targetRole = b.owner === "gordura" ? "fafa" : "gordura";
+          const target = arenaState.fighters[targetRole];
+          const targetRadius = targetRole === "gordura" ? 22 : 17;
+
+          if (target && arenaState.status === "fighting") {
+            const dist = Math.hypot(b.x - target.x, b.y - target.y);
+            if (dist <= targetRadius + 6) {
+              // Só quem controla o alvo ou o atirador aplica dano de forma limpa
+              if (target.id === myId || arenaState.fighters[b.owner]?.id === myId) {
+                target.hp = Math.max(0, (target.hp ?? 100) - BULLET_DAMAGE);
+                if (target.hp <= 0 && arenaState.status === "fighting") {
+                  arenaState.status = "finished";
+                  arenaState.winner = b.owner;
+                  arenaState.message = `${b.owner.toUpperCase()} VENCEU A LUTA!`;
+                }
+              }
+              continue;
+            }
+          }
+
+          remaining.push(b);
+        }
+        arenaState.bullets = remaining;
+      }
+
+      syncArenaHUD();
+      drawArenaCanvas();
+    }
+
+    async function syncStateWithFirebase() {
+      if (arenaView.classList.contains("hidden") || isSyncing) return;
+      isSyncing = true;
+
+      try {
+        const remote = await getArenaRemote();
+        const changed = cleanStaleAndPromote(remote);
+        const myRole = getMyRole(remote);
+        const now = Date.now();
+
+        if (myRole && remote.fighters[myRole] && arenaState.fighters[myRole]) {
+          remote.fighters[myRole].x = arenaState.fighters[myRole].x;
+          remote.fighters[myRole].y = arenaState.fighters[myRole].y;
+          remote.fighters[myRole].aimX = arenaState.fighters[myRole].aimX;
+          remote.fighters[myRole].aimY = arenaState.fighters[myRole].aimY;
+          remote.fighters[myRole].lastSeen = now;
+
+          // Preserva dano aplicado localmente se o remoto tiver HP maior
+          const otherRole = myRole === "gordura" ? "fafa" : "gordura";
+          if (remote.fighters[otherRole] && arenaState.fighters[otherRole]) {
+            remote.fighters[otherRole].hp = Math.min(
+              remote.fighters[otherRole].hp ?? 100,
+              arenaState.fighters[otherRole].hp ?? 100
+            );
+            if (remote.fighters[otherRole].hp <= 0 && remote.status === "fighting") {
+              remote.status = "finished";
+              remote.winner = myRole;
+              remote.message = `${myRole.toUpperCase()} VENCEU A LUTA!`;
+            }
+          }
+
+          remote.bullets = (arenaState.bullets || []).filter((b) => b.active);
+          await putArenaRemote(remote);
+        } else if (changed) {
+          await putArenaRemote(remote);
+        } else {
+          arenaState = remote;
+          syncArenaHUD();
+        }
+      } catch (err) {
+        console.error("Erro na sincronização da arena:", err);
+      } finally {
+        isSyncing = false;
+      }
+    }
+
+    function syncArenaHUD() {
       const gHp = arenaState.fighters.gordura ? arenaState.fighters.gordura.hp : 100;
       const fHp = arenaState.fighters.fafa ? arenaState.fighters.fafa.hp : 100;
 
@@ -1065,8 +1396,7 @@
 
       const myRole = getMyRole(arenaState);
       const inQueue = isInQueue(arenaState);
-      const activeCount =
-        (arenaState.fighters.gordura ? 1 : 0) + (arenaState.fighters.fafa ? 1 : 0);
+      const activeCount = (arenaState.fighters.gordura ? 1 : 0) + (arenaState.fighters.fafa ? 1 : 0);
 
       if (myRole) {
         pickGorduraBtn.disabled = true;
@@ -1081,12 +1411,8 @@
       } else {
         pickGorduraBtn.disabled = Boolean(arenaState.fighters.gordura) && activeCount >= 2;
         pickFafaBtn.disabled = Boolean(arenaState.fighters.fafa) && activeCount >= 2;
-        pickGorduraBtn.textContent = arenaState.fighters.gordura
-          ? "Gordura ocupado"
-          : "Entrar como Gordura";
-        pickFafaBtn.textContent = arenaState.fighters.fafa
-          ? "Fafá ocupado"
-          : "Entrar como Fafá";
+        pickGorduraBtn.textContent = arenaState.fighters.gordura ? "Gordura ocupado" : "Entrar como Gordura";
+        pickFafaBtn.textContent = arenaState.fighters.fafa ? "Fafá ocupado" : "Entrar como Fafá";
       }
 
       if (!arenaState.queue.length) {
@@ -1094,65 +1420,49 @@
       } else {
         queueText.textContent = `Fila: ${arenaState.queue.length} pessoa(s) aguardando`;
       }
-
-      drawArenaCanvas();
     }
 
-    function drawFighter(fighter, role) {
+    function drawBallFighter(fighter, role) {
       if (!fighter) return;
 
-      const x = fighter.x;
-      const groundY = 166;
       const isGordura = role === "gordura";
-      const isPunching = Date.now() - (fighter.punchAt || 0) < 180;
+      const radius = isGordura ? 22 : 17;
 
       ctx.save();
 
-      // Sombra no chão
-      ctx.fillStyle = "rgba(0, 0, 0, 0.45)";
+      // Sombra
+      ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
       ctx.beginPath();
-      ctx.ellipse(x, groundY + 4, isGordura ? 28 : 20, 7, 0, 0, Math.PI * 2);
+      ctx.ellipse(fighter.x, fighter.y + radius + 5, radius * 0.9, 5, 0, 0, Math.PI * 2);
       ctx.fill();
 
-      // Corpo
+      // Bola principal
       ctx.fillStyle = isGordura ? "#ef4444" : "#38bdf8";
       ctx.beginPath();
-      if (isGordura) {
-        ctx.arc(x, groundY - 24, 24, 0, Math.PI * 2);
-      } else {
-        ctx.roundRect(x - 15, groundY - 46, 30, 38, 10);
-      }
+      ctx.arc(fighter.x, fighter.y, radius, 0, Math.PI * 2);
       ctx.fill();
 
-      // Cabeça
-      ctx.fillStyle = "#fde68a";
-      ctx.beginPath();
-      ctx.arc(x, isGordura ? groundY - 52 : groundY - 56, 13, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Braço / Soco
-      const dir = fighter.facing || (isGordura ? 1 : -1);
-      const armReach = isPunching ? 34 : 18;
-      ctx.strokeStyle = "#fde68a";
-      ctx.lineWidth = 7;
-      ctx.lineCap = "round";
-      ctx.beginPath();
-      ctx.moveTo(x, groundY - 26);
-      ctx.lineTo(x + dir * armReach, groundY - 28);
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = isGordura ? "#fecaca" : "#e0f2fe";
       ctx.stroke();
 
-      if (isPunching) {
-        ctx.fillStyle = "#fbbf24";
-        ctx.beginPath();
-        ctx.arc(x + dir * (armReach + 5), groundY - 28, 8, 0, Math.PI * 2);
-        ctx.fill();
-      }
+      // Indicador de mira / direção do tiro único
+      const aimX = fighter.aimX ?? (isGordura ? 1 : -1);
+      const aimY = fighter.aimY ?? 0;
+      const mag = Math.hypot(aimX, aimY) || 1;
+      const nx = aimX / mag;
+      const ny = aimY / mag;
 
-      // Nome acima
+      ctx.fillStyle = "#fde047";
+      ctx.beginPath();
+      ctx.arc(fighter.x + nx * (radius + 5), fighter.y + ny * (radius + 5), 4.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Nome acima da bola
       ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 12px system-ui, sans-serif";
+      ctx.font = "bold 11px system-ui, sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText(isGordura ? "GORDURA" : "FAFÁ", x, isGordura ? groundY - 74 : groundY - 76);
+      ctx.fillText(isGordura ? "GORDURA" : "FAFÁ", fighter.x, fighter.y - radius - 9);
 
       ctx.restore();
     }
@@ -1160,87 +1470,173 @@
     function drawArenaCanvas() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Chão da arena
-      ctx.fillStyle = "#2b1d19";
-      ctx.fillRect(0, 166, canvas.width, canvas.height - 166);
+      // Grade simples da arena de bolas
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.05)";
+      ctx.lineWidth = 1;
+      for (let x = 40; x < canvas.width; x += 40) {
+        ctx.beginPath();
+        ctx.moveTo(x, 28);
+        ctx.lineTo(x, canvas.height - 16);
+        ctx.stroke();
+      }
 
-      ctx.strokeStyle = "#57382e";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(0, 166);
-      ctx.lineTo(canvas.width, 166);
-      ctx.stroke();
+      drawBallFighter(arenaState.fighters.gordura, "gordura");
+      drawBallFighter(arenaState.fighters.fafa, "fafa");
 
-      drawFighter(arenaState.fighters.gordura, "gordura");
-      drawFighter(arenaState.fighters.fafa, "fafa");
+      if (Array.isArray(arenaState.bullets)) {
+        for (const b of arenaState.bullets) {
+          if (!b || !b.active) continue;
+          ctx.save();
+          ctx.fillStyle = b.owner === "gordura" ? "#fb923c" : "#7dd3fc";
+          ctx.beginPath();
+          ctx.arc(b.x, b.y, 6, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
 
       if (!arenaState.fighters.gordura && !arenaState.fighters.fafa) {
-        ctx.fillStyle = "rgba(255,255,255,0.65)";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.65)";
         ctx.font = "bold 14px system-ui, sans-serif";
         ctx.textAlign = "center";
-        ctx.fillText("Arena vazia — escolha Gordura ou Fafá acima", canvas.width / 2, 95);
+        ctx.fillText("Arena vazia — escolha a bola do Gordura ou Fafá", canvas.width / 2, 115);
       }
     }
 
-    function startArenaRealtime() {
-      if (arenaSource) arenaSource.close();
+    function startArenaLoop() {
+      stopArenaLoop();
 
-      arenaSource = new EventSource(`${DATABASE_URL}${ARENA_PATH}`);
-      arenaSource.addEventListener("put", async (event) => {
-        const payload = JSON.parse(event.data);
-        if (payload.data && typeof payload.data === "object") {
-          arenaState = {
-            status: payload.data.status || "waiting",
-            message: payload.data.message || "Escolha Gordura ou Fafá para começar!",
-            winner: payload.data.winner || null,
-            updatedAt: Number(payload.data.updatedAt) || Date.now(),
-            queue: Array.isArray(payload.data.queue) ? payload.data.queue : [],
-            fighters: {
-              gordura: payload.data.fighters?.gordura || null,
-              fafa: payload.data.fighters?.fafa || null
-            }
-          };
-          syncArenaUI();
-        }
-      });
+      const loop = () => {
+        updateLocalPhysics();
+        rafId = requestAnimationFrame(loop);
+      };
+      rafId = requestAnimationFrame(loop);
 
-      arenaSource.addEventListener("patch", async () => {
-        arenaState = await getArenaRemote();
-        syncArenaUI();
-      });
-
-      clearInterval(heartbeatTimer);
-      heartbeatTimer = setInterval(sendHeartbeat, 2500);
-
-      clearInterval(moveLoopTimer);
-      moveLoopTimer = setInterval(stepMovement, 120);
+      syncTimer = setInterval(syncStateWithFirebase, 140);
+      heartbeatTimer = setInterval(async () => {
+        if (arenaView.classList.contains("hidden")) return;
+        try {
+          const latest = await getArenaRemote();
+          const changed = cleanStaleAndPromote(latest);
+          const role = getMyRole(latest);
+          const qIdx = latest.queue.findIndex((q) => q.id === myId);
+          if (role && latest.fighters[role]) {
+            latest.fighters[role].lastSeen = Date.now();
+            await putArenaRemote(latest);
+          } else if (qIdx !== -1) {
+            latest.queue[qIdx].lastSeen = Date.now();
+            await putArenaRemote(latest);
+          } else if (changed) {
+            await putArenaRemote(latest);
+          }
+        } catch (err) {}
+      }, 2500);
     }
 
-    function stopArenaRealtime() {
-      if (arenaSource) {
-        arenaSource.close();
-        arenaSource = null;
+    function stopArenaLoop() {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
       }
+      clearInterval(syncTimer);
       clearInterval(heartbeatTimer);
-      clearInterval(moveLoopTimer);
-      inputState.left = false;
-      inputState.right = false;
     }
+
+    // Analógico virtual
+    function updateAnalogFromClient(clientX, clientY) {
+      const rect = analogBase.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const maxRadius = rect.width * 0.34;
+
+      let dx = clientX - cx;
+      let dy = clientY - cy;
+      const dist = Math.hypot(dx, dy);
+
+      if (dist > maxRadius) {
+        dx = (dx / dist) * maxRadius;
+        dy = (dy / dist) * maxRadius;
+      }
+
+      analogStick.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
+      analogVec.x = dx / maxRadius;
+      analogVec.y = dy / maxRadius;
+    }
+
+    function resetAnalog() {
+      analogVec.active = false;
+      analogVec.pointerId = null;
+      analogVec.x = 0;
+      analogVec.y = 0;
+      analogStick.style.transform = "translate(-50%, -50%)";
+    }
+
+    analogBase.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      analogBase.setPointerCapture?.(e.pointerId);
+      analogVec.active = true;
+      analogVec.pointerId = e.pointerId;
+      updateAnalogFromClient(e.clientX, e.clientY);
+    });
+
+    analogBase.addEventListener("pointermove", (e) => {
+      if (!analogVec.active || e.pointerId !== analogVec.pointerId) return;
+      e.preventDefault();
+      updateAnalogFromClient(e.clientX, e.clientY);
+    });
+
+    analogBase.addEventListener("pointerup", (e) => {
+      if (e.pointerId === analogVec.pointerId) resetAnalog();
+    });
+
+    analogBase.addEventListener("pointercancel", (e) => {
+      if (e.pointerId === analogVec.pointerId) resetAnalog();
+    });
+
+    btnShoot.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      shootSingleBullet();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (arenaView.classList.contains("hidden")) return;
+      const k = e.key.toLowerCase();
+      if (e.key === "ArrowLeft" || k === "a") keysDown.left = true;
+      if (e.key === "ArrowRight" || k === "d") keysDown.right = true;
+      if (e.key === "ArrowUp" || k === "w") keysDown.up = true;
+      if (e.key === "ArrowDown" || k === "s") keysDown.down = true;
+      if (e.key === " " || k === "j") {
+        e.preventDefault();
+        shootSingleBullet();
+      }
+    });
+
+    window.addEventListener("keyup", (e) => {
+      const k = e.key.toLowerCase();
+      if (e.key === "ArrowLeft" || k === "a") keysDown.left = false;
+      if (e.key === "ArrowRight" || k === "d") keysDown.right = false;
+      if (e.key === "ArrowUp" || k === "w") keysDown.up = false;
+      if (e.key === "ArrowDown" || k === "s") keysDown.down = false;
+    });
 
     openArenaBtn.addEventListener("click", async () => {
       playClickSound();
       counterView.classList.add("hidden");
+      complaintsView.classList.add("hidden");
       arenaView.classList.remove("hidden");
+
       arenaState = await getArenaRemote();
       cleanStaleAndPromote(arenaState);
-      syncArenaUI();
-      startArenaRealtime();
+      syncArenaHUD();
+      drawArenaCanvas();
+      startArenaLoop();
     });
 
-    backCounterBtn.addEventListener("click", async () => {
+    backFromArenaBtn.addEventListener("click", async () => {
       playClickSound();
       await leaveArena();
-      stopArenaRealtime();
+      stopArenaLoop();
+      resetAnalog();
       arenaView.classList.add("hidden");
       counterView.classList.remove("hidden");
     });
@@ -1255,54 +1651,6 @@
       chooseFighter("fafa");
     });
 
-    // Controles touch e mouse
-    function bindHold(btn, prop) {
-      const start = (e) => {
-        e.preventDefault();
-        inputState[prop] = true;
-        btn.classList.add("pressed");
-        stepMovement();
-      };
-      const end = (e) => {
-        e.preventDefault();
-        inputState[prop] = false;
-        btn.classList.remove("pressed");
-      };
-      btn.addEventListener("pointerdown", start);
-      btn.addEventListener("pointerup", end);
-      btn.addEventListener("pointerleave", end);
-      btn.addEventListener("pointercancel", end);
-    }
-
-    bindHold(btnLeft, "left");
-    bindHold(btnRight, "right");
-
-    btnHit.addEventListener("pointerdown", (e) => {
-      e.preventDefault();
-      btnHit.classList.add("pressed");
-      triggerPunch();
-    });
-    btnHit.addEventListener("pointerup", () => btnHit.classList.remove("pressed"));
-    btnHit.addEventListener("pointerleave", () => btnHit.classList.remove("pressed"));
-    btnHit.addEventListener("pointercancel", () => btnHit.classList.remove("pressed"));
-
-    // Suporte a teclado no PC (A/D ou Setas + Espaço/J)
-    window.addEventListener("keydown", (e) => {
-      if (arenaView.classList.contains("hidden")) return;
-      if (e.key === "ArrowLeft" || e.key.toLowerCase() === "a") inputState.left = true;
-      if (e.key === "ArrowRight" || e.key.toLowerCase() === "d") inputState.right = true;
-      if (e.key === " " || e.key.toLowerCase() === "j") {
-        e.preventDefault();
-        triggerPunch();
-      }
-    });
-
-    window.addEventListener("keyup", (e) => {
-      if (e.key === "ArrowLeft" || e.key.toLowerCase() === "a") inputState.left = false;
-      if (e.key === "ArrowRight" || e.key.toLowerCase() === "d") inputState.right = false;
-    });
-
-    // Se fechar ou sair da página, libera vaga/fila
     window.addEventListener("beforeunload", () => {
       if (!arenaView.classList.contains("hidden")) {
         navigator.sendBeacon?.(
@@ -1313,6 +1661,146 @@
         );
       }
     });
+
+    // =========================================================
+    // RECLAMAÇÕES SOBRE O GORDURA (QUANTAS QUISER + 1 A 5 ESTRELAS)
+    // =========================================================
+    const ratingSummaryText = document.getElementById("ratingSummaryText");
+    const starButtons = Array.from(document.querySelectorAll(".star-btn"));
+    const complaintInput = document.getElementById("complaintInput");
+    const sendComplaintBtn = document.getElementById("sendComplaintBtn");
+    const complaintsList = document.getElementById("complaintsList");
+
+    let selectedStars = 3;
+    let complaintsData = [];
+
+    function renderStarPicker() {
+      starButtons.forEach((btn) => {
+        const val = Number(btn.dataset.star);
+        btn.classList.toggle("active", val <= selectedStars);
+      });
+    }
+
+    starButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        selectedStars = Number(btn.dataset.star) || 1;
+        renderStarPicker();
+      });
+    });
+
+    function formatShortTime(ts) {
+      try {
+        return new Date(ts).toLocaleString("pt-BR", {
+          day: "2-digit",
+          month: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+      } catch (e) {
+        return "";
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function renderComplaints() {
+      const list = Array.isArray(complaintsData) ? complaintsData : [];
+      if (!list.length) {
+        ratingSummaryText.textContent = "★ 0.0 (0)";
+        complaintsList.innerHTML =
+          '<div class="empty-complaints">Nenhuma reclamação ainda. Seja o primeiro!</div>';
+        return;
+      }
+
+      const sum = list.reduce((acc, item) => acc + (Number(item.stars) || 0), 0);
+      const avg = (sum / list.length).toFixed(1);
+      ratingSummaryText.textContent = `★ ${avg} (${list.length})`;
+
+      const sorted = [...list].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+      complaintsList.innerHTML = sorted
+        .map((item) => {
+          const starsCount = Math.max(1, Math.min(5, Number(item.stars) || 1));
+          const starsVisual = "★".repeat(starsCount) + "☆".repeat(5 - starsCount);
+          return `
+            <div class="complaint-item">
+              <div class="complaint-item-top">
+                <span class="complaint-stars">${starsVisual} (${starsCount}/5)</span>
+                <span class="complaint-time">${formatShortTime(item.createdAt)}</span>
+              </div>
+              <div class="complaint-msg">${escapeHtml(item.text || "")}</div>
+            </div>
+          `;
+        })
+        .join("");
+    }
+
+    async function fetchComplaints() {
+      try {
+        const res = await fetch(`${DATABASE_URL}${COMPLAINTS_PATH}`);
+        const data = await res.json();
+        complaintsData = Array.isArray(data) ? data : data ? Object.values(data) : [];
+        renderComplaints();
+      } catch (err) {
+        console.error("Erro ao carregar reclamações:", err);
+      }
+    }
+
+    sendComplaintBtn.addEventListener("click", async () => {
+      const text = complaintInput.value.trim();
+      if (!text) return;
+
+      playClickSound();
+      sendComplaintBtn.disabled = true;
+
+      try {
+        const res = await fetch(`${DATABASE_URL}${COMPLAINTS_PATH}`);
+        const current = await res.json();
+        const arr = Array.isArray(current) ? current : current ? Object.values(current) : [];
+
+        arr.push({
+          id: "c_" + Date.now() + "_" + Math.random().toString(36).slice(2, 6),
+          stars: selectedStars,
+          text,
+          createdAt: Date.now()
+        });
+
+        await fetch(`${DATABASE_URL}${COMPLAINTS_PATH}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(arr)
+        });
+
+        complaintInput.value = "";
+        complaintsData = arr;
+        renderComplaints();
+      } catch (err) {
+        console.error("Erro ao enviar reclamação:", err);
+      } finally {
+        sendComplaintBtn.disabled = false;
+      }
+    });
+
+    openComplaintsBtn.addEventListener("click", () => {
+      playClickSound();
+      counterView.classList.add("hidden");
+      arenaView.classList.add("hidden");
+      complaintsView.classList.remove("hidden");
+      fetchComplaints();
+    });
+
+    backFromComplaintsBtn.addEventListener("click", () => {
+      playClickSound();
+      complaintsView.classList.add("hidden");
+      counterView.classList.remove("hidden");
+    });
+
+    fetchComplaints();
   </script>
 </body>
 </html>
