@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#FORAGORDURA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>#FORAGORDURA + Gordura X Fafá</title>
   <style>
     * {
       box-sizing: border-box;
@@ -20,18 +20,22 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      padding: 24px;
+      overflow-x: hidden;
+      padding: 18px;
       text-align: center;
+    }
+
+    .hidden {
+      display: none !important;
     }
 
     .card {
       width: 100%;
-      max-width: 440px;
-      background: rgba(18, 18, 22, 0.9);
+      max-width: 460px;
+      background: rgba(18, 18, 22, 0.92);
       border: 1px solid rgba(239, 68, 68, 0.25);
       border-radius: 24px;
-      padding: 36px 24px;
+      padding: 30px 22px;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
       position: relative;
       z-index: 2;
@@ -47,7 +51,7 @@
       border: 1px solid rgba(239, 68, 68, 0.3);
       padding: 6px 12px;
       border-radius: 999px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     h1 {
@@ -60,15 +64,15 @@
     .subtitle {
       font-size: 14px;
       color: #a1a1aa;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .counter-box {
       background: #111115;
       border: 1px solid #27272a;
       border-radius: 18px;
-      padding: 20px;
-      margin-bottom: 28px;
+      padding: 18px;
+      margin-bottom: 22px;
     }
 
     .counter-label {
@@ -80,7 +84,7 @@
     }
 
     .counter-value {
-      font-size: 52px;
+      font-size: 50px;
       font-weight: 900;
       line-height: 1;
       color: #ffffff;
@@ -97,7 +101,7 @@
       width: 100%;
       border: none;
       border-radius: 16px;
-      padding: 18px 24px;
+      padding: 17px 22px;
       font-size: 20px;
       font-weight: 900;
       letter-spacing: 0.04em;
@@ -119,12 +123,37 @@
       box-shadow: 0 2px 0 #7f1d1d, 0 8px 16px rgba(220, 38, 38, 0.25);
     }
 
+    .btn-arena {
+      width: 100%;
+      margin-top: 14px;
+      border: 1px solid rgba(251, 191, 36, 0.45);
+      border-radius: 15px;
+      padding: 14px 18px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: #fde68a;
+      background: linear-gradient(180deg, rgba(120, 53, 15, 0.65) 0%, rgba(69, 26, 3, 0.85) 100%);
+      cursor: pointer;
+      transition: transform 0.08s ease, filter 0.15s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-arena:hover {
+      filter: brightness(1.12);
+    }
+
+    .btn-arena:active {
+      transform: translateY(2px);
+    }
+
     .floating-emoji {
       position: fixed;
       bottom: 20px;
       font-size: 34px;
       pointer-events: none;
-      z-index: 20;
+      z-index: 40;
       animation: floatUp 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
     }
@@ -134,12 +163,12 @@
       font-size: 16px;
       font-weight: 800;
       color: #fca5a5;
-      background: rgba(15, 15, 20, 0.92);
+      background: rgba(15, 15, 20, 0.94);
       border: 1px solid rgba(239, 68, 68, 0.45);
       padding: 6px 12px;
       border-radius: 999px;
       pointer-events: none;
-      z-index: 25;
+      z-index: 45;
       white-space: nowrap;
       animation: floatPhraseUp 1.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
@@ -174,10 +203,198 @@
         transform: translateY(-210px) scale(1.05);
       }
     }
+
+    /* ARENA 2D */
+    .arena-card {
+      width: 100%;
+      max-width: 520px;
+      background: rgba(16, 16, 21, 0.95);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+      z-index: 2;
+    }
+
+    .arena-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .arena-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fbbf24;
+    }
+
+    .btn-small {
+      background: #27272a;
+      color: #f4f4f5;
+      border: 1px solid #3f3f46;
+      border-radius: 10px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-small:hover {
+      background: #3f3f46;
+    }
+
+    .hp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .hp-box {
+      background: #111116;
+      border: 1px solid #27272a;
+      border-radius: 12px;
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    .hp-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .hp-bar-bg {
+      width: 100%;
+      height: 11px;
+      background: #27272a;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .hp-bar-fill {
+      height: 100%;
+      width: 100%;
+      transition: width 0.14s ease;
+    }
+
+    .hp-gordura {
+      background: linear-gradient(90deg, #ef4444, #f97316);
+    }
+
+    .hp-fafa {
+      background: linear-gradient(90deg, #38bdf8, #2563eb);
+    }
+
+    .status-banner {
+      background: #14141b;
+      border: 1px solid #2e2e3a;
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-size: 13px;
+      color: #e4e4e7;
+      margin-bottom: 10px;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pick-box {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-pick {
+      flex: 1;
+      min-width: 130px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: none;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .btn-pick-gordura {
+      background: linear-gradient(180deg, #ef4444, #b91c1c);
+    }
+
+    .btn-pick-fafa {
+      background: linear-gradient(180deg, #0ea5e9, #1d4ed8);
+    }
+
+    .btn-pick:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    canvas#arenaCanvas {
+      width: 100%;
+      height: 230px;
+      background: linear-gradient(180deg, #161824 0%, #1d1522 72%, #2b1d19 72%, #1c1311 100%);
+      border: 1px solid #333342;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .controls-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.5fr;
+      gap: 10px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    .ctrl-btn {
+      padding: 15px 10px;
+      border-radius: 14px;
+      border: 1px solid #3f3f46;
+      background: #1f1f27;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 900;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .ctrl-btn:active,
+    .ctrl-btn.pressed {
+      transform: scale(0.96);
+      background: #323240;
+    }
+
+    .ctrl-hit {
+      background: linear-gradient(180deg, #ef4444, #991b1b);
+      border-color: #f87171;
+    }
+
+    .ctrl-hit:active,
+    .ctrl-hit.pressed {
+      background: linear-gradient(180deg, #dc2626, #7f1d1d);
+    }
+
+    .queue-info {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #a1a1aa;
+    }
   </style>
 </head>
 <body>
-  <main class="card">
+  <!-- TELA 1: CONTADOR #FORAGORDURA -->
+  <main id="counterView" class="card">
     <span class="tag">Contador Oficial</span>
     <h1>Aperte sem dó</h1>
     <p class="subtitle">Cada clique soma no placar e solta a reação.</p>
@@ -188,17 +405,71 @@
     </div>
 
     <button id="actionBtn" class="btn-red" type="button">#FORAGORDURA</button>
+    <button id="openArenaBtn" class="btn-arena" type="button">Gordura X Fafá</button>
   </main>
+
+  <!-- TELA 2: ARENA 2D MULTIJOGADOR -->
+  <section id="arenaView" class="arena-card hidden">
+    <div class="arena-top">
+      <div class="arena-title">Gordura X Fafá</div>
+      <button id="backCounterBtn" class="btn-small" type="button">Voltar</button>
+    </div>
+
+    <div class="hp-grid">
+      <div class="hp-box">
+        <div class="hp-header">
+          <span>Gordura</span>
+          <span id="hpGorduraText">100</span>
+        </div>
+        <div class="hp-bar-bg">
+          <div id="hpGorduraBar" class="hp-bar-fill hp-gordura"></div>
+        </div>
+      </div>
+
+      <div class="hp-box">
+        <div class="hp-header">
+          <span>Fafá</span>
+          <span id="hpFafaText">100</span>
+        </div>
+        <div class="hp-bar-bg">
+          <div id="hpFafaBar" class="hp-bar-fill hp-fafa"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="arenaStatus" class="status-banner">Escolha Gordura ou Fafá para entrar (máx. 2 lutando).</div>
+
+    <div id="pickBox" class="pick-box">
+      <button id="pickGorduraBtn" class="btn-pick btn-pick-gordura" type="button">Entrar como Gordura</button>
+      <button id="pickFafaBtn" class="btn-pick btn-pick-fafa" type="button">Entrar como Fafá</button>
+    </div>
+
+    <canvas id="arenaCanvas" width="480" height="230"></canvas>
+
+    <div class="controls-row">
+      <button id="btnLeft" class="ctrl-btn" type="button">◀ ESQ</button>
+      <button id="btnRight" class="ctrl-btn" type="button">DIR ▶</button>
+      <button id="btnHit" class="ctrl-btn ctrl-hit" type="button">SOCO 💥</button>
+    </div>
+
+    <div id="queueText" class="queue-info">Fila: ninguém esperando</div>
+  </section>
 
   <script>
     const DATABASE_URL = "https://fora-gordura-default-rtdb.firebaseio.com";
     const NODE_PATH = "/foragordura/cliques.json";
+    const ARENA_PATH = "/foragordura/arena.json";
 
     const FRASES_ZOEIRA = [
       "FORA!!",
       "roube um gordo",
       "pato do Fafá"
     ];
+
+    const counterView = document.getElementById("counterView");
+    const arenaView = document.getElementById("arenaView");
+    const openArenaBtn = document.getElementById("openArenaBtn");
+    const backCounterBtn = document.getElementById("backCounterBtn");
 
     const counterEl = document.getElementById("counter");
     const btnEl = document.getElementById("actionBtn");
@@ -239,6 +510,35 @@
 
       osc.start(now);
       osc.stop(now + 0.085);
+    }
+
+    function playHitSound() {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+
+      if (!audioCtx) {
+        audioCtx = new AudioContextClass();
+      }
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = "sawtooth";
+      const now = audioCtx.currentTime;
+      osc.frequency.setValueAtTime(150, now);
+      osc.frequency.exponentialRampToValueAtTime(48, now + 0.11);
+
+      gain.gain.setValueAtTime(0.22, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.12);
     }
 
     function spawnDisgustEmoji(originEl) {
@@ -345,6 +645,674 @@
 
     fetchCount();
     listenRealtime();
+
+    // =========================================================
+    // ARENA 2D: GORDURA X FAFÁ (2 POR VEZ + FILA + SAÍDA)
+    // =========================================================
+    const myId = "p_" + Math.random().toString(36).slice(2, 9);
+    const canvas = document.getElementById("arenaCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const hpGorduraText = document.getElementById("hpGorduraText");
+    const hpFafaText = document.getElementById("hpFafaText");
+    const hpGorduraBar = document.getElementById("hpGorduraBar");
+    const hpFafaBar = document.getElementById("hpFafaBar");
+    const arenaStatus = document.getElementById("arenaStatus");
+    const pickBox = document.getElementById("pickBox");
+    const pickGorduraBtn = document.getElementById("pickGorduraBtn");
+    const pickFafaBtn = document.getElementById("pickFafaBtn");
+    const queueText = document.getElementById("queueText");
+
+    const btnLeft = document.getElementById("btnLeft");
+    const btnRight = document.getElementById("btnRight");
+    const btnHit = document.getElementById("btnHit");
+
+    const STALE_MS = 7500;
+    const ATTACK_COOLDOWN_MS = 450;
+
+    function createFreshArena(message = "Escolha Gordura ou Fafá para começar!") {
+      return {
+        status: "waiting", // "waiting" | "fighting" | "finished"
+        message,
+        winner: null,
+        updatedAt: Date.now(),
+        queue: [],
+        fighters: {
+          gordura: null, // { id, x, hp, facing, punchAt, lastSeen }
+          fafa: null
+        }
+      };
+    }
+
+    let arenaState = createFreshArena();
+    let arenaSource = null;
+    let heartbeatTimer = null;
+    let moveLoopTimer = null;
+    let lastPunchLocal = 0;
+
+    let inputState = {
+      left: false,
+      right: false
+    };
+
+    async function getArenaRemote() {
+      const res = await fetch(`${DATABASE_URL}${ARENA_PATH}`);
+      const data = await res.json();
+      if (!data || typeof data !== "object") {
+        return createFreshArena();
+      }
+      return {
+        status: data.status || "waiting",
+        message: data.message || "Escolha Gordura ou Fafá para começar!",
+        winner: data.winner || null,
+        updatedAt: Number(data.updatedAt) || Date.now(),
+        queue: Array.isArray(data.queue) ? data.queue : [],
+        fighters: {
+          gordura: data.fighters?.gordura || null,
+          fafa: data.fighters?.fafa || null
+        }
+      };
+    }
+
+    async function setArenaRemote(nextState) {
+      nextState.updatedAt = Date.now();
+      await fetch(`${DATABASE_URL}${ARENA_PATH}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(nextState)
+      });
+      arenaState = nextState;
+      syncArenaUI();
+    }
+
+    function cleanStaleAndPromote(state) {
+      const now = Date.now();
+      let changed = false;
+
+      // Remove quem saiu ou ficou inativo
+      ["gordura", "fafa"].forEach((role) => {
+        const f = state.fighters[role];
+        if (f && now - (f.lastSeen || 0) > STALE_MS) {
+          state.fighters[role] = null;
+          changed = true;
+        }
+      });
+
+      // Limpa fila inativa ou duplicada
+      const seen = new Set();
+      const filteredQueue = state.queue.filter((item) => {
+        if (!item || !item.id || seen.has(item.id)) {
+          changed = true;
+          return false;
+        }
+        if (now - (item.lastSeen || 0) > STALE_MS) {
+          changed = true;
+          return false;
+        }
+        if (
+          state.fighters.gordura?.id === item.id ||
+          state.fighters.fafa?.id === item.id
+        ) {
+          changed = true;
+          return false;
+        }
+        seen.add(item.id);
+        return true;
+      });
+
+      if (filteredQueue.length !== state.queue.length) {
+        state.queue = filteredQueue;
+        changed = true;
+      }
+
+      const g = state.fighters.gordura;
+      const f = state.fighters.fafa;
+
+      // Se um saiu no meio da luta: encerra a luta e puxa próximo se houver
+      if (state.status === "fighting" && (!g || !f)) {
+        const nextInQueue = state.queue.shift();
+        if (nextInQueue) {
+          const freeRole = !g ? "gordura" : "fafa";
+          state.fighters[freeRole] = {
+            id: nextInQueue.id,
+            x: freeRole === "gordura" ? 110 : 370,
+            hp: 100,
+            facing: freeRole === "gordura" ? 1 : -1,
+            punchAt: 0,
+            lastSeen: now
+          };
+          state.status = "waiting";
+          state.winner = null;
+          state.message = `Alguém saiu! ${nextInQueue.id === myId ? "Você" : "Próximo da fila"} entrou como ${freeRole.toUpperCase()}.`;
+        } else {
+          state.status = "waiting";
+          state.winner = null;
+          state.message = "O oponente saiu! Luta encerrada. Escolha ou aguarde.";
+        }
+        changed = true;
+      }
+
+      // Se ambos estão presentes e não acabou, luta ativa
+      if (state.fighters.gordura && state.fighters.fafa && state.status === "waiting") {
+        state.status = "fighting";
+        state.winner = null;
+        state.fighters.gordura.hp = 100;
+        state.fighters.fafa.hp = 100;
+        state.fighters.gordura.x = 110;
+        state.fighters.fafa.x = 370;
+        state.message = "LUTA VALENDO! Gordura X Fafá!";
+        changed = true;
+      }
+
+      // Se ninguém está lutando, mas tem alguém na fila, puxa até 2
+      if (!state.fighters.gordura && state.queue.length > 0) {
+        const p = state.queue.shift();
+        state.fighters.gordura = {
+          id: p.id,
+          x: 110,
+          hp: 100,
+          facing: 1,
+          punchAt: 0,
+          lastSeen: now
+        };
+        state.status = state.fighters.fafa ? "fighting" : "waiting";
+        state.message = state.fighters.fafa ? "LUTA VALENDO!" : "Gordura pronto! Esperando o Fafá...";
+        changed = true;
+      }
+
+      if (!state.fighters.fafa && state.queue.length > 0) {
+        const p = state.queue.shift();
+        state.fighters.fafa = {
+          id: p.id,
+          x: 370,
+          hp: 100,
+          facing: -1,
+          punchAt: 0,
+          lastSeen: now
+        };
+        state.status = state.fighters.gordura ? "fighting" : "waiting";
+        state.message = state.fighters.gordura ? "LUTA VALENDO!" : "Fafá pronto! Esperando o Gordura...";
+        changed = true;
+      }
+
+      return changed;
+    }
+
+    function getMyRole(state = arenaState) {
+      if (state.fighters.gordura?.id === myId) return "gordura";
+      if (state.fighters.fafa?.id === myId) return "fafa";
+      return null;
+    }
+
+    function isInQueue(state = arenaState) {
+      return state.queue.some((q) => q.id === myId);
+    }
+
+    async function chooseFighter(role) {
+      try {
+        const latest = await getArenaRemote();
+        cleanStaleAndPromote(latest);
+
+        const activeCount =
+          (latest.fighters.gordura ? 1 : 0) + (latest.fighters.fafa ? 1 : 0);
+
+        const alreadyRole = getMyRole(latest);
+        if (alreadyRole) return;
+
+        // Se já tem 2 lutando, vai para a fila
+        if (activeCount >= 2) {
+          if (!isInQueue(latest)) {
+            latest.queue.push({ id: myId, preferred: role, lastSeen: Date.now() });
+            latest.message = `Arena cheia (2/2)! Você entrou na fila (${latest.queue.length}º).`;
+            await setArenaRemote(latest);
+          }
+          return;
+        }
+
+        // Se o boneco escolhido já estiver ocupado pelo outro lutador, pega o outro disponível
+        let chosen = role;
+        if (chosen === "gordura" && latest.fighters.gordura) {
+          chosen = !latest.fighters.fafa ? "fafa" : null;
+        } else if (chosen === "fafa" && latest.fighters.fafa) {
+          chosen = !latest.fighters.gordura ? "gordura" : null;
+        }
+
+        if (!chosen) {
+          if (!isInQueue(latest)) {
+            latest.queue.push({ id: myId, preferred: role, lastSeen: Date.now() });
+            await setArenaRemote(latest);
+          }
+          return;
+        }
+
+        // Remove da fila se estivesse lá
+        latest.queue = latest.queue.filter((q) => q.id !== myId);
+
+        latest.fighters[chosen] = {
+          id: myId,
+          x: chosen === "gordura" ? 110 : 370,
+          hp: 100,
+          facing: chosen === "gordura" ? 1 : -1,
+          punchAt: 0,
+          lastSeen: Date.now()
+        };
+
+        if (latest.fighters.gordura && latest.fighters.fafa) {
+          latest.status = "fighting";
+          latest.winner = null;
+          latest.fighters.gordura.hp = 100;
+          latest.fighters.fafa.hp = 100;
+          latest.fighters.gordura.x = 110;
+          latest.fighters.fafa.x = 370;
+          latest.message = "LUTA VALENDO! Gordura X Fafá!";
+        } else {
+          latest.status = "waiting";
+          latest.winner = null;
+          latest.message = `Você entrou como ${chosen.toUpperCase()}! Esperando o outro jogador...`;
+        }
+
+        await setArenaRemote(latest);
+      } catch (err) {
+        console.error("Erro ao escolher lutador:", err);
+      }
+    }
+
+    async function leaveArena() {
+      try {
+        const latest = await getArenaRemote();
+        let changed = false;
+
+        if (latest.fighters.gordura?.id === myId) {
+          latest.fighters.gordura = null;
+          changed = true;
+        }
+        if (latest.fighters.fafa?.id === myId) {
+          latest.fighters.fafa = null;
+          changed = true;
+        }
+
+        const prevQ = latest.queue.length;
+        latest.queue = latest.queue.filter((q) => q.id !== myId);
+        if (latest.queue.length !== prevQ) changed = true;
+
+        if (changed) {
+          cleanStaleAndPromote(latest);
+          await setArenaRemote(latest);
+        }
+      } catch (err) {
+        console.error("Erro ao sair da arena:", err);
+      }
+    }
+
+    async function sendHeartbeat() {
+      if (arenaView.classList.contains("hidden")) return;
+      try {
+        const latest = await getArenaRemote();
+        const role = getMyRole(latest);
+        const qIdx = latest.queue.findIndex((q) => q.id === myId);
+        let changed = cleanStaleAndPromote(latest);
+
+        if (role && latest.fighters[role]) {
+          latest.fighters[role].lastSeen = Date.now();
+          changed = true;
+        } else if (qIdx !== -1) {
+          latest.queue[qIdx].lastSeen = Date.now();
+          changed = true;
+        }
+
+        if (changed) {
+          await setArenaRemote(latest);
+        }
+      } catch (err) {
+        console.error("Erro no heartbeat:", err);
+      }
+    }
+
+    async function stepMovement() {
+      if (arenaView.classList.contains("hidden")) return;
+      const role = getMyRole(arenaState);
+      if (!role || arenaState.status !== "fighting") return;
+
+      const dir = (inputState.right ? 1 : 0) - (inputState.left ? 1 : 0);
+      if (dir === 0) return;
+
+      try {
+        const latest = await getArenaRemote();
+        if (latest.status !== "fighting" || !latest.fighters[role]) return;
+
+        const me = latest.fighters[role];
+        const speed = role === "gordura" ? 11 : 14;
+        me.x = Math.min(435, Math.max(45, me.x + dir * speed));
+        me.facing = dir;
+        me.lastSeen = Date.now();
+
+        await setArenaRemote(latest);
+      } catch (err) {
+        console.error("Erro ao mover:", err);
+      }
+    }
+
+    async function triggerPunch() {
+      const role = getMyRole(arenaState);
+      if (!role || arenaState.status !== "fighting") return;
+
+      const now = Date.now();
+      if (now - lastPunchLocal < ATTACK_COOLDOWN_MS) return;
+      lastPunchLocal = now;
+
+      playHitSound();
+
+      try {
+        const latest = await getArenaRemote();
+        if (latest.status !== "fighting" || !latest.fighters[role]) return;
+
+        const attacker = latest.fighters[role];
+        const defenderRole = role === "gordura" ? "fafa" : "gordura";
+        const defender = latest.fighters[defenderRole];
+
+        attacker.punchAt = now;
+        attacker.lastSeen = now;
+
+        if (defender) {
+          const dist = Math.abs(attacker.x - defender.x);
+          const reach = role === "gordura" ? 78 : 74;
+          const dmg = role === "gordura" ? 16 : 14;
+
+          if (dist <= reach) {
+            defender.hp = Math.max(0, (defender.hp ?? 100) - dmg);
+            defender.x = Math.min(
+              435,
+              Math.max(45, defender.x + attacker.facing * 24)
+            );
+
+            if (defender.hp <= 0) {
+              latest.status = "finished";
+              latest.winner = role;
+              latest.message = `${role.toUpperCase()} VENCEU A LUTA!`;
+
+              // Após 3 segundos, limpa a luta e puxa fila se houver
+              setTimeout(async () => {
+                try {
+                  const after = await getArenaRemote();
+                  if (after.status === "finished") {
+                    const reset = createFreshArena("Luta encerrada! Escolha Gordura ou Fafá para a próxima.");
+                    reset.queue = after.queue || [];
+                    cleanStaleAndPromote(reset);
+                    await setArenaRemote(reset);
+                  }
+                } catch (e) {}
+              }, 3000);
+            }
+          }
+        }
+
+        await setArenaRemote(latest);
+      } catch (err) {
+        console.error("Erro ao socar:", err);
+      }
+    }
+
+    function syncArenaUI() {
+      const gHp = arenaState.fighters.gordura ? arenaState.fighters.gordura.hp : 100;
+      const fHp = arenaState.fighters.fafa ? arenaState.fighters.fafa.hp : 100;
+
+      hpGorduraText.textContent = `${gHp}`;
+      hpFafaText.textContent = `${fHp}`;
+      hpGorduraBar.style.width = `${Math.max(0, Math.min(100, gHp))}%`;
+      hpFafaBar.style.width = `${Math.max(0, Math.min(100, fHp))}%`;
+
+      arenaStatus.textContent = arenaState.message || "Gordura X Fafá";
+
+      const myRole = getMyRole(arenaState);
+      const inQueue = isInQueue(arenaState);
+      const activeCount =
+        (arenaState.fighters.gordura ? 1 : 0) + (arenaState.fighters.fafa ? 1 : 0);
+
+      if (myRole) {
+        pickGorduraBtn.disabled = true;
+        pickFafaBtn.disabled = true;
+        pickGorduraBtn.textContent = myRole === "gordura" ? "Você é Gordura" : "Gordura";
+        pickFafaBtn.textContent = myRole === "fafa" ? "Você é Fafá" : "Fafá";
+      } else if (inQueue) {
+        pickGorduraBtn.disabled = true;
+        pickFafaBtn.disabled = true;
+        pickGorduraBtn.textContent = "Na fila...";
+        pickFafaBtn.textContent = "Na fila...";
+      } else {
+        pickGorduraBtn.disabled = Boolean(arenaState.fighters.gordura) && activeCount >= 2;
+        pickFafaBtn.disabled = Boolean(arenaState.fighters.fafa) && activeCount >= 2;
+        pickGorduraBtn.textContent = arenaState.fighters.gordura
+          ? "Gordura ocupado"
+          : "Entrar como Gordura";
+        pickFafaBtn.textContent = arenaState.fighters.fafa
+          ? "Fafá ocupado"
+          : "Entrar como Fafá";
+      }
+
+      if (!arenaState.queue.length) {
+        queueText.textContent = "Fila: ninguém esperando";
+      } else {
+        queueText.textContent = `Fila: ${arenaState.queue.length} pessoa(s) aguardando`;
+      }
+
+      drawArenaCanvas();
+    }
+
+    function drawFighter(fighter, role) {
+      if (!fighter) return;
+
+      const x = fighter.x;
+      const groundY = 166;
+      const isGordura = role === "gordura";
+      const isPunching = Date.now() - (fighter.punchAt || 0) < 180;
+
+      ctx.save();
+
+      // Sombra no chão
+      ctx.fillStyle = "rgba(0, 0, 0, 0.45)";
+      ctx.beginPath();
+      ctx.ellipse(x, groundY + 4, isGordura ? 28 : 20, 7, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Corpo
+      ctx.fillStyle = isGordura ? "#ef4444" : "#38bdf8";
+      ctx.beginPath();
+      if (isGordura) {
+        ctx.arc(x, groundY - 24, 24, 0, Math.PI * 2);
+      } else {
+        ctx.roundRect(x - 15, groundY - 46, 30, 38, 10);
+      }
+      ctx.fill();
+
+      // Cabeça
+      ctx.fillStyle = "#fde68a";
+      ctx.beginPath();
+      ctx.arc(x, isGordura ? groundY - 52 : groundY - 56, 13, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Braço / Soco
+      const dir = fighter.facing || (isGordura ? 1 : -1);
+      const armReach = isPunching ? 34 : 18;
+      ctx.strokeStyle = "#fde68a";
+      ctx.lineWidth = 7;
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(x, groundY - 26);
+      ctx.lineTo(x + dir * armReach, groundY - 28);
+      ctx.stroke();
+
+      if (isPunching) {
+        ctx.fillStyle = "#fbbf24";
+        ctx.beginPath();
+        ctx.arc(x + dir * (armReach + 5), groundY - 28, 8, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Nome acima
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 12px system-ui, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(isGordura ? "GORDURA" : "FAFÁ", x, isGordura ? groundY - 74 : groundY - 76);
+
+      ctx.restore();
+    }
+
+    function drawArenaCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Chão da arena
+      ctx.fillStyle = "#2b1d19";
+      ctx.fillRect(0, 166, canvas.width, canvas.height - 166);
+
+      ctx.strokeStyle = "#57382e";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, 166);
+      ctx.lineTo(canvas.width, 166);
+      ctx.stroke();
+
+      drawFighter(arenaState.fighters.gordura, "gordura");
+      drawFighter(arenaState.fighters.fafa, "fafa");
+
+      if (!arenaState.fighters.gordura && !arenaState.fighters.fafa) {
+        ctx.fillStyle = "rgba(255,255,255,0.65)";
+        ctx.font = "bold 14px system-ui, sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText("Arena vazia — escolha Gordura ou Fafá acima", canvas.width / 2, 95);
+      }
+    }
+
+    function startArenaRealtime() {
+      if (arenaSource) arenaSource.close();
+
+      arenaSource = new EventSource(`${DATABASE_URL}${ARENA_PATH}`);
+      arenaSource.addEventListener("put", async (event) => {
+        const payload = JSON.parse(event.data);
+        if (payload.data && typeof payload.data === "object") {
+          arenaState = {
+            status: payload.data.status || "waiting",
+            message: payload.data.message || "Escolha Gordura ou Fafá para começar!",
+            winner: payload.data.winner || null,
+            updatedAt: Number(payload.data.updatedAt) || Date.now(),
+            queue: Array.isArray(payload.data.queue) ? payload.data.queue : [],
+            fighters: {
+              gordura: payload.data.fighters?.gordura || null,
+              fafa: payload.data.fighters?.fafa || null
+            }
+          };
+          syncArenaUI();
+        }
+      });
+
+      arenaSource.addEventListener("patch", async () => {
+        arenaState = await getArenaRemote();
+        syncArenaUI();
+      });
+
+      clearInterval(heartbeatTimer);
+      heartbeatTimer = setInterval(sendHeartbeat, 2500);
+
+      clearInterval(moveLoopTimer);
+      moveLoopTimer = setInterval(stepMovement, 120);
+    }
+
+    function stopArenaRealtime() {
+      if (arenaSource) {
+        arenaSource.close();
+        arenaSource = null;
+      }
+      clearInterval(heartbeatTimer);
+      clearInterval(moveLoopTimer);
+      inputState.left = false;
+      inputState.right = false;
+    }
+
+    openArenaBtn.addEventListener("click", async () => {
+      playClickSound();
+      counterView.classList.add("hidden");
+      arenaView.classList.remove("hidden");
+      arenaState = await getArenaRemote();
+      cleanStaleAndPromote(arenaState);
+      syncArenaUI();
+      startArenaRealtime();
+    });
+
+    backCounterBtn.addEventListener("click", async () => {
+      playClickSound();
+      await leaveArena();
+      stopArenaRealtime();
+      arenaView.classList.add("hidden");
+      counterView.classList.remove("hidden");
+    });
+
+    pickGorduraBtn.addEventListener("click", () => {
+      playClickSound();
+      chooseFighter("gordura");
+    });
+
+    pickFafaBtn.addEventListener("click", () => {
+      playClickSound();
+      chooseFighter("fafa");
+    });
+
+    // Controles touch e mouse
+    function bindHold(btn, prop) {
+      const start = (e) => {
+        e.preventDefault();
+        inputState[prop] = true;
+        btn.classList.add("pressed");
+        stepMovement();
+      };
+      const end = (e) => {
+        e.preventDefault();
+        inputState[prop] = false;
+        btn.classList.remove("pressed");
+      };
+      btn.addEventListener("pointerdown", start);
+      btn.addEventListener("pointerup", end);
+      btn.addEventListener("pointerleave", end);
+      btn.addEventListener("pointercancel", end);
+    }
+
+    bindHold(btnLeft, "left");
+    bindHold(btnRight, "right");
+
+    btnHit.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      btnHit.classList.add("pressed");
+      triggerPunch();
+    });
+    btnHit.addEventListener("pointerup", () => btnHit.classList.remove("pressed"));
+    btnHit.addEventListener("pointerleave", () => btnHit.classList.remove("pressed"));
+    btnHit.addEventListener("pointercancel", () => btnHit.classList.remove("pressed"));
+
+    // Suporte a teclado no PC (A/D ou Setas + Espaço/J)
+    window.addEventListener("keydown", (e) => {
+      if (arenaView.classList.contains("hidden")) return;
+      if (e.key === "ArrowLeft" || e.key.toLowerCase() === "a") inputState.left = true;
+      if (e.key === "ArrowRight" || e.key.toLowerCase() === "d") inputState.right = true;
+      if (e.key === " " || e.key.toLowerCase() === "j") {
+        e.preventDefault();
+        triggerPunch();
+      }
+    });
+
+    window.addEventListener("keyup", (e) => {
+      if (e.key === "ArrowLeft" || e.key.toLowerCase() === "a") inputState.left = false;
+      if (e.key === "ArrowRight" || e.key.toLowerCase() === "d") inputState.right = false;
+    });
+
+    // Se fechar ou sair da página, libera vaga/fila
+    window.addEventListener("beforeunload", () => {
+      if (!arenaView.classList.contains("hidden")) {
+        navigator.sendBeacon?.(
+          `${DATABASE_URL}${ARENA_PATH}`,
+          new Blob([JSON.stringify(createFreshArena("Alguém saiu da arena!"))], {
+            type: "application/json"
+          })
+        );
+      }
+    });
   </script>
 </body>
 </html>
