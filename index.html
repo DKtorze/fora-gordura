@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#FORAGORDURA</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1d1416 0%, #09090b 65%);
+      color: #f4f4f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 440px;
+      background: rgba(18, 18, 22, 0.9);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: 24px;
+      padding: 36px 24px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
+      position: relative;
+      z-index: 2;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f87171;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #a1a1aa;
+      margin-bottom: 28px;
+    }
+
+    .counter-box {
+      background: #111115;
+      border: 1px solid #27272a;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 28px;
+    }
+
+    .counter-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #a1a1aa;
+      margin-bottom: 6px;
+    }
+
+    .counter-value {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+      color: #ffffff;
+      font-variant-numeric: tabular-nums;
+      transition: transform 0.12s ease, color 0.12s ease;
+    }
+
+    .counter-value.bump {
+      transform: scale(1.12);
+      color: #f87171;
+    }
+
+    .btn-red {
+      width: 100%;
+      border: none;
+      border-radius: 16px;
+      padding: 18px 24px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      background: linear-gradient(180deg, #ef4444 0%, #b91c1c 100%);
+      box-shadow: 0 7px 0 #7f1d1d, 0 16px 30px rgba(220, 38, 38, 0.35);
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.15s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-red:hover {
+      filter: brightness(1.06);
+    }
+
+    .btn-red:active {
+      transform: translateY(5px);
+      box-shadow: 0 2px 0 #7f1d1d, 0 8px 16px rgba(220, 38, 38, 0.25);
+    }
+
+    .floating-emoji {
+      position: fixed;
+      bottom: 20px;
+      font-size: 34px;
+      pointer-events: none;
+      z-index: 20;
+      animation: floatUp 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.7) rotate(0deg);
+      }
+      18% {
+        opacity: 1;
+        transform: translateY(-25px) scale(1.15) rotate(-8deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-260px) scale(1.35) rotate(14deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="tag">Contador Oficial</span>
+    <h1>Aperte sem dó</h1>
+    <p class="subtitle">Cada clique soma no placar e solta a reação.</p>
+
+    <div class="counter-box">
+      <div class="counter-label">Total de cliques</div>
+      <div id="counter" class="counter-value">0</div>
+    </div>
+
+    <button id="actionBtn" class="btn-red" type="button">#FORAGORDURA</button>
+  </main>
+
+  <script>
+    const DATABASE_URL = "https://fora-gordura-default-rtdb.firebaseio.com";
+    const NODE_PATH = "/foragordura/cliques.json";
+
+    const counterEl = document.getElementById("counter");
+    const btnEl = document.getElementById("actionBtn");
+
+    let currentCount = 0;
+    let isSending = false;
+
+    function renderCount(val) {
+      currentCount = Number(val) || 0;
+      counterEl.textContent = currentCount.toLocaleString("pt-PT");
+    }
+
+    function spawnDisgustEmoji(originEl) {
+      const rect = originEl.getBoundingClientRect();
+      const emoji = document.createElement("div");
+      emoji.className = "floating-emoji";
+      emoji.textContent = "🤢";
+
+      const randomOffset = (Math.random() - 0.5) * 140;
+      const leftPos = Math.min(
+        window.innerWidth - 50,
+        Math.max(16, rect.left + rect.width / 2 + randomOffset)
+      );
+
+      emoji.style.left = `${leftPos}px`;
+      emoji.style.top = `${Math.min(window.innerHeight - 60, rect.top)}px`;
+
+      document.body.appendChild(emoji);
+      setTimeout(() => emoji.remove(), 1300);
+    }
+
+    async function fetchCount() {
+      try {
+        const res = await fetch(`${DATABASE_URL}${NODE_PATH}`);
+        const data = await res.json();
+        renderCount(data ?? 0);
+      } catch (err) {
+        console.error("Erro ao carregar contador:", err);
+      }
+    }
+
+    function listenRealtime() {
+      try {
+        const source = new EventSource(`${DATABASE_URL}${NODE_PATH}`);
+        source.addEventListener("put", (event) => {
+          const payload = JSON.parse(event.data);
+          renderCount(payload.data ?? 0);
+        });
+        source.addEventListener("patch", (event) => {
+          const payload = JSON.parse(event.data);
+          if (typeof payload.data === "number") {
+            renderCount(payload.data);
+          } else {
+            fetchCount();
+          }
+        });
+      } catch (err) {
+        console.error("Erro no tempo real:", err);
+      }
+    }
+
+    btnEl.addEventListener("click", async () => {
+      spawnDisgustEmoji(btnEl);
+
+      const optimisticCount = currentCount + 1;
+      renderCount(optimisticCount);
+      counterEl.classList.remove("bump");
+      void counterEl.offsetWidth;
+      counterEl.classList.add("bump");
+
+      if (isSending) return;
+      isSending = true;
+
+      try {
+        const getRes = await fetch(`${DATABASE_URL}${NODE_PATH}`);
+        const latest = Number(await getRes.json()) || 0;
+        const nextVal = latest + 1;
+
+        await fetch(`${DATABASE_URL}${NODE_PATH}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(nextVal)
+        });
+
+        renderCount(nextVal);
+      } catch (err) {
+        console.error("Erro ao salvar clique:", err);
+      } finally {
+        isSending = false;
+      }
+    });
+
+    fetchCount();
+    listenRealtime();
+  </script>
+</body>
+</html>
