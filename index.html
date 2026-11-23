@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -129,6 +129,22 @@
       filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
     }
 
+    .floating-phrase {
+      position: fixed;
+      font-size: 16px;
+      font-weight: 800;
+      color: #fca5a5;
+      background: rgba(15, 15, 20, 0.92);
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      padding: 6px 12px;
+      border-radius: 999px;
+      pointer-events: none;
+      z-index: 25;
+      white-space: nowrap;
+      animation: floatPhraseUp 1.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+
     @keyframes floatUp {
       0% {
         opacity: 0;
@@ -141,6 +157,21 @@
       100% {
         opacity: 0;
         transform: translateY(-260px) scale(1.35) rotate(14deg);
+      }
+    }
+
+    @keyframes floatPhraseUp {
+      0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.8);
+      }
+      15% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-210px) scale(1.05);
       }
     }
   </style>
@@ -163,15 +194,51 @@
     const DATABASE_URL = "https://fora-gordura-default-rtdb.firebaseio.com";
     const NODE_PATH = "/foragordura/cliques.json";
 
+    const FRASES_ZOEIRA = [
+      "FORA!!",
+      "roube um gordo",
+      "pato do Fafá"
+    ];
+
     const counterEl = document.getElementById("counter");
     const btnEl = document.getElementById("actionBtn");
 
     let currentCount = 0;
     let isSending = false;
+    let audioCtx = null;
 
     function renderCount(val) {
       currentCount = Number(val) || 0;
-      counterEl.textContent = currentCount.toLocaleString("pt-PT");
+      counterEl.textContent = currentCount.toLocaleString("pt-BR");
+    }
+
+    function playClickSound() {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+
+      if (!audioCtx) {
+        audioCtx = new AudioContextClass();
+      }
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = "triangle";
+      const now = audioCtx.currentTime;
+      osc.frequency.setValueAtTime(240, now);
+      osc.frequency.exponentialRampToValueAtTime(90, now + 0.08);
+
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.085);
     }
 
     function spawnDisgustEmoji(originEl) {
@@ -191,6 +258,26 @@
 
       document.body.appendChild(emoji);
       setTimeout(() => emoji.remove(), 1300);
+    }
+
+    function spawnFloatingPhrase(originEl) {
+      const rect = originEl.getBoundingClientRect();
+      const phraseEl = document.createElement("div");
+      phraseEl.className = "floating-phrase";
+      phraseEl.textContent =
+        FRASES_ZOEIRA[Math.floor(Math.random() * FRASES_ZOEIRA.length)];
+
+      const randomOffset = (Math.random() - 0.5) * 160;
+      const leftPos = Math.min(
+        window.innerWidth - 180,
+        Math.max(16, rect.left + rect.width / 2 - 70 + randomOffset)
+      );
+
+      phraseEl.style.left = `${leftPos}px`;
+      phraseEl.style.top = `${Math.max(24, rect.top - 10)}px`;
+
+      document.body.appendChild(phraseEl);
+      setTimeout(() => phraseEl.remove(), 1400);
     }
 
     async function fetchCount() {
@@ -224,7 +311,9 @@
     }
 
     btnEl.addEventListener("click", async () => {
+      playClickSound();
       spawnDisgustEmoji(btnEl);
+      spawnFloatingPhrase(btnEl);
 
       const optimisticCount = currentCount + 1;
       renderCount(optimisticCount);
