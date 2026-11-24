@@ -31,11 +31,11 @@
 
     .card {
       width: 100%;
-      max-width: 460px;
+      max-width: 470px;
       background: rgba(18, 18, 22, 0.92);
       border: 1px solid rgba(239, 68, 68, 0.25);
       border-radius: 24px;
-      padding: 30px 22px;
+      padding: 28px 22px;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
       position: relative;
       z-index: 2;
@@ -51,7 +51,7 @@
       border: 1px solid rgba(239, 68, 68, 0.3);
       padding: 6px 12px;
       border-radius: 999px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     h1 {
@@ -64,7 +64,72 @@
     .subtitle {
       font-size: 14px;
       color: #a1a1aa;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+    }
+
+    .nick-box {
+      background: #111116;
+      border: 1px solid #27272a;
+      border-radius: 16px;
+      padding: 12px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .nick-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #a1a1aa;
+      margin-bottom: 7px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nick-active-pill {
+      color: #fca5a5;
+      font-weight: 800;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 12px;
+    }
+
+    .nick-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nick-input {
+      flex: 1;
+      background: #18181f;
+      border: 1px solid #32323d;
+      border-radius: 11px;
+      padding: 10px 12px;
+      color: #ffffff;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .nick-input:focus {
+      outline: none;
+      border-color: #ef4444;
+    }
+
+    .btn-nick {
+      background: #27272f;
+      color: #f4f4f5;
+      border: 1px solid #3f3f4c;
+      border-radius: 11px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-nick:hover {
+      background: #343440;
     }
 
     .counter-box {
@@ -72,7 +137,7 @@
       border: 1px solid #27272a;
       border-radius: 18px;
       padding: 18px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .counter-label {
@@ -176,6 +241,122 @@
 
     .btn-complaints:active {
       transform: translateY(2px);
+    }
+
+    .rank-section {
+      margin-top: 20px;
+      background: #111116;
+      border: 1px solid #27272a;
+      border-radius: 18px;
+      padding: 14px;
+      text-align: left;
+    }
+
+    .rank-title {
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fca5a5;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .rank-live-dot {
+      font-size: 11px;
+      color: #a1a1aa;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .rank-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      max-height: 210px;
+      overflow-y: auto;
+    }
+
+    .rank-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #17171e;
+      border: 1px solid #262632;
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-size: 13px;
+    }
+
+    .rank-row.is-me {
+      border-color: rgba(239, 68, 68, 0.55);
+      background: rgba(127, 29, 29, 0.22);
+    }
+
+    .rank-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: #f4f4f5;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .rank-pos {
+      color: #fbbf24;
+      font-weight: 900;
+      min-width: 24px;
+    }
+
+    .rank-pts {
+      font-weight: 900;
+      color: #fca5a5;
+      font-variant-numeric: tabular-nums;
+      margin-left: 8px;
+    }
+
+    .rank-empty {
+      text-align: center;
+      color: #71717a;
+      font-size: 12px;
+      padding: 10px 6px;
+    }
+
+    .caio-honor {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 13px;
+      background: linear-gradient(90deg, rgba(251, 191, 36, 0.12), rgba(239, 68, 68, 0.12));
+      border: 1px dashed rgba(251, 191, 36, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .caio-title {
+      font-weight: 900;
+      color: #fde68a;
+    }
+
+    .caio-sub {
+      color: #d4d4d8;
+      font-size: 11px;
+    }
+
+    .caio-badge {
+      font-weight: 900;
+      color: #fbbf24;
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 999px;
+      padding: 4px 9px;
+      white-space: nowrap;
     }
 
     .floating-emoji {
@@ -600,11 +781,28 @@
   </style>
 </head>
 <body>
-  <!-- TELA 1: CONTADOR #FORAGORDURA -->
+  <!-- TELA 1: CONTADOR #FORAGORDURA + NICK + RANKING -->
   <main id="counterView" class="card">
     <span class="tag">Contador Oficial</span>
     <h1>Aperte sem dó</h1>
-    <p class="subtitle">Cada clique soma no placar e solta a reação.</p>
+    <p class="subtitle">Cada clique soma no placar, no ranking e solta a reação.</p>
+
+    <div class="nick-box">
+      <div class="nick-label">
+        <span>Vincular Nick (sem conta)</span>
+        <span id="nickStatusPill" class="nick-active-pill">Sem nick vinculado</span>
+      </div>
+      <div class="nick-row">
+        <input
+          id="nickInput"
+          class="nick-input"
+          type="text"
+          maxlength="18"
+          placeholder="Digite seu Nick..."
+        />
+        <button id="saveNickBtn" class="btn-nick" type="button">Vincular</button>
+      </div>
+    </div>
 
     <div class="counter-box">
       <div class="counter-label">Total de cliques</div>
@@ -616,6 +814,24 @@
     <div class="secondary-actions">
       <button id="openArenaBtn" class="btn-arena" type="button">Gordura X Fafá</button>
       <button id="openComplaintsBtn" class="btn-complaints" type="button">Reclamações sobre o gordura</button>
+    </div>
+
+    <div class="rank-section">
+      <div class="rank-title">
+        <span>Ranking de Cliques</span>
+        <span class="rank-live-dot">tempo real</span>
+      </div>
+      <div id="rankList" class="rank-list">
+        <div class="rank-empty">Vincule um Nick e clique para aparecer aqui.</div>
+      </div>
+
+      <div class="caio-honor" title="Easter egg da marca de 10k">
+        <div>
+          <div class="caio-title">Maior hate do gordura — Caio</div>
+          <div class="caio-sub">Carregou metade dos 10k na mão antes do ranking</div>
+        </div>
+        <div class="caio-badge">10K LORE</div>
+      </div>
     </div>
   </main>
 
@@ -708,8 +924,10 @@
   <script>
     const DATABASE_URL = "https://fora-gordura-default-rtdb.firebaseio.com";
     const NODE_PATH = "/foragordura/cliques.json";
+    const RANKING_PATH = "/foragordura/ranking.json";
     const ARENA_PATH = "/foragordura/arena.json";
     const COMPLAINTS_PATH = "/foragordura/reclamacoes.json";
+    const NICK_STORAGE_KEY = "foragordura_nick_v1";
 
     const FRASES_ZOEIRA = [
       "FORA!!",
@@ -726,12 +944,162 @@
     const backFromArenaBtn = document.getElementById("backFromArenaBtn");
     const backFromComplaintsBtn = document.getElementById("backFromComplaintsBtn");
 
+    const nickInput = document.getElementById("nickInput");
+    const saveNickBtn = document.getElementById("saveNickBtn");
+    const nickStatusPill = document.getElementById("nickStatusPill");
+    const rankListEl = document.getElementById("rankList");
+
     const counterEl = document.getElementById("counter");
     const btnEl = document.getElementById("actionBtn");
 
     let currentCount = 0;
     let isSending = false;
     let audioCtx = null;
+    let rankingMap = {};
+    let currentNick = "";
+
+    function sanitizeNick(raw) {
+      return String(raw || "")
+        .trim()
+        .replace(/[.#$/[\]]/g, "")
+        .replace(/\s+/g, " ")
+        .slice(0, 18);
+    }
+
+    function applyNick(nick, showFeedback = false) {
+      const clean = sanitizeNick(nick);
+      currentNick = clean;
+      if (clean) {
+        localStorage.setItem(NICK_STORAGE_KEY, clean);
+        nickInput.value = clean;
+        nickStatusPill.textContent = `Nick: ${clean}`;
+        if (showFeedback) {
+          playClickSound();
+        }
+      } else {
+        localStorage.removeItem(NICK_STORAGE_KEY);
+        nickStatusPill.textContent = "Sem nick vinculado";
+      }
+      renderRanking();
+    }
+
+    saveNickBtn.addEventListener("click", () => {
+      const clean = sanitizeNick(nickInput.value);
+      if (!clean) {
+        nickInput.focus();
+        return;
+      }
+      applyNick(clean, true);
+    });
+
+    nickInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const clean = sanitizeNick(nickInput.value);
+        if (clean) applyNick(clean, true);
+      }
+    });
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function renderRanking() {
+      const entries = Object.entries(rankingMap || {})
+        .filter(([name, pts]) => Boolean(name) && Number(pts) > 0)
+        .map(([name, pts]) => ({ name, pts: Number(pts) || 0 }))
+        .sort((a, b) => b.pts - a.pts);
+
+      if (!entries.length) {
+        rankListEl.innerHTML =
+          '<div class="rank-empty">Nenhum clique registrado no ranking ainda.</div>';
+        return;
+      }
+
+      rankListEl.innerHTML = entries
+        .map((item, idx) => {
+          const isMe =
+            currentNick && item.name.toLowerCase() === currentNick.toLowerCase();
+          const medal =
+            idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : `#${idx + 1}`;
+          return `
+            <div class="rank-row ${isMe ? "is-me" : ""}">
+              <div class="rank-left">
+                <span class="rank-pos">${medal}</span>
+                <span>${escapeHtml(item.name)}${isMe ? " (você)" : ""}</span>
+              </div>
+              <span class="rank-pts">${item.pts.toLocaleString("pt-BR")}</span>
+            </div>
+          `;
+        })
+        .join("");
+    }
+
+    async function fetchRanking() {
+      try {
+        const res = await fetch(`${DATABASE_URL}${RANKING_PATH}`);
+        const data = await res.json();
+        if (data && typeof data === "object") {
+          rankingMap = data;
+          renderRanking();
+        }
+      } catch (err) {
+        console.error("Erro ao carregar ranking:", err);
+      }
+    }
+
+    function listenRankingRealtime() {
+      try {
+        const source = new EventSource(`${DATABASE_URL}${RANKING_PATH}`);
+        source.addEventListener("put", (event) => {
+          const payload = JSON.parse(event.data);
+          if (payload && payload.path === "/" && payload.data && typeof payload.data === "object") {
+            rankingMap = payload.data;
+            renderRanking();
+          } else if (payload && payload.path && payload.path !== "/") {
+            fetchRanking();
+          }
+        });
+        source.addEventListener("patch", () => {
+          fetchRanking();
+        });
+      } catch (err) {
+        console.error("Erro no tempo real do ranking:", err);
+      }
+    }
+
+    async function incrementNickScore(nick) {
+      const clean = sanitizeNick(nick);
+      if (!clean) return;
+
+      const safeKey = encodeURIComponent(clean);
+      const userUrl = `${DATABASE_URL}/foragordura/ranking/${safeKey}.json`;
+
+      const optimisticPrev = Number(rankingMap[clean]) || 0;
+      rankingMap[clean] = optimisticPrev + 1;
+      renderRanking();
+
+      try {
+        const res = await fetch(userUrl);
+        const currentVal = Number(await res.json()) || 0;
+        const nextVal = Math.max(optimisticPrev + 1, currentVal + 1);
+
+        await fetch(userUrl, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(nextVal)
+        });
+
+        rankingMap[clean] = nextVal;
+        renderRanking();
+      } catch (err) {
+        console.error("Erro ao somar clique do Nick:", err);
+      }
+    }
 
     function renderCount(val) {
       currentCount = Number(val) || 0;
@@ -864,6 +1232,15 @@
     }
 
     btnEl.addEventListener("click", async () => {
+      if (!currentNick) {
+        const typed = sanitizeNick(nickInput.value);
+        if (typed) {
+          applyNick(typed, false);
+        } else {
+          nickInput.focus();
+        }
+      }
+
       playClickSound();
       spawnDisgustEmoji(btnEl);
       spawnFloatingPhrase(btnEl);
@@ -873,6 +1250,10 @@
       counterEl.classList.remove("bump");
       void counterEl.offsetWidth;
       counterEl.classList.add("bump");
+
+      if (currentNick) {
+        incrementNickScore(currentNick);
+      }
 
       if (isSending) return;
       isSending = true;
@@ -896,8 +1277,15 @@
       }
     });
 
+    const savedNick = localStorage.getItem(NICK_STORAGE_KEY);
+    if (savedNick) {
+      applyNick(savedNick, false);
+    }
+
     fetchCount();
     listenRealtime();
+    fetchRanking();
+    listenRankingRealtime();
 
     // =========================================================
     // ARENA 2D: BOLAS + ANALÓGICO + TIRO ÚNICO + FILA/SAÍDA
@@ -928,21 +1316,20 @@
 
     function createFreshArena(message = "Escolha Gordura ou Fafá para começar!") {
       return {
-        status: "waiting", // "waiting" | "fighting" | "finished"
+        status: "waiting",
         message,
         winner: null,
         updatedAt: Date.now(),
         queue: [],
         fighters: {
-          gordura: null, // { id, x, y, hp, aimX, aimY, lastSeen }
+          gordura: null,
           fafa: null
         },
-        bullets: [] // { id, owner, x, y, vx, vy, active }
+        bullets: []
       };
     }
 
     let arenaState = createFreshArena();
-    let arenaSource = null;
     let rafId = null;
     let syncTimer = null;
     let heartbeatTimer = null;
@@ -1296,7 +1683,6 @@
         }
       }
 
-      // Movimenta tiros e checa colisão com a bola adversária
       if (Array.isArray(arenaState.bullets) && arenaState.bullets.length > 0) {
         const remaining = [];
         for (const b of arenaState.bullets) {
@@ -1315,7 +1701,6 @@
           if (target && arenaState.status === "fighting") {
             const dist = Math.hypot(b.x - target.x, b.y - target.y);
             if (dist <= targetRadius + 6) {
-              // Só quem controla o alvo ou o atirador aplica dano de forma limpa
               if (target.id === myId || arenaState.fighters[b.owner]?.id === myId) {
                 target.hp = Math.max(0, (target.hp ?? 100) - BULLET_DAMAGE);
                 if (target.hp <= 0 && arenaState.status === "fighting") {
@@ -1354,7 +1739,6 @@
           remote.fighters[myRole].aimY = arenaState.fighters[myRole].aimY;
           remote.fighters[myRole].lastSeen = now;
 
-          // Preserva dano aplicado localmente se o remoto tiver HP maior
           const otherRole = myRole === "gordura" ? "fafa" : "gordura";
           if (remote.fighters[otherRole] && arenaState.fighters[otherRole]) {
             remote.fighters[otherRole].hp = Math.min(
@@ -1430,13 +1814,11 @@
 
       ctx.save();
 
-      // Sombra
       ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
       ctx.beginPath();
       ctx.ellipse(fighter.x, fighter.y + radius + 5, radius * 0.9, 5, 0, 0, Math.PI * 2);
       ctx.fill();
 
-      // Bola principal
       ctx.fillStyle = isGordura ? "#ef4444" : "#38bdf8";
       ctx.beginPath();
       ctx.arc(fighter.x, fighter.y, radius, 0, Math.PI * 2);
@@ -1446,7 +1828,6 @@
       ctx.strokeStyle = isGordura ? "#fecaca" : "#e0f2fe";
       ctx.stroke();
 
-      // Indicador de mira / direção do tiro único
       const aimX = fighter.aimX ?? (isGordura ? 1 : -1);
       const aimY = fighter.aimY ?? 0;
       const mag = Math.hypot(aimX, aimY) || 1;
@@ -1458,7 +1839,6 @@
       ctx.arc(fighter.x + nx * (radius + 5), fighter.y + ny * (radius + 5), 4.5, 0, Math.PI * 2);
       ctx.fill();
 
-      // Nome acima da bola
       ctx.fillStyle = "#ffffff";
       ctx.font = "bold 11px system-ui, sans-serif";
       ctx.textAlign = "center";
@@ -1470,7 +1850,6 @@
     function drawArenaCanvas() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Grade simples da arena de bolas
       ctx.strokeStyle = "rgba(255, 255, 255, 0.05)";
       ctx.lineWidth = 1;
       for (let x = 40; x < canvas.width; x += 40) {
@@ -1542,7 +1921,6 @@
       clearInterval(heartbeatTimer);
     }
 
-    // Analógico virtual
     function updateAnalogFromClient(clientX, clientY) {
       const rect = analogBase.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
@@ -1699,14 +2077,6 @@
       } catch (e) {
         return "";
       }
-    }
-
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;");
     }
 
     function renderComplaints() {
