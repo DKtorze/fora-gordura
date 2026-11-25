@@ -495,7 +495,7 @@
 
     .panel-card {
       width: 100%;
-      max-width: 540px;
+      max-width: 550px;
       background: rgba(18, 18, 22, 0.96);
       border: 1px solid rgba(239, 68, 68, 0.3);
       border-radius: 22px;
@@ -665,8 +665,9 @@
     .helper-note {
       margin-top: 10px;
       font-size: 12px;
-      color: #a1a1aa;
+      color: #d8b4fe;
       min-height: 18px;
+      font-weight: 600;
     }
 
     .gift-divider {
@@ -680,6 +681,7 @@
       font-weight: 900;
       color: #fde68a;
       margin-bottom: 8px;
+      margin-top: 6px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -791,10 +793,17 @@
       margin-top: 8px;
     }
 
+    .adm-row-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
     .btn-adm {
       border: 1px solid rgba(192, 132, 252, 0.45);
       border-radius: 11px;
-      padding: 10px 11px;
+      padding: 10px 9px;
       font-size: 12px;
       font-weight: 800;
       color: #f3e8ff;
@@ -808,9 +817,15 @@
       color: #fef08a;
     }
 
+    .btn-adm.clean {
+      border-color: rgba(56, 189, 248, 0.5);
+      background: rgba(3, 105, 161, 0.45);
+      color: #e0f2fe;
+    }
+
     .btn-adm.danger {
-      border-color: rgba(248, 113, 113, 0.5);
-      background: rgba(153, 27, 27, 0.5);
+      border-color: rgba(248, 113, 113, 0.55);
+      background: rgba(153, 27, 27, 0.55);
       color: #fecaca;
     }
 
@@ -1090,7 +1105,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      max-height: 260px;
+      max-height: 250px;
       overflow-y: auto;
       padding-right: 2px;
     }
@@ -1404,46 +1419,74 @@
     <div class="adm-panel-wrap">
       <div class="adm-box">
         <div style="font-size: 13px; font-weight: 900; color: #f3e8ff; margin-bottom: 4px;">
-          Moedas Infinitas (∞) • Controle Total de Cliques & Contas
+          Moedas Infinitas (∞) • Controle Total & Limpeza
         </div>
         <div style="font-size: 11px; color: #d8b4fe; margin-bottom: 10px;">
-          Qualquer clique adicionado altera o perfil/ranking e o contador geral automaticamente.
+          Ajustes de cliques nos perfis atualizam automaticamente o contador geral.
         </div>
 
         <div class="field-group">
-          <label class="field-label" for="admTargetIdInput">ID alvo para ações nos outros (ex.: FG-2048)</label>
+          <label class="field-label" for="admTargetIdInput">ID alvo para ações em outros perfis (ex.: FG-2048)</label>
           <input id="admTargetIdInput" class="text-input" type="text" placeholder="Digite o ID do jogador..." />
         </div>
 
+        <div class="section-subhead">1. Cliques: Somar, Tirar ou Definir Exato</div>
         <div class="field-group">
-          <label class="field-label" for="admCustomClicksInput">Quantidade exata de cliques</label>
-          <input id="admCustomClicksInput" class="text-input" type="number" min="1" max="1000000" value="250" />
+          <label class="field-label" for="admCustomClicksInput">Valor de cliques (para somar, tirar ou setar)</label>
+          <input id="admCustomClicksInput" class="text-input" type="number" min="0" max="100000000" value="250" />
+        </div>
+
+        <div class="adm-row-3">
+          <button id="admAddClicksMeBtn" class="btn-adm gold" type="button">+Cliques em MIM</button>
+          <button id="admSubClicksMeBtn" class="btn-adm clean" type="button">-Tirar de MIM</button>
+          <button id="admSetClicksMeBtn" class="btn-adm" type="button">Setar em MIM</button>
+        </div>
+
+        <div class="adm-row-3">
+          <button id="admAddClicksTargetBtn" class="btn-adm gold" type="button">+Cliques no ID</button>
+          <button id="admSubClicksTargetBtn" class="btn-adm clean" type="button">-Tirar do ID</button>
+          <button id="admZeroClicksTargetBtn" class="btn-adm danger" type="button">Zerar ID (-Geral)</button>
+        </div>
+
+        <div class="section-subhead">2. Contador Geral Direto</div>
+        <div class="field-group">
+          <label class="field-label" for="admGlobalExactInput">Valor exato do contador geral</label>
+          <input id="admGlobalExactInput" class="text-input" type="number" min="0" max="100000000" value="0" />
         </div>
 
         <div class="adm-row-2">
-          <button id="admAddClicksMeBtn" class="btn-adm gold" type="button">+Cliques em MIM (FG-5176)</button>
-          <button id="admAddClicksTargetBtn" class="btn-adm" type="button">+Cliques no ID Alvo</button>
+          <button id="admSetGlobalExactBtn" class="btn-adm gold" type="button">Aplicar Valor Geral</button>
+          <button id="admZeroGlobalBtn" class="btn-adm danger" type="button">Zerar Contador Geral (0)</button>
         </div>
 
-        <div class="field-group" style="margin-top: 12px;">
-          <label class="field-label" for="admCustomCoinsInput">Quantidade exata de moedas para o ID alvo</label>
-          <input id="admCustomCoinsInput" class="text-input" type="number" min="1" max="1000000" value="100" />
+        <div class="section-subhead">3. Moedas e Funções (ID Alvo)</div>
+        <div class="field-group">
+          <label class="field-label" for="admCustomCoinsInput">Quantidade de moedas para o ID alvo</label>
+          <input id="admCustomCoinsInput" class="text-input" type="number" min="0" max="10000000" value="100" />
+        </div>
+
+        <div class="adm-row-3">
+          <button id="admGiveCoinsBtn" class="btn-adm" type="button">+Dar Moedas</button>
+          <button id="admZeroCoinsTargetBtn" class="btn-adm clean" type="button">Zerar Moedas ID</button>
+          <button id="admGrantAllPerksBtn" class="btn-adm gold" type="button">Dar Todas Funções</button>
         </div>
 
         <div class="adm-row-2">
-          <button id="admGiveCoinsBtn" class="btn-adm" type="button">Dar Moedas ao ID Alvo</button>
-          <button id="admGrantAllPerksBtn" class="btn-adm gold" type="button">Dar Todas Funções ao ID Alvo</button>
+          <button id="admClearPerksTargetBtn" class="btn-adm clean" type="button">Limpar Funções do ID</button>
+          <button id="admClearInboxTargetBtn" class="btn-adm clean" type="button">Limpar Caixa Presentes ID</button>
         </div>
 
-        <div class="adm-row-2">
+        <div class="section-subhead">4. Arena, Reclamações & Sincronia</div>
+        <div class="adm-row-3">
           <button id="admResetArenaBtn" class="btn-adm danger" type="button">Limpar Arena 2D</button>
-          <button id="admSyncAllBtn" class="btn-adm" type="button">Forçar Sincronia</button>
+          <button id="admClearAllComplaintsBtn" class="btn-adm danger" type="button">Limpar Reclamações</button>
+          <button id="admSyncAllBtn" class="btn-adm" type="button">Sincronizar Tudo</button>
         </div>
 
         <div id="admFeedback" class="helper-note"></div>
       </div>
 
-      <div class="section-subhead">Moderar Reclamações (Apagar Pesadas)</div>
+      <div class="section-subhead">Moderar Reclamações Individuais</div>
       <div id="admComplaintsList" class="complaints-list">
         <div class="empty-complaints">Carregando reclamações...</div>
       </div>
@@ -1607,12 +1650,28 @@
 
     const admTargetIdInput = document.getElementById("admTargetIdInput");
     const admCustomClicksInput = document.getElementById("admCustomClicksInput");
+    const admGlobalExactInput = document.getElementById("admGlobalExactInput");
     const admCustomCoinsInput = document.getElementById("admCustomCoinsInput");
+
     const admAddClicksMeBtn = document.getElementById("admAddClicksMeBtn");
+    const admSubClicksMeBtn = document.getElementById("admSubClicksMeBtn");
+    const admSetClicksMeBtn = document.getElementById("admSetClicksMeBtn");
+
     const admAddClicksTargetBtn = document.getElementById("admAddClicksTargetBtn");
+    const admSubClicksTargetBtn = document.getElementById("admSubClicksTargetBtn");
+    const admZeroClicksTargetBtn = document.getElementById("admZeroClicksTargetBtn");
+
+    const admSetGlobalExactBtn = document.getElementById("admSetGlobalExactBtn");
+    const admZeroGlobalBtn = document.getElementById("admZeroGlobalBtn");
+
     const admGiveCoinsBtn = document.getElementById("admGiveCoinsBtn");
+    const admZeroCoinsTargetBtn = document.getElementById("admZeroCoinsTargetBtn");
     const admGrantAllPerksBtn = document.getElementById("admGrantAllPerksBtn");
+    const admClearPerksTargetBtn = document.getElementById("admClearPerksTargetBtn");
+    const admClearInboxTargetBtn = document.getElementById("admClearInboxTargetBtn");
+
     const admResetArenaBtn = document.getElementById("admResetArenaBtn");
+    const admClearAllComplaintsBtn = document.getElementById("admClearAllComplaintsBtn");
     const admSyncAllBtn = document.getElementById("admSyncAllBtn");
     const admFeedback = document.getElementById("admFeedback");
     const admComplaintsList = document.getElementById("admComplaintsList");
@@ -2129,18 +2188,31 @@
       refreshWalletAndAccountUI();
     }
 
-    async function addGlobalClicksBonus(amount) {
-      const num = Number(amount) || 0;
-      if (num <= 0) return;
+    async function getLatestGlobalCount() {
       const gRes = await fetch(`${DATABASE_URL}${NODE_PATH}`);
-      const gLatest = Number(await gRes.json()) || 0;
-      const nextGlobal = gLatest + num;
+      return Number(await gRes.json()) || 0;
+    }
+
+    async function setExactGlobalCount(nextVal) {
+      const safeVal = Math.max(0, Math.floor(Number(nextVal) || 0));
       await fetch(`${DATABASE_URL}${NODE_PATH}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(nextGlobal)
+        body: JSON.stringify(safeVal)
       });
-      renderCount(nextGlobal);
+      renderCount(safeVal);
+      return safeVal;
+    }
+
+    async function adjustGlobalCountBy(delta) {
+      const latest = await getLatestGlobalCount();
+      return setExactGlobalCount(latest + (Number(delta) || 0));
+    }
+
+    async function addGlobalClicksBonus(amount) {
+      const num = Number(amount) || 0;
+      if (num <= 0) return;
+      await adjustGlobalCountBy(num);
     }
 
     document.querySelectorAll(".btn-buy").forEach((btn) => {
@@ -3494,10 +3566,35 @@
     // =========================================================
     // PAINEL ADM COMPLETO NO PERFIL (FG-5176)
     // =========================================================
+    function getTargetProfileOrWarn(targetId) {
+      const cleanId = String(targetId || "").trim().toUpperCase();
+      if (!cleanId) {
+        admFeedback.textContent = "Digite um ID alvo primeiro.";
+        return null;
+      }
+      const raw = profilesMap[cleanId];
+      if (!raw) {
+        admFeedback.textContent = `ID ${cleanId} não encontrado.`;
+        return null;
+      }
+      return normalizeProfileShape(raw);
+    }
+
+    async function commitProfileUpdate(updated) {
+      profilesMap[updated.id] = updated;
+      if (currentProfile?.id === updated.id) {
+        currentProfile = updated;
+      }
+      await saveProfileToFirebase(updated);
+      refreshWalletAndAccountUI();
+      rebuildRankingUI();
+    }
+
     openAdmFromProfileBtn.addEventListener("click", () => {
       if (!isCurrentUserAdm()) return;
       playClickSound();
       hideAllViews();
+      admGlobalExactInput.value = String(currentCount || 0);
       admFeedback.textContent = "";
       admView.classList.remove("hidden");
       fetchComplaints();
@@ -3512,82 +3609,158 @@
 
     admAddClicksMeBtn.addEventListener("click", async () => {
       if (!isCurrentUserAdm() || !currentProfile) return;
-      const amount = Math.max(1, Math.floor(Number(admCustomClicksInput.value) || 0));
+      const amount = Math.max(0, Math.floor(Number(admCustomClicksInput.value) || 0));
+      if (!amount) return;
 
-      currentProfile = normalizeProfileShape({
+      const updated = normalizeProfileShape({
         ...currentProfile,
         cliques: (Number(currentProfile.cliques) || 0) + amount
       });
-      profilesMap[currentProfile.id] = currentProfile;
+      await commitProfileUpdate(updated);
+      const gNow = await adjustGlobalCountBy(amount);
+      admGlobalExactInput.value = String(gNow);
+      admFeedback.textContent = `+${amount} cliques somados em você e no geral (agora ${gNow.toLocaleString("pt-BR")}).`;
+    });
 
-      await saveProfileToFirebase(currentProfile);
-      await addGlobalClicksBonus(amount);
-      refreshWalletAndAccountUI();
-      rebuildRankingUI();
-      admFeedback.textContent = `+${amount} cliques adicionados no seu perfil (${currentProfile.id}) e no contador geral!`;
+    admSubClicksMeBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm() || !currentProfile) return;
+      const amount = Math.max(0, Math.floor(Number(admCustomClicksInput.value) || 0));
+      if (!amount) return;
+
+      const oldPts = Number(currentProfile.cliques) || 0;
+      const nextPts = Math.max(0, oldPts - amount);
+      const removed = oldPts - nextPts;
+
+      const updated = normalizeProfileShape({
+        ...currentProfile,
+        cliques: nextPts
+      });
+      await commitProfileUpdate(updated);
+      const gNow = await adjustGlobalCountBy(-removed);
+      admGlobalExactInput.value = String(gNow);
+      admFeedback.textContent = `-${removed} cliques tirados de você e do geral (agora ${gNow.toLocaleString("pt-BR")}).`;
+    });
+
+    admSetClicksMeBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm() || !currentProfile) return;
+      const exactPts = Math.max(0, Math.floor(Number(admCustomClicksInput.value) || 0));
+      const oldPts = Number(currentProfile.cliques) || 0;
+      const diff = exactPts - oldPts;
+
+      const updated = normalizeProfileShape({
+        ...currentProfile,
+        cliques: exactPts
+      });
+      await commitProfileUpdate(updated);
+      const gNow = await adjustGlobalCountBy(diff);
+      admGlobalExactInput.value = String(gNow);
+      admFeedback.textContent = `Seus cliques setados para ${exactPts.toLocaleString("pt-BR")} (geral: ${gNow.toLocaleString("pt-BR")}).`;
     });
 
     admAddClicksTargetBtn.addEventListener("click", async () => {
       if (!isCurrentUserAdm()) return;
-      const targetId = (admTargetIdInput.value || "").trim().toUpperCase();
-      const amount = Math.max(1, Math.floor(Number(admCustomClicksInput.value) || 0));
-      const targetRaw = profilesMap[targetId];
-      if (!targetRaw) {
-        admFeedback.textContent = "ID alvo não encontrado.";
-        return;
-      }
+      const target = getTargetProfileOrWarn(admTargetIdInput.value);
+      if (!target) return;
+      const amount = Math.max(0, Math.floor(Number(admCustomClicksInput.value) || 0));
+      if (!amount) return;
 
-      const updatedTarget = normalizeProfileShape({
-        ...targetRaw,
-        cliques: (Number(targetRaw.cliques) || 0) + amount
+      const updated = normalizeProfileShape({
+        ...target,
+        cliques: (Number(target.cliques) || 0) + amount
       });
-      profilesMap[targetId] = updatedTarget;
-      if (currentProfile?.id === targetId) {
-        currentProfile = updatedTarget;
-      }
+      await commitProfileUpdate(updated);
+      const gNow = await adjustGlobalCountBy(amount);
+      admGlobalExactInput.value = String(gNow);
+      admFeedback.textContent = `+${amount} cliques adicionados para ${updated.nick} (${updated.id}) e no geral.`;
+    });
 
-      await saveProfileToFirebase(updatedTarget);
-      await addGlobalClicksBonus(amount);
-      refreshWalletAndAccountUI();
-      rebuildRankingUI();
-      admFeedback.textContent = `+${amount} cliques adicionados para ${updatedTarget.nick} (${targetId}) e no contador geral!`;
+    admSubClicksTargetBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      const target = getTargetProfileOrWarn(admTargetIdInput.value);
+      if (!target) return;
+      const amount = Math.max(0, Math.floor(Number(admCustomClicksInput.value) || 0));
+      if (!amount) return;
+
+      const oldPts = Number(target.cliques) || 0;
+      const nextPts = Math.max(0, oldPts - amount);
+      const removed = oldPts - nextPts;
+
+      const updated = normalizeProfileShape({
+        ...target,
+        cliques: nextPts
+      });
+      await commitProfileUpdate(updated);
+      const gNow = await adjustGlobalCountBy(-removed);
+      admGlobalExactInput.value = String(gNow);
+      admFeedback.textContent = `-${removed} cliques removidos de ${updated.nick} (${updated.id}) e do geral.`;
+    });
+
+    admZeroClicksTargetBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      const target = getTargetProfileOrWarn(admTargetIdInput.value);
+      if (!target) return;
+
+      const oldPts = Number(target.cliques) || 0;
+      const updated = normalizeProfileShape({
+        ...target,
+        cliques: 0,
+        goalClicks: 0
+      });
+      await commitProfileUpdate(updated);
+      const gNow = await adjustGlobalCountBy(-oldPts);
+      admGlobalExactInput.value = String(gNow);
+      admFeedback.textContent = `Cliques de ${updated.nick} (${updated.id}) zerados (-${oldPts} no geral).`;
+    });
+
+    admSetGlobalExactBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      const exactGlobal = Math.max(0, Math.floor(Number(admGlobalExactInput.value) || 0));
+      const gNow = await setExactGlobalCount(exactGlobal);
+      admFeedback.textContent = `Contador geral ajustado para ${gNow.toLocaleString("pt-BR")}!`;
+    });
+
+    admZeroGlobalBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      const gNow = await setExactGlobalCount(0);
+      admGlobalExactInput.value = "0";
+      admFeedback.textContent = `Contador geral zerado (${gNow})!`;
     });
 
     admGiveCoinsBtn.addEventListener("click", async () => {
       if (!isCurrentUserAdm()) return;
-      const targetId = (admTargetIdInput.value || "").trim().toUpperCase();
-      const coinsAmt = Math.max(1, Math.floor(Number(admCustomCoinsInput.value) || 0));
-      const targetRaw = profilesMap[targetId];
-      if (!targetRaw) {
-        admFeedback.textContent = "ID alvo não encontrado.";
-        return;
-      }
+      const target = getTargetProfileOrWarn(admTargetIdInput.value);
+      if (!target) return;
+      const coinsAmt = Math.max(0, Math.floor(Number(admCustomCoinsInput.value) || 0));
 
-      const updatedTarget = normalizeProfileShape({
-        ...targetRaw,
-        coins: (Number(targetRaw.coins) || 0) + coinsAmt
+      const updated = normalizeProfileShape({
+        ...target,
+        coins: (Number(target.coins) || 0) + coinsAmt
       });
-      profilesMap[targetId] = updatedTarget;
-      if (currentProfile?.id === targetId) {
-        currentProfile = updatedTarget;
-        refreshWalletAndAccountUI();
-      }
+      await commitProfileUpdate(updated);
+      admFeedback.textContent = `+${coinsAmt} moedas enviadas para ${updated.nick} (${updated.id})!`;
+    });
 
-      await saveProfileToFirebase(updatedTarget);
-      admFeedback.textContent = `+${coinsAmt} moedas enviadas para ${updatedTarget.nick} (${targetId})!`;
+    admZeroCoinsTargetBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      const target = getTargetProfileOrWarn(admTargetIdInput.value);
+      if (!target) return;
+
+      const updated = normalizeProfileShape({
+        ...target,
+        coins: 0,
+        goalClicks: 0
+      });
+      await commitProfileUpdate(updated);
+      admFeedback.textContent = `Moedas de ${updated.nick} (${updated.id}) zeradas!`;
     });
 
     admGrantAllPerksBtn.addEventListener("click", async () => {
       if (!isCurrentUserAdm()) return;
-      const targetId = (admTargetIdInput.value || "").trim().toUpperCase();
-      const targetRaw = profilesMap[targetId];
-      if (!targetRaw) {
-        admFeedback.textContent = "ID alvo não encontrado.";
-        return;
-      }
+      const target = getTargetProfileOrWarn(admTargetIdInput.value);
+      if (!target) return;
 
-      const updatedTarget = normalizeProfileShape({
-        ...targetRaw,
+      const updated = normalizeProfileShape({
+        ...target,
         perks: {
           clickBonusPerPress: 2,
           fastGoal: true,
@@ -3595,14 +3768,39 @@
           heavyShot: true
         }
       });
-      profilesMap[targetId] = updatedTarget;
-      if (currentProfile?.id === targetId) {
-        currentProfile = updatedTarget;
-        refreshWalletAndAccountUI();
-      }
+      await commitProfileUpdate(updated);
+      admFeedback.textContent = `Todas as funções liberadas para ${updated.nick} (${updated.id})!`;
+    });
 
-      await saveProfileToFirebase(updatedTarget);
-      admFeedback.textContent = `Todas as funções ativadas para ${updatedTarget.nick} (${targetId})!`;
+    admClearPerksTargetBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      const target = getTargetProfileOrWarn(admTargetIdInput.value);
+      if (!target) return;
+
+      const updated = normalizeProfileShape({
+        ...target,
+        perks: {
+          clickBonusPerPress: 0,
+          fastGoal: false,
+          turboReload: false,
+          heavyShot: false
+        }
+      });
+      await commitProfileUpdate(updated);
+      admFeedback.textContent = `Funções de ${updated.nick} (${updated.id}) removidas/limpas!`;
+    });
+
+    admClearInboxTargetBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      const target = getTargetProfileOrWarn(admTargetIdInput.value);
+      if (!target) return;
+
+      const updated = normalizeProfileShape({
+        ...target,
+        inbox: []
+      });
+      await commitProfileUpdate(updated);
+      admFeedback.textContent = `Caixa de presentes de ${updated.nick} (${updated.id}) limpa!`;
     });
 
     admResetArenaBtn.addEventListener("click", async () => {
@@ -3611,9 +3809,23 @@
       admFeedback.textContent = "Arena 2D resetada com sucesso!";
     });
 
+    admClearAllComplaintsBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      await fetch(`${DATABASE_URL}${COMPLAINTS_PATH}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify([])
+      });
+      complaintsData = [];
+      renderComplaints();
+      renderAdmComplaints();
+      admFeedback.textContent = "Todas as reclamações foram apagadas!";
+    });
+
     admSyncAllBtn.addEventListener("click", async () => {
       if (!isCurrentUserAdm()) return;
       await Promise.all([fetchProfilesAndLegacyRanking(), fetchCount(), fetchComplaints()]);
+      admGlobalExactInput.value = String(currentCount || 0);
       admFeedback.textContent = "Tudo sincronizado com o Firebase!";
     });
 
