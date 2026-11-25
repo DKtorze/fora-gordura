@@ -31,7 +31,7 @@
 
     .card {
       width: 100%;
-      max-width: 490px;
+      max-width: 500px;
       background: rgba(18, 18, 22, 0.94);
       border: 1px solid rgba(239, 68, 68, 0.25);
       border-radius: 24px;
@@ -130,8 +130,6 @@
       display: flex;
       gap: 6px;
       flex-shrink: 0;
-      flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .btn-mini {
@@ -139,7 +137,7 @@
       color: #f4f4f5;
       border: 1px solid #383846;
       border-radius: 10px;
-      padding: 7px 9px;
+      padding: 7px 10px;
       font-size: 12px;
       font-weight: 800;
       cursor: pointer;
@@ -153,12 +151,6 @@
     .btn-mini.inbox-badge {
       border-color: rgba(251, 191, 36, 0.5);
       color: #fde68a;
-    }
-
-    .btn-mini.adm-pill {
-      border-color: rgba(168, 85, 247, 0.55);
-      color: #e9d5ff;
-      background: rgba(88, 28, 135, 0.35);
     }
 
     .wallet-bar {
@@ -176,6 +168,7 @@
       align-items: center;
       font-size: 12px;
       margin-bottom: 6px;
+      gap: 8px;
     }
 
     .coins-pill {
@@ -187,6 +180,7 @@
     .goal-text {
       color: #a1a1aa;
       font-size: 11px;
+      text-align: right;
     }
 
     .goal-bg {
@@ -499,15 +493,14 @@
       }
     }
 
-    /* TELAS SECUNDÁRIAS / PAINÉIS */
     .panel-card {
       width: 100%;
-      max-width: 510px;
-      background: rgba(18, 18, 22, 0.95);
+      max-width: 540px;
+      background: rgba(18, 18, 22, 0.96);
       border: 1px solid rgba(239, 68, 68, 0.3);
       border-radius: 22px;
       padding: 20px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
       position: relative;
       z-index: 2;
       text-align: left;
@@ -543,7 +536,7 @@
     }
 
     .field-group {
-      margin-bottom: 12px;
+      margin-bottom: 11px;
     }
 
     .field-label {
@@ -624,7 +617,7 @@
       border: 1px solid #27272a;
       border-radius: 14px;
       padding: 12px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -656,6 +649,19 @@
       cursor: pointer;
     }
 
+    .btn-adm-trigger {
+      width: 100%;
+      margin-top: 10px;
+      border: 1px solid rgba(192, 132, 252, 0.55);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 900;
+      color: #f3e8ff;
+      background: linear-gradient(180deg, rgba(126, 34, 206, 0.75), rgba(59, 7, 100, 0.92));
+      cursor: pointer;
+    }
+
     .helper-note {
       margin-top: 10px;
       font-size: 12px;
@@ -669,18 +675,30 @@
       margin: 16px 0;
     }
 
+    .section-subhead {
+      font-size: 13px;
+      font-weight: 900;
+      color: #fde68a;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
     .shop-grid {
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 8px;
       margin-bottom: 14px;
+      max-height: 250px;
+      overflow-y: auto;
+      padding-right: 2px;
     }
 
     .shop-item {
       background: #13131b;
       border: 1px solid #282836;
       border-radius: 14px;
-      padding: 11px 12px;
+      padding: 10px 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -714,7 +732,7 @@
       display: flex;
       flex-direction: column;
       gap: 9px;
-      max-height: 210px;
+      max-height: 240px;
       overflow-y: auto;
     }
 
@@ -752,15 +770,21 @@
       flex-shrink: 0;
     }
 
+    .adm-panel-wrap {
+      max-height: 78vh;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
     .adm-box {
       background: #151021;
       border: 1px solid rgba(168, 85, 247, 0.45);
       border-radius: 16px;
       padding: 14px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    .adm-grid-2 {
+    .adm-row-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
@@ -770,21 +794,26 @@
     .btn-adm {
       border: 1px solid rgba(192, 132, 252, 0.45);
       border-radius: 11px;
-      padding: 10px 12px;
+      padding: 10px 11px;
       font-size: 12px;
       font-weight: 800;
       color: #f3e8ff;
-      background: rgba(107, 33, 168, 0.45);
+      background: rgba(107, 33, 168, 0.5);
       cursor: pointer;
+    }
+
+    .btn-adm.gold {
+      border-color: rgba(250, 204, 21, 0.55);
+      background: rgba(161, 98, 7, 0.45);
+      color: #fef08a;
     }
 
     .btn-adm.danger {
       border-color: rgba(248, 113, 113, 0.5);
-      background: rgba(153, 27, 27, 0.45);
+      background: rgba(153, 27, 27, 0.5);
       color: #fecaca;
     }
 
-    /* ARENA 2D */
     .arena-card {
       width: 100%;
       max-width: 520px;
@@ -985,7 +1014,6 @@
       color: #a1a1aa;
     }
 
-    /* RECLAMAÇÕES */
     .rating-summary {
       background: #121217;
       border: 1px solid #27272a;
@@ -1062,7 +1090,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      max-height: 300px;
+      max-height: 260px;
       overflow-y: auto;
       padding-right: 2px;
     }
@@ -1126,11 +1154,10 @@
   </style>
 </head>
 <body>
-  <!-- TELA 1: CONTADOR + PERFIL + MOEDAS + RANKING -->
   <main id="counterView" class="card">
     <span class="tag">Contador Oficial</span>
     <h1>Aperte sem dó</h1>
-    <p class="subtitle">A cada 25 cliques você ganha +10 moedas para funções e presentes.</p>
+    <p class="subtitle">Meta padrão: a cada 25 cliques você ganha +10 moedas.</p>
 
     <div class="account-bar">
       <div class="account-left">
@@ -1143,14 +1170,13 @@
       <div class="account-actions">
         <button id="openInboxBtn" class="btn-mini inbox-badge" type="button">🎁 <span id="inboxCountSpan">0</span></button>
         <button id="openProfileBtn" class="btn-mini" type="button">Perfil</button>
-        <button id="openAdmBtn" class="btn-mini adm-pill hidden" type="button">ADM</button>
       </div>
     </div>
 
     <div class="wallet-bar">
       <div class="wallet-top">
         <span id="coinsDisplay" class="coins-pill">🪙 0 moedas</span>
-        <span id="goalProgressText" class="goal-text">Meta: 0 / 25 cliques (+10 moedas)</span>
+        <span id="goalProgressText" class="goal-text">Meta: 0 / 25 cliques (+10 🪙)</span>
       </div>
       <div class="goal-bg">
         <div id="goalProgressBar" class="goal-fill"></div>
@@ -1189,7 +1215,6 @@
     </div>
   </main>
 
-  <!-- TELA 2: PERFIL ÚNICO + SENHA + FOTO + ANONIMATO (****) -->
   <section id="profileView" class="panel-card hidden">
     <div class="panel-header">
       <div class="panel-title">Meu Perfil</div>
@@ -1236,13 +1261,13 @@
 
     <button id="saveProfileBtn" class="btn-primary-action" type="button">Salvar perfil</button>
     <button id="switchAccountBtn" class="btn-secondary-action" type="button">Entrar em outra conta (ID + Senha)</button>
+    <button id="openAdmFromProfileBtn" class="btn-adm-trigger hidden" type="button">🛡️ Abrir Painel ADM Completo</button>
     <div id="profileFeedback" class="helper-note"></div>
   </section>
 
-  <!-- TELA 3: LOJA DE FUNÇÕES + ENVIAR PRESENTE ÚTIL POR ID -->
   <section id="shopView" class="panel-card hidden">
     <div class="panel-header">
-      <div class="panel-title">🪙 Loja & Presentes por ID</div>
+      <div class="panel-title">🪙 Loja de Cliques, Funções & ID</div>
       <button id="backFromShopBtn" class="btn-small" type="button">Voltar</button>
     </div>
 
@@ -1251,36 +1276,87 @@
       <span id="shopCoinsLabel" class="rating-avg">🪙 0</span>
     </div>
 
-    <div class="field-label">Comprar função útil para você</div>
+    <div class="section-subhead">Pacotes de Cliques (Ranking + Contador Geral)</div>
     <div class="shop-grid">
       <div class="shop-item">
         <div>
-          <div class="shop-item-name">⚡ Recarga Turbo na Arena</div>
-          <div class="shop-item-desc">Recarga do tiro único cai para 450ms na próxima luta</div>
+          <div class="shop-item-name">⚡ +25 Cliques</div>
+          <div class="shop-item-desc">Soma +25 cliques no perfil e no contador geral</div>
         </div>
-        <button class="btn-buy" data-buy="turbo_reload" data-cost="15" type="button">15 🪙</button>
+        <button class="btn-buy" data-buy="clicks_25" data-cost="12" type="button">12 🪙</button>
+      </div>
+
+      <div class="shop-item">
+        <div>
+          <div class="shop-item-name">🚀 +50 Cliques</div>
+          <div class="shop-item-desc">Soma +50 cliques no perfil e no contador geral</div>
+        </div>
+        <button class="btn-buy" data-buy="clicks_50" data-cost="20" type="button">20 🪙</button>
+      </div>
+
+      <div class="shop-item">
+        <div>
+          <div class="shop-item-name">🔥 +150 Cliques</div>
+          <div class="shop-item-desc">Soma +150 cliques no perfil e no contador geral</div>
+        </div>
+        <button class="btn-buy" data-buy="clicks_150" data-cost="50" type="button">50 🪙</button>
+      </div>
+
+      <div class="shop-item">
+        <div>
+          <div class="shop-item-name">💣 +500 Cliques</div>
+          <div class="shop-item-desc">Pacote pesado: +500 no perfil e no contador geral</div>
+        </div>
+        <button class="btn-buy" data-buy="clicks_500" data-cost="140" type="button">140 🪙</button>
+      </div>
+    </div>
+
+    <div class="section-subhead">Ajuda de Cliques & Funções Especiais</div>
+    <div class="shop-grid">
+      <div class="shop-item">
+        <div>
+          <div class="shop-item-name">➕ +1 Clique Extra por Aperte</div>
+          <div class="shop-item-desc">Cada vez que você aperta o botão, ganha +1 clique extra</div>
+        </div>
+        <button class="btn-buy" data-buy="multi_1" data-cost="35" type="button">35 🪙</button>
+      </div>
+
+      <div class="shop-item">
+        <div>
+          <div class="shop-item-name">➕➕ +2 Cliques Extras por Aperte</div>
+          <div class="shop-item-desc">Sobe o ganho por aperte em +2 cliques extras</div>
+        </div>
+        <button class="btn-buy" data-buy="multi_2" data-cost="75" type="button">75 🪙</button>
+      </div>
+
+      <div class="shop-item">
+        <div>
+          <div class="shop-item-name">🎯 Meta Rápida (15 cliques = +10 🪙)</div>
+          <div class="shop-item-desc">Reduz a meta de moedas de 25 para 15 cliques</div>
+        </div>
+        <button class="btn-buy" data-buy="fast_goal" data-cost="45" type="button">45 🪙</button>
+      </div>
+
+      <div class="shop-item">
+        <div>
+          <div class="shop-item-name">⚡ Recarga Turbo na Arena</div>
+          <div class="shop-item-desc">Tiro único recarrega em 450ms na arena</div>
+        </div>
+        <button class="btn-buy" data-buy="turbo_reload" data-cost="20" type="button">20 🪙</button>
       </div>
 
       <div class="shop-item">
         <div>
           <div class="shop-item-name">💥 Tiro Pesado (+10 Dano)</div>
-          <div class="shop-item-desc">Seu tiro único causa 35 de dano em vez de 25</div>
+          <div class="shop-item-desc">Seu tiro único causa 35 de dano na arena</div>
         </div>
-        <button class="btn-buy" data-buy="heavy_shot" data-cost="20" type="button">20 🪙</button>
-      </div>
-
-      <div class="shop-item">
-        <div>
-          <div class="shop-item-name">🚀 Pacote +50 Cliques</div>
-          <div class="shop-item-desc">Adiciona +50 cliques no seu perfil e no placar</div>
-        </div>
-        <button class="btn-buy" data-buy="clicks_50" data-cost="25" type="button">25 🪙</button>
+        <button class="btn-buy" data-buy="heavy_shot" data-cost="25" type="button">25 🪙</button>
       </div>
     </div>
 
     <hr class="gift-divider" />
 
-    <div class="panel-title" style="font-size: 15px; margin-bottom: 10px;">Mandar presente útil por ID</div>
+    <div class="section-subhead">Mandar Presente Útil por ID</div>
 
     <div class="field-group">
       <label class="field-label" for="giftTargetIdInput">ID do destinatário (ex.: FG-1234)</label>
@@ -1288,12 +1364,17 @@
     </div>
 
     <div class="field-group">
-      <label class="field-label" for="giftTypeSelect">Presente (custo em moedas — quem coleta já ganha a função/bônus)</label>
+      <label class="field-label" for="giftTypeSelect">Escolha o presente (já aplica/ativa ao coletar)</label>
       <select id="giftTypeSelect" class="select-input">
-        <option value="turbo_reload">⚡ Recarga Turbo na Arena (15 🪙)</option>
-        <option value="heavy_shot">💥 Tiro Pesado +10 Dano (20 🪙)</option>
-        <option value="clicks_50">🚀 Pacote +50 Cliques (25 🪙)</option>
-        <option value="coins_20">🪙 +20 Moedas Extra (20 🪙)</option>
+        <option value="clicks_25">⚡ Presente +25 Cliques (12 🪙)</option>
+        <option value="clicks_50">🚀 Presente +50 Cliques (20 🪙)</option>
+        <option value="clicks_150">🔥 Presente +150 Cliques (50 🪙)</option>
+        <option value="clicks_500">💣 Presente +500 Cliques (140 🪙)</option>
+        <option value="coins_30">🪙 Presente +30 Moedas (25 🪙)</option>
+        <option value="multi_1">➕ Presente +1 Clique por Aperte (35 🪙)</option>
+        <option value="fast_goal">🎯 Presente Meta Rápida 15 Cliques (45 🪙)</option>
+        <option value="turbo_reload">⚡ Presente Recarga Turbo Arena (20 🪙)</option>
+        <option value="heavy_shot">💥 Presente Tiro Pesado +10 Dano (25 🪙)</option>
       </select>
     </div>
 
@@ -1301,54 +1382,74 @@
     <div id="shopFeedback" class="helper-note"></div>
   </section>
 
-  <!-- TELA 4: CAIXA DE ENTRADA (COLETAR PRESENTES) -->
   <section id="inboxView" class="panel-card hidden">
     <div class="panel-header">
       <div class="panel-title">🎁 Caixa de Entrada</div>
       <button id="backFromInboxBtn" class="btn-small" type="button">Voltar</button>
     </div>
 
-    <div class="field-label">Aperte Coletar para ativar o presente</div>
+    <div class="field-label">Aperte Coletar para ganhar o bônus ou ativar a função</div>
     <div id="inboxList" class="inbox-list">
       <div class="rank-empty">Nenhum presente na caixa agora.</div>
     </div>
     <div id="inboxFeedback" class="helper-note"></div>
   </section>
 
-  <!-- TELA 5: PAINEL SECRETO ADM (APENAS FG-5176) -->
   <section id="admView" class="panel-card hidden">
     <div class="panel-header">
-      <div class="panel-title" style="color: #e9d5ff;">🛡️ Painel ADM</div>
+      <div class="panel-title" style="color: #e9d5ff;">🛡️ Painel ADM — FG-5176</div>
       <button id="backFromAdmBtn" class="btn-small" type="button">Voltar</button>
     </div>
 
-    <div class="adm-box">
-      <div style="font-size: 13px; font-weight: 900; color: #f3e8ff; margin-bottom: 6px;">
-        Status: ADM Ativo (ID FG-5176) • Moedas Infinitas (∞)
-      </div>
-      <div style="font-size: 11px; color: #d8b4fe;">
-        Você aparece normal para os outros. Compras e presentes por ID não consomem suas moedas.
+    <div class="adm-panel-wrap">
+      <div class="adm-box">
+        <div style="font-size: 13px; font-weight: 900; color: #f3e8ff; margin-bottom: 4px;">
+          Moedas Infinitas (∞) • Controle Total de Cliques & Contas
+        </div>
+        <div style="font-size: 11px; color: #d8b4fe; margin-bottom: 10px;">
+          Qualquer clique adicionado altera o perfil/ranking e o contador geral automaticamente.
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="admTargetIdInput">ID alvo para ações nos outros (ex.: FG-2048)</label>
+          <input id="admTargetIdInput" class="text-input" type="text" placeholder="Digite o ID do jogador..." />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="admCustomClicksInput">Quantidade exata de cliques</label>
+          <input id="admCustomClicksInput" class="text-input" type="number" min="1" max="1000000" value="250" />
+        </div>
+
+        <div class="adm-row-2">
+          <button id="admAddClicksMeBtn" class="btn-adm gold" type="button">+Cliques em MIM (FG-5176)</button>
+          <button id="admAddClicksTargetBtn" class="btn-adm" type="button">+Cliques no ID Alvo</button>
+        </div>
+
+        <div class="field-group" style="margin-top: 12px;">
+          <label class="field-label" for="admCustomCoinsInput">Quantidade exata de moedas para o ID alvo</label>
+          <input id="admCustomCoinsInput" class="text-input" type="number" min="1" max="1000000" value="100" />
+        </div>
+
+        <div class="adm-row-2">
+          <button id="admGiveCoinsBtn" class="btn-adm" type="button">Dar Moedas ao ID Alvo</button>
+          <button id="admGrantAllPerksBtn" class="btn-adm gold" type="button">Dar Todas Funções ao ID Alvo</button>
+        </div>
+
+        <div class="adm-row-2">
+          <button id="admResetArenaBtn" class="btn-adm danger" type="button">Limpar Arena 2D</button>
+          <button id="admSyncAllBtn" class="btn-adm" type="button">Forçar Sincronia</button>
+        </div>
+
+        <div id="admFeedback" class="helper-note"></div>
       </div>
 
-      <div class="field-group" style="margin-top: 12px;">
-        <label class="field-label" for="admTargetIdInput">Dar moedas para outro ID</label>
-        <input id="admTargetIdInput" class="text-input" type="text" placeholder="Ex.: FG-2048" />
+      <div class="section-subhead">Moderar Reclamações (Apagar Pesadas)</div>
+      <div id="admComplaintsList" class="complaints-list">
+        <div class="empty-complaints">Carregando reclamações...</div>
       </div>
-
-      <div class="adm-grid-2">
-        <button id="admGiveCoinsBtn" class="btn-adm" type="button">+50 Moedas ao ID</button>
-        <button id="admResetArenaBtn" class="btn-adm danger" type="button">Limpar Arena 2D</button>
-      </div>
-      <div id="admFeedback" class="helper-note"></div>
-    </div>
-
-    <div class="panel-title" style="font-size: 15px; margin-bottom: 8px;">Apagar reclamações pesadas</div>
-    <div id="admComplaintsList" class="complaints-list">
-      <div class="empty-complaints">Carregando reclamações...</div>
     </div>
   </section>
 
-  <!-- TELA 6: ARENA 2D (BOLAS + ANALÓGICO + TIRO ÚNICO + UPGRADES) -->
   <section id="arenaView" class="arena-card hidden">
     <div class="arena-top">
       <div class="arena-title">Gordura X Fafá</div>
@@ -1400,7 +1501,6 @@
     <div id="queueText" class="queue-info">Fila: ninguém esperando</div>
   </section>
 
-  <!-- TELA 7: RECLAMAÇÕES SOBRE O GORDURA -->
   <section id="complaintsView" class="panel-card hidden">
     <div class="panel-header">
       <div class="panel-title">Reclamações sobre o gordura</div>
@@ -1443,7 +1543,7 @@
     const COMPLAINTS_PATH = "/foragordura/reclamacoes.json";
 
     const ADM_ACCOUNT_ID = "FG-5176";
-    const COIN_GOAL_CLICKS = 25;
+    const BASE_COIN_GOAL_CLICKS = 25;
     const COIN_GOAL_REWARD = 10;
 
     const SESSION_ID_KEY = "foragordura_session_id_v1";
@@ -1468,7 +1568,7 @@
     const openComplaintsBtn = document.getElementById("openComplaintsBtn");
     const openProfileBtn = document.getElementById("openProfileBtn");
     const openInboxBtn = document.getElementById("openInboxBtn");
-    const openAdmBtn = document.getElementById("openAdmBtn");
+    const openAdmFromProfileBtn = document.getElementById("openAdmFromProfileBtn");
 
     const backFromProfileBtn = document.getElementById("backFromProfileBtn");
     const backFromShopBtn = document.getElementById("backFromShopBtn");
@@ -1506,8 +1606,14 @@
     const inboxFeedback = document.getElementById("inboxFeedback");
 
     const admTargetIdInput = document.getElementById("admTargetIdInput");
+    const admCustomClicksInput = document.getElementById("admCustomClicksInput");
+    const admCustomCoinsInput = document.getElementById("admCustomCoinsInput");
+    const admAddClicksMeBtn = document.getElementById("admAddClicksMeBtn");
+    const admAddClicksTargetBtn = document.getElementById("admAddClicksTargetBtn");
     const admGiveCoinsBtn = document.getElementById("admGiveCoinsBtn");
+    const admGrantAllPerksBtn = document.getElementById("admGrantAllPerksBtn");
     const admResetArenaBtn = document.getElementById("admResetArenaBtn");
+    const admSyncAllBtn = document.getElementById("admSyncAllBtn");
     const admFeedback = document.getElementById("admFeedback");
     const admComplaintsList = document.getElementById("admComplaintsList");
 
@@ -1524,8 +1630,38 @@
     let draftAvatar = "🤢";
     let claimedLegacyNicks = new Set();
 
+    function normalizeProfileShape(raw) {
+      return {
+        coins: 0,
+        goalClicks: 0,
+        perks: {
+          clickBonusPerPress: 0,
+          fastGoal: false,
+          turboReload: false,
+          heavyShot: false
+        },
+        inbox: [],
+        ...raw,
+        perks: {
+          clickBonusPerPress: 0,
+          fastGoal: false,
+          turboReload: false,
+          heavyShot: false,
+          ...(raw?.perks || {})
+        }
+      };
+    }
+
     function isCurrentUserAdm() {
       return Boolean(currentProfile && String(currentProfile.id).toUpperCase() === ADM_ACCOUNT_ID);
+    }
+
+    function getActiveGoalTarget(profile) {
+      return profile?.perks?.fastGoal ? 15 : BASE_COIN_GOAL_CLICKS;
+    }
+
+    function getClickGainPerPress(profile) {
+      return 1 + (Number(profile?.perks?.clickBonusPerPress) || 0);
     }
 
     function hideAllViews() {
@@ -1588,12 +1724,16 @@
 
     function refreshWalletAndAccountUI() {
       const adm = isCurrentUserAdm();
-      openAdmBtn.classList.toggle("hidden", !adm);
+      openAdmFromProfileBtn.classList.toggle("hidden", !adm);
 
       if (currentProfile) {
         renderAvatarInto(homeAvatar, currentProfile.avatar);
         homeNickLabel.textContent = currentProfile.nick || "Sem Nick";
-        homeIdLabel.textContent = `ID: ${currentProfile.id}${currentProfile.anonimo ? " • **** ativo" : ""}`;
+        const bonusLabel = getClickGainPerPress(currentProfile) > 1
+          ? ` • +${getClickGainPerPress(currentProfile)}/aperte`
+          : "";
+        homeIdLabel.textContent = `ID: ${currentProfile.id}${currentProfile.anonimo ? " • ****" : ""}${bonusLabel}`;
+
         const pending = Array.isArray(currentProfile.inbox) ? currentProfile.inbox.length : 0;
         inboxCountSpan.textContent = String(pending);
 
@@ -1601,9 +1741,10 @@
         coinsDisplay.textContent = `🪙 ${coinsVal} moedas`;
         shopCoinsLabel.textContent = `🪙 ${coinsVal}`;
 
+        const goalTarget = getActiveGoalTarget(currentProfile);
         const goalClicks = Number(currentProfile.goalClicks) || 0;
-        const pct = Math.min(100, Math.round((goalClicks / COIN_GOAL_CLICKS) * 100));
-        goalProgressText.textContent = `Meta: ${goalClicks} / ${COIN_GOAL_CLICKS} cliques (+${COIN_GOAL_REWARD} 🪙)`;
+        const pct = Math.min(100, Math.round((goalClicks / goalTarget) * 100));
+        goalProgressText.textContent = `Meta: ${goalClicks} / ${goalTarget} cliques (+${COIN_GOAL_REWARD} 🪙)`;
         goalProgressBar.style.width = `${pct}%`;
       } else {
         renderAvatarInto(homeAvatar, "🤢");
@@ -1612,7 +1753,7 @@
         inboxCountSpan.textContent = "0";
         coinsDisplay.textContent = "🪙 0 moedas";
         shopCoinsLabel.textContent = "🪙 0";
-        goalProgressText.textContent = `Meta: 0 / ${COIN_GOAL_CLICKS} cliques (+${COIN_GOAL_REWARD} 🪙)`;
+        goalProgressText.textContent = `Meta: 0 / ${BASE_COIN_GOAL_CLICKS} cliques (+${COIN_GOAL_REWARD} 🪙)`;
         goalProgressBar.style.width = "0%";
       }
     }
@@ -1710,13 +1851,7 @@
         if (savedId && profilesMap[savedId]) {
           const candidate = profilesMap[savedId];
           if (!candidate.passHash || candidate.passHash === savedHash) {
-            currentProfile = {
-              coins: 0,
-              goalClicks: 0,
-              perks: { turboReload: false, heavyShot: false },
-              inbox: [],
-              ...candidate
-            };
+            currentProfile = normalizeProfileShape(candidate);
           }
         }
 
@@ -1737,13 +1872,7 @@
             profilesMap = payload.data;
             const savedId = localStorage.getItem(SESSION_ID_KEY);
             if (savedId && profilesMap[savedId]) {
-              currentProfile = {
-                coins: 0,
-                goalClicks: 0,
-                perks: { turboReload: false, heavyShot: false },
-                inbox: [],
-                ...profilesMap[savedId]
-              };
+              currentProfile = normalizeProfileShape(profilesMap[savedId]);
             }
             refreshWalletAndAccountUI();
             rebuildRankingUI();
@@ -1760,9 +1889,6 @@
       }
     }
 
-    // =========================================================
-    // PERFIL + SENHA + FOTO + ANONIMATO (****)
-    // =========================================================
     function fillProfileFormFromCurrent() {
       if (currentProfile) {
         profileIdDisplay.value = currentProfile.id;
@@ -1782,6 +1908,7 @@
         renderAvatarInto(profileAvatarPreview, draftAvatar);
         profileFeedback.textContent = "Crie seu perfil com ID, Nick e senha.";
       }
+      refreshWalletAndAccountUI();
     }
 
     avatarFileInput.addEventListener("change", (e) => {
@@ -1854,19 +1981,17 @@
         claimedLegacyNicks.add(legacyEntryKey.toLowerCase());
       }
 
-      const updatedProfile = {
+      const updatedProfile = normalizeProfileShape({
+        ...existing,
         id: targetId,
         nick: cleanNick,
         passHash: passHashToSave,
         avatar: draftAvatar || "🤢",
         anonimo: Boolean(anonToggleInput.checked),
         cliques: (Number(existing?.cliques) || 0) + migratedBonus,
-        coins: Number(existing?.coins) || 0,
-        goalClicks: Number(existing?.goalClicks) || 0,
-        perks: existing?.perks || { turboReload: false, heavyShot: false },
         inbox: Array.isArray(existing?.inbox) ? existing.inbox : [],
         updatedAt: Date.now()
-      };
+      });
 
       try {
         await saveProfileToFirebase(updatedProfile);
@@ -1906,51 +2031,86 @@
 
       localStorage.setItem(SESSION_ID_KEY, target.id);
       localStorage.setItem(SESSION_PASS_HASH_KEY, target.passHash || "");
-      currentProfile = {
-        coins: 0,
-        goalClicks: 0,
-        perks: { turboReload: false, heavyShot: false },
-        inbox: [],
-        ...target
-      };
+      currentProfile = normalizeProfileShape(target);
       refreshWalletAndAccountUI();
       rebuildRankingUI();
       fillProfileFormFromCurrent();
       profileFeedback.textContent = `Logado em ${target.nick} (${target.id}).`;
     });
 
-    // =========================================================
-    // LOJA DE FUNÇÕES + PRESENTES ÚTEIS POR ID + CAIXA DE ENTRADA
-    // =========================================================
     const ITEMS_CONFIG = {
-      turbo_reload: {
-        label: "⚡ Recarga Turbo na Arena",
-        cost: 15,
+      clicks_25: {
+        label: "⚡ +25 Cliques",
+        cost: 12,
+        bonusClicks: 25,
         grantToProfile(p) {
-          p.perks = { ...(p.perks || {}), turboReload: true };
-        }
-      },
-      heavy_shot: {
-        label: "💥 Tiro Pesado (+10 Dano)",
-        cost: 20,
-        grantToProfile(p) {
-          p.perks = { ...(p.perks || {}), heavyShot: true };
+          p.cliques = (Number(p.cliques) || 0) + 25;
         }
       },
       clicks_50: {
-        label: "🚀 Pacote +50 Cliques",
-        cost: 25,
+        label: "🚀 +50 Cliques",
+        cost: 20,
         bonusClicks: 50,
         grantToProfile(p) {
           p.cliques = (Number(p.cliques) || 0) + 50;
         }
       },
-      coins_20: {
-        label: "🪙 +20 Moedas Extra",
-        cost: 20,
-        bonusCoins: 20,
+      clicks_150: {
+        label: "🔥 +150 Cliques",
+        cost: 50,
+        bonusClicks: 150,
         grantToProfile(p) {
-          p.coins = (Number(p.coins) || 0) + 20;
+          p.cliques = (Number(p.cliques) || 0) + 150;
+        }
+      },
+      clicks_500: {
+        label: "💣 +500 Cliques",
+        cost: 140,
+        bonusClicks: 500,
+        grantToProfile(p) {
+          p.cliques = (Number(p.cliques) || 0) + 500;
+        }
+      },
+      multi_1: {
+        label: "➕ +1 Clique Extra por Aperte",
+        cost: 35,
+        grantToProfile(p) {
+          p.perks.clickBonusPerPress = Math.max(Number(p.perks.clickBonusPerPress) || 0, 1);
+        }
+      },
+      multi_2: {
+        label: "➕➕ +2 Cliques Extras por Aperte",
+        cost: 75,
+        grantToProfile(p) {
+          p.perks.clickBonusPerPress = Math.max(Number(p.perks.clickBonusPerPress) || 0, 2);
+        }
+      },
+      fast_goal: {
+        label: "🎯 Meta Rápida (15 cliques = +10 🪙)",
+        cost: 45,
+        grantToProfile(p) {
+          p.perks.fastGoal = true;
+        }
+      },
+      coins_30: {
+        label: "🪙 +30 Moedas Extra",
+        cost: 25,
+        grantToProfile(p) {
+          p.coins = (Number(p.coins) || 0) + 30;
+        }
+      },
+      turbo_reload: {
+        label: "⚡ Recarga Turbo na Arena",
+        cost: 20,
+        grantToProfile(p) {
+          p.perks.turboReload = true;
+        }
+      },
+      heavy_shot: {
+        label: "💥 Tiro Pesado (+10 Dano)",
+        cost: 25,
+        grantToProfile(p) {
+          p.perks.heavyShot = true;
         }
       }
     };
@@ -1970,10 +2130,11 @@
     }
 
     async function addGlobalClicksBonus(amount) {
-      if (!amount || amount <= 0) return;
+      const num = Number(amount) || 0;
+      if (num <= 0) return;
       const gRes = await fetch(`${DATABASE_URL}${NODE_PATH}`);
       const gLatest = Number(await gRes.json()) || 0;
-      const nextGlobal = gLatest + amount;
+      const nextGlobal = gLatest + num;
       await fetch(`${DATABASE_URL}${NODE_PATH}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -2001,10 +2162,7 @@
         playClickSound();
         await deductCoinsIfNotAdm(cfg.cost);
 
-        const nextP = {
-          ...currentProfile,
-          perks: { ...(currentProfile.perks || {}) }
-        };
+        const nextP = normalizeProfileShape(currentProfile);
         cfg.grantToProfile(nextP);
 
         if (cfg.bonusClicks) {
@@ -2034,8 +2192,8 @@
         return;
       }
 
-      const targetProfile = profilesMap[targetId];
-      if (!targetProfile) {
+      const targetProfileRaw = profilesMap[targetId];
+      if (!targetProfileRaw) {
         shopFeedback.textContent = "ID não encontrado.";
         return;
       }
@@ -2048,6 +2206,7 @@
       playClickSound();
       await deductCoinsIfNotAdm(cfg.cost);
 
+      const targetProfile = normalizeProfileShape(targetProfileRaw);
       const nextInbox = Array.isArray(targetProfile.inbox) ? [...targetProfile.inbox] : [];
       nextInbox.push({
         id: "gift_" + Date.now() + "_" + Math.random().toString(36).slice(2, 5),
@@ -2115,11 +2274,8 @@
 
       items.splice(index, 1);
       const cfg = ITEMS_CONFIG[gift.key];
-      const nextP = {
-        ...currentProfile,
-        perks: { ...(currentProfile.perks || {}) },
-        inbox: items
-      };
+      const nextP = normalizeProfileShape(currentProfile);
+      nextP.inbox = items;
 
       if (cfg && typeof cfg.grantToProfile === "function") {
         cfg.grantToProfile(nextP);
@@ -2143,9 +2299,6 @@
       }
     }
 
-    // =========================================================
-    // CONTADOR #FORAGORDURA + META DE MOEDAS + ÁUDIO + REAÇÕES
-    // =========================================================
     function renderCount(val) {
       currentCount = Number(val) || 0;
       counterEl.textContent = currentCount.toLocaleString("pt-BR");
@@ -2276,16 +2429,18 @@
       }
     }
 
-    async function incrementActiveProfileClickAndGoal() {
+    async function applyProfileClicksAndGoal(clickDelta) {
+      const delta = Number(clickDelta) || 1;
       if (!currentProfile || !currentProfile.id) return;
 
-      const nextPts = (Number(currentProfile.cliques) || 0) + 1;
-      let goalClicks = (Number(currentProfile.goalClicks) || 0) + 1;
+      const nextPts = (Number(currentProfile.cliques) || 0) + delta;
+      let goalClicks = (Number(currentProfile.goalClicks) || 0) + delta;
       let coins = Number(currentProfile.coins) || 0;
+      const goalTarget = getActiveGoalTarget(currentProfile);
 
-      if (goalClicks >= COIN_GOAL_CLICKS) {
-        const earnedCycles = Math.floor(goalClicks / COIN_GOAL_CLICKS);
-        goalClicks = goalClicks % COIN_GOAL_CLICKS;
+      if (goalClicks >= goalTarget) {
+        const earnedCycles = Math.floor(goalClicks / goalTarget);
+        goalClicks = goalClicks % goalTarget;
         coins += earnedCycles * COIN_GOAL_REWARD;
       }
 
@@ -2309,13 +2464,14 @@
       spawnDisgustEmoji(btnEl);
       spawnFloatingPhrase(btnEl);
 
-      const optimisticCount = currentCount + 1;
+      const pressGain = getClickGainPerPress(currentProfile);
+      const optimisticCount = currentCount + pressGain;
       renderCount(optimisticCount);
       counterEl.classList.remove("bump");
       void counterEl.offsetWidth;
       counterEl.classList.add("bump");
 
-      incrementActiveProfileClickAndGoal();
+      applyProfileClicksAndGoal(pressGain);
 
       if (isSending) return;
       isSending = true;
@@ -2323,7 +2479,7 @@
       try {
         const getRes = await fetch(`${DATABASE_URL}${NODE_PATH}`);
         const latest = Number(await getRes.json()) || 0;
-        const nextVal = latest + 1;
+        const nextVal = latest + pressGain;
 
         await fetch(`${DATABASE_URL}${NODE_PATH}`, {
           method: "PUT",
@@ -2385,9 +2541,6 @@
     fetchProfilesAndLegacyRanking();
     listenProfilesRealtime();
 
-    // =========================================================
-    // ARENA 2D: BOLAS + ANALÓGICO + TIRO ÚNICO + UPGRADES
-    // =========================================================
     const myId = "p_" + Math.random().toString(36).slice(2, 9);
     const canvas = document.getElementById("arenaCanvas");
     const ctx = canvas.getContext("2d");
@@ -3154,9 +3307,6 @@
       }
     });
 
-    // =========================================================
-    // RECLAMAÇÕES + MODERAÇÃO ADM
-    // =========================================================
     const ratingSummaryText = document.getElementById("ratingSummaryText");
     const starButtons = Array.from(document.querySelectorAll(".star-btn"));
     const complaintInput = document.getElementById("complaintInput");
@@ -3341,7 +3491,10 @@
       counterView.classList.remove("hidden");
     });
 
-    openAdmBtn.addEventListener("click", () => {
+    // =========================================================
+    // PAINEL ADM COMPLETO NO PERFIL (FG-5176)
+    // =========================================================
+    openAdmFromProfileBtn.addEventListener("click", () => {
       if (!isCurrentUserAdm()) return;
       playClickSound();
       hideAllViews();
@@ -3353,30 +3506,115 @@
     backFromAdmBtn.addEventListener("click", () => {
       playClickSound();
       hideAllViews();
-      counterView.classList.remove("hidden");
+      fillProfileFormFromCurrent();
+      profileView.classList.remove("hidden");
+    });
+
+    admAddClicksMeBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm() || !currentProfile) return;
+      const amount = Math.max(1, Math.floor(Number(admCustomClicksInput.value) || 0));
+
+      currentProfile = normalizeProfileShape({
+        ...currentProfile,
+        cliques: (Number(currentProfile.cliques) || 0) + amount
+      });
+      profilesMap[currentProfile.id] = currentProfile;
+
+      await saveProfileToFirebase(currentProfile);
+      await addGlobalClicksBonus(amount);
+      refreshWalletAndAccountUI();
+      rebuildRankingUI();
+      admFeedback.textContent = `+${amount} cliques adicionados no seu perfil (${currentProfile.id}) e no contador geral!`;
+    });
+
+    admAddClicksTargetBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      const targetId = (admTargetIdInput.value || "").trim().toUpperCase();
+      const amount = Math.max(1, Math.floor(Number(admCustomClicksInput.value) || 0));
+      const targetRaw = profilesMap[targetId];
+      if (!targetRaw) {
+        admFeedback.textContent = "ID alvo não encontrado.";
+        return;
+      }
+
+      const updatedTarget = normalizeProfileShape({
+        ...targetRaw,
+        cliques: (Number(targetRaw.cliques) || 0) + amount
+      });
+      profilesMap[targetId] = updatedTarget;
+      if (currentProfile?.id === targetId) {
+        currentProfile = updatedTarget;
+      }
+
+      await saveProfileToFirebase(updatedTarget);
+      await addGlobalClicksBonus(amount);
+      refreshWalletAndAccountUI();
+      rebuildRankingUI();
+      admFeedback.textContent = `+${amount} cliques adicionados para ${updatedTarget.nick} (${targetId}) e no contador geral!`;
     });
 
     admGiveCoinsBtn.addEventListener("click", async () => {
       if (!isCurrentUserAdm()) return;
       const targetId = (admTargetIdInput.value || "").trim().toUpperCase();
-      const target = profilesMap[targetId];
-      if (!target) {
-        admFeedback.textContent = "ID não encontrado.";
+      const coinsAmt = Math.max(1, Math.floor(Number(admCustomCoinsInput.value) || 0));
+      const targetRaw = profilesMap[targetId];
+      if (!targetRaw) {
+        admFeedback.textContent = "ID alvo não encontrado.";
         return;
       }
-      const updated = {
-        ...target,
-        coins: (Number(target.coins) || 0) + 50
-      };
-      await saveProfileToFirebase(updated);
-      profilesMap[targetId] = updated;
-      admFeedback.textContent = `+50 moedas enviadas para ${target.nick} (${targetId})!`;
+
+      const updatedTarget = normalizeProfileShape({
+        ...targetRaw,
+        coins: (Number(targetRaw.coins) || 0) + coinsAmt
+      });
+      profilesMap[targetId] = updatedTarget;
+      if (currentProfile?.id === targetId) {
+        currentProfile = updatedTarget;
+        refreshWalletAndAccountUI();
+      }
+
+      await saveProfileToFirebase(updatedTarget);
+      admFeedback.textContent = `+${coinsAmt} moedas enviadas para ${updatedTarget.nick} (${targetId})!`;
+    });
+
+    admGrantAllPerksBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      const targetId = (admTargetIdInput.value || "").trim().toUpperCase();
+      const targetRaw = profilesMap[targetId];
+      if (!targetRaw) {
+        admFeedback.textContent = "ID alvo não encontrado.";
+        return;
+      }
+
+      const updatedTarget = normalizeProfileShape({
+        ...targetRaw,
+        perks: {
+          clickBonusPerPress: 2,
+          fastGoal: true,
+          turboReload: true,
+          heavyShot: true
+        }
+      });
+      profilesMap[targetId] = updatedTarget;
+      if (currentProfile?.id === targetId) {
+        currentProfile = updatedTarget;
+        refreshWalletAndAccountUI();
+      }
+
+      await saveProfileToFirebase(updatedTarget);
+      admFeedback.textContent = `Todas as funções ativadas para ${updatedTarget.nick} (${targetId})!`;
     });
 
     admResetArenaBtn.addEventListener("click", async () => {
       if (!isCurrentUserAdm()) return;
       await putArenaRemote(createFreshArena("Arena limpa pelo ADM."));
       admFeedback.textContent = "Arena 2D resetada com sucesso!";
+    });
+
+    admSyncAllBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      await Promise.all([fetchProfilesAndLegacyRanking(), fetchCount(), fetchComplaints()]);
+      admFeedback.textContent = "Tudo sincronizado com o Firebase!";
     });
 
     fetchComplaints();
