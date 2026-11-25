@@ -31,12 +31,12 @@
 
     .card {
       width: 100%;
-      max-width: 470px;
-      background: rgba(18, 18, 22, 0.92);
+      max-width: 480px;
+      background: rgba(18, 18, 22, 0.94);
       border: 1px solid rgba(239, 68, 68, 0.25);
       border-radius: 24px;
-      padding: 28px 22px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
+      padding: 26px 20px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.78);
       position: relative;
       z-index: 2;
     }
@@ -51,85 +51,106 @@
       border: 1px solid rgba(239, 68, 68, 0.3);
       padding: 6px 12px;
       border-radius: 999px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     h1 {
       font-size: 26px;
       font-weight: 800;
       letter-spacing: -0.02em;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .subtitle {
-      font-size: 14px;
+      font-size: 13px;
       color: #a1a1aa;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
-    .nick-box {
+    .account-bar {
       background: #111116;
       border: 1px solid #27272a;
       border-radius: 16px;
-      padding: 12px;
+      padding: 11px 13px;
       margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       text-align: left;
     }
 
-    .nick-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #a1a1aa;
-      margin-bottom: 7px;
+    .account-left {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 10px;
+      min-width: 0;
     }
 
-    .nick-active-pill {
-      color: #fca5a5;
-      font-weight: 800;
-      text-transform: none;
-      letter-spacing: 0;
-      font-size: 12px;
-    }
-
-    .nick-row {
+    .avatar-mini {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #1e1e26;
+      border: 1.5px solid rgba(239, 68, 68, 0.45);
       display: flex;
-      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      overflow: hidden;
     }
 
-    .nick-input {
-      flex: 1;
-      background: #18181f;
-      border: 1px solid #32323d;
-      border-radius: 11px;
-      padding: 10px 12px;
-      color: #ffffff;
+    .avatar-mini img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .account-meta {
+      min-width: 0;
+    }
+
+    .account-nick {
       font-size: 14px;
-      font-family: inherit;
+      font-weight: 800;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .nick-input:focus {
-      outline: none;
-      border-color: #ef4444;
+    .account-id {
+      font-size: 11px;
+      color: #a1a1aa;
+      font-variant-numeric: tabular-nums;
     }
 
-    .btn-nick {
-      background: #27272f;
+    .account-actions {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .btn-mini {
+      background: #22222c;
       color: #f4f4f5;
-      border: 1px solid #3f3f4c;
-      border-radius: 11px;
-      padding: 10px 14px;
-      font-size: 13px;
+      border: 1px solid #383846;
+      border-radius: 10px;
+      padding: 7px 10px;
+      font-size: 12px;
       font-weight: 800;
       cursor: pointer;
       white-space: nowrap;
     }
 
-    .btn-nick:hover {
-      background: #343440;
+    .btn-mini:hover {
+      background: #30303e;
+    }
+
+    .btn-mini.inbox-badge {
+      border-color: rgba(251, 191, 36, 0.5);
+      color: #fde68a;
     }
 
     .counter-box {
@@ -137,7 +158,7 @@
       border: 1px solid #27272a;
       border-radius: 18px;
       padding: 18px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .counter-label {
@@ -149,7 +170,7 @@
     }
 
     .counter-value {
-      font-size: 50px;
+      font-size: 48px;
       font-weight: 900;
       line-height: 1;
       color: #ffffff;
@@ -244,7 +265,7 @@
     }
 
     .rank-section {
-      margin-top: 20px;
+      margin-top: 18px;
       background: #111116;
       border: 1px solid #27272a;
       border-radius: 18px;
@@ -276,7 +297,7 @@
       display: flex;
       flex-direction: column;
       gap: 7px;
-      max-height: 210px;
+      max-height: 220px;
       overflow-y: auto;
     }
 
@@ -287,7 +308,7 @@
       background: #17171e;
       border: 1px solid #262632;
       border-radius: 12px;
-      padding: 9px 12px;
+      padding: 8px 11px;
       font-size: 13px;
     }
 
@@ -302,9 +323,32 @@
       gap: 8px;
       font-weight: 800;
       color: #f4f4f5;
+      min-width: 0;
+    }
+
+    .rank-name {
+      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap;
+    }
+
+    .rank-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #23232e;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .rank-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .rank-pos {
@@ -318,6 +362,7 @@
       color: #fca5a5;
       font-variant-numeric: tabular-nums;
       margin-left: 8px;
+      flex-shrink: 0;
     }
 
     .rank-empty {
@@ -415,6 +460,218 @@
       }
     }
 
+    /* TELAS SECUNDÁRIAS / PAINÉIS */
+    .panel-card {
+      width: 100%;
+      max-width: 500px;
+      background: rgba(18, 18, 22, 0.95);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+      z-index: 2;
+      text-align: left;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .panel-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fca5a5;
+    }
+
+    .btn-small {
+      background: #27272a;
+      color: #f4f4f5;
+      border: 1px solid #3f3f46;
+      border-radius: 10px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-small:hover {
+      background: #3f3f46;
+    }
+
+    .field-group {
+      margin-bottom: 12px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 12px;
+      color: #a1a1aa;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .text-input,
+    .select-input {
+      width: 100%;
+      background: #111116;
+      border: 1px solid #2e2e3a;
+      border-radius: 12px;
+      padding: 10px 12px;
+      color: #ffffff;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .text-input:focus,
+    .select-input:focus {
+      outline: none;
+      border-color: #ef4444;
+    }
+
+    .avatar-editor {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #121218;
+      border: 1px solid #27272a;
+      border-radius: 14px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .avatar-big {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #1f1f29;
+      border: 2px solid rgba(251, 191, 36, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .avatar-big img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .preset-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .preset-btn {
+      background: #1c1c24;
+      border: 1px solid #32323e;
+      border-radius: 9px;
+      padding: 5px 8px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .anon-box {
+      background: #121218;
+      border: 1px solid #27272a;
+      border-radius: 14px;
+      padding: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .btn-primary-action {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #ffffff;
+      background: linear-gradient(180deg, #ef4444, #b91c1c);
+      cursor: pointer;
+    }
+
+    .btn-secondary-action {
+      width: 100%;
+      margin-top: 8px;
+      border: 1px solid #383846;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #e4e4e7;
+      background: #1d1d26;
+      cursor: pointer;
+    }
+
+    .helper-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #a1a1aa;
+      min-height: 18px;
+    }
+
+    .gift-divider {
+      border: none;
+      border-top: 1px solid #27272a;
+      margin: 18px 0;
+    }
+
+    .inbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .gift-item {
+      background: #13131a;
+      border: 1px solid #282836;
+      border-radius: 14px;
+      padding: 11px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .gift-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #fde68a;
+    }
+
+    .gift-from {
+      font-size: 11px;
+      color: #a1a1aa;
+    }
+
+    .btn-collect {
+      background: linear-gradient(180deg, #16a34a, #15803d);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
     /* ARENA 2D */
     .arena-card {
       width: 100%;
@@ -440,21 +697,6 @@
       font-size: 18px;
       font-weight: 900;
       color: #fbbf24;
-    }
-
-    .btn-small {
-      background: #27272a;
-      color: #f4f4f5;
-      border: 1px solid #3f3f46;
-      border-radius: 10px;
-      padding: 7px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .btn-small:hover {
-      background: #3f3f46;
     }
 
     .hp-grid {
@@ -631,34 +873,7 @@
       color: #a1a1aa;
     }
 
-    /* RECLAMAÇÕES SOBRE O GORDURA */
-    .complaints-card {
-      width: 100%;
-      max-width: 500px;
-      background: rgba(18, 18, 22, 0.95);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      border-radius: 22px;
-      padding: 20px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
-      position: relative;
-      z-index: 2;
-      text-align: left;
-    }
-
-    .complaints-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .complaints-title {
-      font-size: 18px;
-      font-weight: 900;
-      color: #fca5a5;
-    }
-
+    /* RECLAMAÇÕES */
     .rating-summary {
       background: #121217;
       border: 1px solid #27272a;
@@ -781,26 +996,23 @@
   </style>
 </head>
 <body>
-  <!-- TELA 1: CONTADOR #FORAGORDURA + NICK + RANKING -->
+  <!-- TELA 1: CONTADOR + CONTA/PERFIL + RANKING -->
   <main id="counterView" class="card">
     <span class="tag">Contador Oficial</span>
     <h1>Aperte sem dó</h1>
-    <p class="subtitle">Cada clique soma no placar, no ranking e solta a reação.</p>
+    <p class="subtitle">Cada clique soma no placar, no seu perfil e solta a reação.</p>
 
-    <div class="nick-box">
-      <div class="nick-label">
-        <span>Vincular Nick (sem conta)</span>
-        <span id="nickStatusPill" class="nick-active-pill">Sem nick vinculado</span>
+    <div class="account-bar">
+      <div class="account-left">
+        <div id="homeAvatar" class="avatar-mini">🤢</div>
+        <div class="account-meta">
+          <div id="homeNickLabel" class="account-nick">Sem conta ativa</div>
+          <div id="homeIdLabel" class="account-id">Crie ou entre com ID + senha</div>
+        </div>
       </div>
-      <div class="nick-row">
-        <input
-          id="nickInput"
-          class="nick-input"
-          type="text"
-          maxlength="18"
-          placeholder="Digite seu Nick..."
-        />
-        <button id="saveNickBtn" class="btn-nick" type="button">Vincular</button>
+      <div class="account-actions">
+        <button id="openInboxBtn" class="btn-mini inbox-badge" type="button">🎁 <span id="inboxCountSpan">0</span></button>
+        <button id="openProfileBtn" class="btn-mini" type="button">Perfil</button>
       </div>
     </div>
 
@@ -822,7 +1034,7 @@
         <span class="rank-live-dot">tempo real</span>
       </div>
       <div id="rankList" class="rank-list">
-        <div class="rank-empty">Vincule um Nick e clique para aparecer aqui.</div>
+        <div class="rank-empty">Carregando ranking...</div>
       </div>
 
       <div class="caio-honor" title="Easter egg da marca de 10k">
@@ -835,7 +1047,92 @@
     </div>
   </main>
 
-  <!-- TELA 2: ARENA 2D (BOLAS + ANALÓGICO + TIRO ÚNICO) -->
+  <!-- TELA 2: PERFIL ÚNICO + SENHA + FOTO + ANONIMATO (****) + TROCAR CONTA -->
+  <section id="profileView" class="panel-card hidden">
+    <div class="panel-header">
+      <div class="panel-title">Meu Perfil</div>
+      <button id="backFromProfileBtn" class="btn-small" type="button">Voltar</button>
+    </div>
+
+    <div class="avatar-editor">
+      <div id="profileAvatarPreview" class="avatar-big">🤢</div>
+      <div style="flex: 1;">
+        <div class="field-label">Foto ou preset de perfil</div>
+        <input id="avatarFileInput" type="file" accept="image/*" style="font-size: 12px; color: #d4d4d8; width: 100%;" />
+        <div class="preset-row">
+          <button class="preset-btn" data-preset="🤢" type="button">🤢</button>
+          <button class="preset-btn" data-preset="🦆" type="button">🦆</button>
+          <button class="preset-btn" data-preset="🔥" type="button">🔥</button>
+          <button class="preset-btn" data-preset="💀" type="button">💀</button>
+          <button class="preset-btn" data-preset="👑" type="button">👑</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="profileIdDisplay">Seu ID único (mande para receber presentes)</label>
+      <input id="profileIdDisplay" class="text-input" type="text" readonly />
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="editNickInput">Nick do perfil (se bater com Nick antigo, puxa os cliques!)</label>
+      <input id="editNickInput" class="text-input" type="text" maxlength="18" placeholder="Seu Nick..." />
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="profilePassInput">Senha da conta (mín. 3 caracteres)</label>
+      <input id="profilePassInput" class="text-input" type="password" maxlength="32" placeholder="Defina ou confirme sua senha" />
+    </div>
+
+    <div class="anon-box">
+      <div>
+        <div style="font-size: 13px; font-weight: 800;">Modo anonimato (****)</div>
+        <div style="font-size: 11px; color: #a1a1aa;">Esconde seu Nick no ranking público mostrando ****</div>
+      </div>
+      <input id="anonToggleInput" type="checkbox" style="width: 20px; height: 20px; accent-color: #ef4444;" />
+    </div>
+
+    <button id="saveProfileBtn" class="btn-primary-action" type="button">Salvar perfil</button>
+    <button id="switchAccountBtn" class="btn-secondary-action" type="button">Entrar em outra conta (ID + Senha)</button>
+    <div id="profileFeedback" class="helper-note"></div>
+  </section>
+
+  <!-- TELA 3: CAIXA DE ENTRADA + ENVIAR PRESENTE POR ID -->
+  <section id="inboxView" class="panel-card hidden">
+    <div class="panel-header">
+      <div class="panel-title">Caixa de Presentes</div>
+      <button id="backFromInboxBtn" class="btn-small" type="button">Voltar</button>
+    </div>
+
+    <div class="field-label">Seus presentes para coletar</div>
+    <div id="inboxList" class="inbox-list">
+      <div class="rank-empty">Nenhum presente na caixa agora.</div>
+    </div>
+
+    <hr class="gift-divider" />
+
+    <div class="panel-title" style="font-size: 15px; margin-bottom: 10px;">Mandar presente por ID</div>
+
+    <div class="field-group">
+      <label class="field-label" for="giftTargetIdInput">ID do destinatário (ex.: FG-1234)</label>
+      <input id="giftTargetIdInput" class="text-input" type="text" maxlength="20" placeholder="Digite o ID do perfil..." />
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="giftTypeSelect">Escolha o presente</label>
+      <select id="giftTypeSelect" class="select-input">
+        <option value="cliques_50">⚡ Pacote +50 Cliques Extras</option>
+        <option value="cliques_150">🚀 Combo +150 Cliques Extras</option>
+        <option value="pato_fafa">🦆 Pato Oficial do Fafá</option>
+        <option value="gordura_podre">🤢 Troféu Gordura Podre</option>
+      </select>
+    </div>
+
+    <button id="sendGiftBtn" class="btn-primary-action" type="button">Enviar presente</button>
+    <div id="giftFeedback" class="helper-note"></div>
+  </section>
+
+  <!-- TELA 4: ARENA 2D (BOLAS + ANALÓGICO + TIRO ÚNICO) -->
   <section id="arenaView" class="arena-card hidden">
     <div class="arena-top">
       <div class="arena-title">Gordura X Fafá</div>
@@ -887,10 +1184,10 @@
     <div id="queueText" class="queue-info">Fila: ninguém esperando</div>
   </section>
 
-  <!-- TELA 3: RECLAMAÇÕES SOBRE O GORDURA -->
-  <section id="complaintsView" class="complaints-card hidden">
-    <div class="complaints-header">
-      <div class="complaints-title">Reclamações sobre o gordura</div>
+  <!-- TELA 5: RECLAMAÇÕES SOBRE O GORDURA -->
+  <section id="complaintsView" class="panel-card hidden">
+    <div class="panel-header">
+      <div class="panel-title">Reclamações sobre o gordura</div>
       <button id="backFromComplaintsBtn" class="btn-small" type="button">Voltar</button>
     </div>
 
@@ -925,9 +1222,12 @@
     const DATABASE_URL = "https://fora-gordura-default-rtdb.firebaseio.com";
     const NODE_PATH = "/foragordura/cliques.json";
     const RANKING_PATH = "/foragordura/ranking.json";
+    const PROFILES_PATH = "/foragordura/perfis.json";
     const ARENA_PATH = "/foragordura/arena.json";
     const COMPLAINTS_PATH = "/foragordura/reclamacoes.json";
-    const NICK_STORAGE_KEY = "foragordura_nick_v1";
+
+    const SESSION_ID_KEY = "foragordura_session_id_v1";
+    const SESSION_PASS_HASH_KEY = "foragordura_session_pass_v1";
 
     const FRASES_ZOEIRA = [
       "FORA!!",
@@ -936,18 +1236,42 @@
     ];
 
     const counterView = document.getElementById("counterView");
+    const profileView = document.getElementById("profileView");
+    const inboxView = document.getElementById("inboxView");
     const arenaView = document.getElementById("arenaView");
     const complaintsView = document.getElementById("complaintsView");
 
     const openArenaBtn = document.getElementById("openArenaBtn");
     const openComplaintsBtn = document.getElementById("openComplaintsBtn");
+    const openProfileBtn = document.getElementById("openProfileBtn");
+    const openInboxBtn = document.getElementById("openInboxBtn");
+
+    const backFromProfileBtn = document.getElementById("backFromProfileBtn");
+    const backFromInboxBtn = document.getElementById("backFromInboxBtn");
     const backFromArenaBtn = document.getElementById("backFromArenaBtn");
     const backFromComplaintsBtn = document.getElementById("backFromComplaintsBtn");
 
-    const nickInput = document.getElementById("nickInput");
-    const saveNickBtn = document.getElementById("saveNickBtn");
-    const nickStatusPill = document.getElementById("nickStatusPill");
+    const homeAvatar = document.getElementById("homeAvatar");
+    const homeNickLabel = document.getElementById("homeNickLabel");
+    const homeIdLabel = document.getElementById("homeIdLabel");
+    const inboxCountSpan = document.getElementById("inboxCountSpan");
     const rankListEl = document.getElementById("rankList");
+
+    const profileAvatarPreview = document.getElementById("profileAvatarPreview");
+    const avatarFileInput = document.getElementById("avatarFileInput");
+    const profileIdDisplay = document.getElementById("profileIdDisplay");
+    const editNickInput = document.getElementById("editNickInput");
+    const profilePassInput = document.getElementById("profilePassInput");
+    const anonToggleInput = document.getElementById("anonToggleInput");
+    const saveProfileBtn = document.getElementById("saveProfileBtn");
+    const switchAccountBtn = document.getElementById("switchAccountBtn");
+    const profileFeedback = document.getElementById("profileFeedback");
+
+    const inboxListEl = document.getElementById("inboxList");
+    const giftTargetIdInput = document.getElementById("giftTargetIdInput");
+    const giftTypeSelect = document.getElementById("giftTypeSelect");
+    const sendGiftBtn = document.getElementById("sendGiftBtn");
+    const giftFeedback = document.getElementById("giftFeedback");
 
     const counterEl = document.getElementById("counter");
     const btnEl = document.getElementById("actionBtn");
@@ -955,50 +1279,20 @@
     let currentCount = 0;
     let isSending = false;
     let audioCtx = null;
-    let rankingMap = {};
-    let currentNick = "";
 
-    function sanitizeNick(raw) {
-      return String(raw || "")
-        .trim()
-        .replace(/[.#$/[\]]/g, "")
-        .replace(/\s+/g, " ")
-        .slice(0, 18);
+    let legacyRankingMap = {};
+    let profilesMap = {};
+    let currentProfile = null;
+    let draftAvatar = "🤢";
+    let claimedLegacyNicks = new Set();
+
+    function hideAllViews() {
+      counterView.classList.add("hidden");
+      profileView.classList.add("hidden");
+      inboxView.classList.add("hidden");
+      arenaView.classList.add("hidden");
+      complaintsView.classList.add("hidden");
     }
-
-    function applyNick(nick, showFeedback = false) {
-      const clean = sanitizeNick(nick);
-      currentNick = clean;
-      if (clean) {
-        localStorage.setItem(NICK_STORAGE_KEY, clean);
-        nickInput.value = clean;
-        nickStatusPill.textContent = `Nick: ${clean}`;
-        if (showFeedback) {
-          playClickSound();
-        }
-      } else {
-        localStorage.removeItem(NICK_STORAGE_KEY);
-        nickStatusPill.textContent = "Sem nick vinculado";
-      }
-      renderRanking();
-    }
-
-    saveNickBtn.addEventListener("click", () => {
-      const clean = sanitizeNick(nickInput.value);
-      if (!clean) {
-        nickInput.focus();
-        return;
-      }
-      applyNick(clean, true);
-    });
-
-    nickInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        const clean = sanitizeNick(nickInput.value);
-        if (clean) applyNick(clean, true);
-      }
-    });
 
     function escapeHtml(str) {
       return String(str)
@@ -1008,29 +1302,118 @@
         .replace(/"/g, "&quot;");
     }
 
-    function renderRanking() {
-      const entries = Object.entries(rankingMap || {})
-        .filter(([name, pts]) => Boolean(name) && Number(pts) > 0)
-        .map(([name, pts]) => ({ name, pts: Number(pts) || 0 }))
-        .sort((a, b) => b.pts - a.pts);
+    function sanitizeNick(raw) {
+      return String(raw || "")
+        .trim()
+        .replace(/[.#$/[\]]/g, "")
+        .replace(/\s+/g, " ")
+        .slice(0, 18);
+    }
 
-      if (!entries.length) {
+    function generateAccountId() {
+      const num = Math.floor(1000 + Math.random() * 9000);
+      return `FG-${num}`;
+    }
+
+    async function hashPassword(plain) {
+      const text = String(plain || "");
+      if (window.crypto && window.crypto.subtle) {
+        const buf = new TextEncoder().encode(text);
+        const digest = await window.crypto.subtle.digest("SHA-256", buf);
+        return Array.from(new Uint8Array(digest))
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+      }
+      return "plain_" + btoa(unescape(encodeURIComponent(text)));
+    }
+
+    function renderAvatarInto(el, avatarVal) {
+      if (!el) return;
+      if (typeof avatarVal === "string" && avatarVal.startsWith("data:image/")) {
+        el.innerHTML = `<img src="${avatarVal}" alt="Foto de perfil" />`;
+      } else {
+        el.textContent = avatarVal || "🤢";
+      }
+    }
+
+    function getDisplayNick(profile) {
+      if (!profile) return "Sem conta";
+      if (profile.anonimo) return "****";
+      return profile.nick || "Sem Nick";
+    }
+
+    function refreshAccountSummaryUI() {
+      if (currentProfile) {
+        renderAvatarInto(homeAvatar, currentProfile.avatar);
+        homeNickLabel.textContent = currentProfile.nick || "Sem Nick";
+        homeIdLabel.textContent = `ID: ${currentProfile.id}${currentProfile.anonimo ? " • **** ativo" : ""}`;
+        const pending = Array.isArray(currentProfile.inbox) ? currentProfile.inbox.length : 0;
+        inboxCountSpan.textContent = String(pending);
+      } else {
+        renderAvatarInto(homeAvatar, "🤢");
+        homeNickLabel.textContent = "Sem conta ativa";
+        homeIdLabel.textContent = "Abra Perfil para criar ou entrar";
+        inboxCountSpan.textContent = "0";
+      }
+    }
+
+    function rebuildRankingUI() {
+      const combined = [];
+      const claimedNames = new Set();
+
+      // Perfis cadastrados
+      Object.values(profilesMap || {}).forEach((p) => {
+        if (!p || !p.id) return;
+        const pts = Number(p.cliques) || 0;
+        if (p.nick) claimedNames.add(String(p.nick).toLowerCase());
+        if (pts > 0 || p.id === currentProfile?.id) {
+          combined.push({
+            key: p.id,
+            name: getDisplayNick(p),
+            avatar: p.avatar || "🤢",
+            pts,
+            isMe: currentProfile && p.id === currentProfile.id
+          });
+        }
+      });
+
+      // Cliques antigos do ranking que ainda não foram reivindicados por um perfil
+      Object.entries(legacyRankingMap || {}).forEach(([nickName, ptsVal]) => {
+        const pts = Number(ptsVal) || 0;
+        if (pts <= 0) return;
+        if (claimedNames.has(String(nickName).toLowerCase())) return;
+        combined.push({
+          key: "legacy_" + nickName,
+          name: nickName,
+          avatar: "🕒",
+          pts,
+          isMe: false
+        });
+      });
+
+      combined.sort((a, b) => b.pts - a.pts);
+
+      if (!combined.length) {
         rankListEl.innerHTML =
           '<div class="rank-empty">Nenhum clique registrado no ranking ainda.</div>';
         return;
       }
 
-      rankListEl.innerHTML = entries
+      rankListEl.innerHTML = combined
         .map((item, idx) => {
-          const isMe =
-            currentNick && item.name.toLowerCase() === currentNick.toLowerCase();
           const medal =
             idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : `#${idx + 1}`;
+          const avatarHtml =
+            typeof item.avatar === "string" && item.avatar.startsWith("data:image/")
+              ? `<img src="${item.avatar}" alt="" />`
+              : escapeHtml(item.avatar || "🤢");
+
           return `
-            <div class="rank-row ${isMe ? "is-me" : ""}">
+            <div class="rank-row ${item.isMe ? "is-me" : ""}">
               <div class="rank-left">
                 <span class="rank-pos">${medal}</span>
-                <span>${escapeHtml(item.name)}${isMe ? " (você)" : ""}</span>
+                <span class="rank-avatar">${avatarHtml}</span>
+                <span class="rank-name">${escapeHtml(item.name)}${item.isMe ? " (você)" : ""}</span>
               </div>
               <span class="rank-pts">${item.pts.toLocaleString("pt-BR")}</span>
             </div>
@@ -1039,68 +1422,364 @@
         .join("");
     }
 
-    async function fetchRanking() {
+    async function fetchProfilesAndLegacyRanking() {
       try {
-        const res = await fetch(`${DATABASE_URL}${RANKING_PATH}`);
-        const data = await res.json();
-        if (data && typeof data === "object") {
-          rankingMap = data;
-          renderRanking();
+        const [pRes, rRes] = await Promise.all([
+          fetch(`${DATABASE_URL}${PROFILES_PATH}`),
+          fetch(`${DATABASE_URL}${RANKING_PATH}`)
+        ]);
+        const pData = await pRes.json();
+        const rData = await rRes.json();
+
+        if (pData && typeof pData === "object") {
+          profilesMap = pData;
         }
+        if (rData && typeof rData === "object") {
+          legacyRankingMap = rData;
+        }
+
+        const savedId = localStorage.getItem(SESSION_ID_KEY);
+        const savedHash = localStorage.getItem(SESSION_PASS_HASH_KEY);
+        if (savedId && profilesMap[savedId]) {
+          const candidate = profilesMap[savedId];
+          if (!candidate.passHash || candidate.passHash === savedHash) {
+            currentProfile = candidate;
+          }
+        }
+
+        refreshAccountSummaryUI();
+        rebuildRankingUI();
+        renderInbox();
       } catch (err) {
-        console.error("Erro ao carregar ranking:", err);
+        console.error("Erro ao carregar perfis/ranking:", err);
       }
     }
 
-    function listenRankingRealtime() {
+    function listenProfilesRealtime() {
       try {
-        const source = new EventSource(`${DATABASE_URL}${RANKING_PATH}`);
+        const source = new EventSource(`${DATABASE_URL}${PROFILES_PATH}`);
         source.addEventListener("put", (event) => {
           const payload = JSON.parse(event.data);
           if (payload && payload.path === "/" && payload.data && typeof payload.data === "object") {
-            rankingMap = payload.data;
-            renderRanking();
+            profilesMap = payload.data;
+            const savedId = localStorage.getItem(SESSION_ID_KEY);
+            if (savedId && profilesMap[savedId]) {
+              currentProfile = profilesMap[savedId];
+            }
+            refreshAccountSummaryUI();
+            rebuildRankingUI();
+            renderInbox();
           } else if (payload && payload.path && payload.path !== "/") {
-            fetchRanking();
+            fetchProfilesAndLegacyRanking();
           }
         });
         source.addEventListener("patch", () => {
-          fetchRanking();
+          fetchProfilesAndLegacyRanking();
         });
       } catch (err) {
-        console.error("Erro no tempo real do ranking:", err);
+        console.error("Erro no tempo real de perfis:", err);
       }
     }
 
-    async function incrementNickScore(nick) {
-      const clean = sanitizeNick(nick);
-      if (!clean) return;
+    function fillProfileFormFromCurrent() {
+      if (currentProfile) {
+        profileIdDisplay.value = currentProfile.id;
+        editNickInput.value = currentProfile.nick || "";
+        profilePassInput.value = "";
+        anonToggleInput.checked = Boolean(currentProfile.anonimo);
+        draftAvatar = currentProfile.avatar || "🤢";
+        renderAvatarInto(profileAvatarPreview, draftAvatar);
+        profileFeedback.textContent = "Edite seu Nick, foto ou anonimato e confirme sua senha.";
+      } else {
+        const tempId = localStorage.getItem(SESSION_ID_KEY) || generateAccountId();
+        profileIdDisplay.value = tempId;
+        editNickInput.value = "";
+        profilePassInput.value = "";
+        anonToggleInput.checked = false;
+        draftAvatar = "🤢";
+        renderAvatarInto(profileAvatarPreview, draftAvatar);
+        profileFeedback.textContent = "Crie seu perfil com ID, Nick e senha.";
+      }
+    }
 
-      const safeKey = encodeURIComponent(clean);
-      const userUrl = `${DATABASE_URL}/foragordura/ranking/${safeKey}.json`;
+    avatarFileInput.addEventListener("change", (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
 
-      const optimisticPrev = Number(rankingMap[clean]) || 0;
-      rankingMap[clean] = optimisticPrev + 1;
-      renderRanking();
+      const reader = new FileReader();
+      reader.onload = () => {
+        const img = new Image();
+        img.onload = () => {
+          const c = document.createElement("canvas");
+          c.width = 96;
+          c.height = 96;
+          const g = c.getContext("2d");
+          const size = Math.min(img.width, img.height);
+          const sx = (img.width - size) / 2;
+          const sy = (img.height - size) / 2;
+          g.drawImage(img, sx, sy, size, size, 0, 0, 96, 96);
+          draftAvatar = c.toDataURL("image/jpeg", 0.72);
+          renderAvatarInto(profileAvatarPreview, draftAvatar);
+        };
+        img.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.querySelectorAll(".preset-btn").forEach((b) => {
+      b.addEventListener("click", () => {
+        draftAvatar = b.dataset.preset;
+        renderAvatarInto(profileAvatarPreview, draftAvatar);
+      });
+    });
+
+    saveProfileBtn.addEventListener("click", async () => {
+      const cleanNick = sanitizeNick(editNickInput.value);
+      const rawPass = profilePassInput.value.trim();
+      const targetId = (profileIdDisplay.value || "").trim() || generateAccountId();
+
+      if (!cleanNick) {
+        profileFeedback.textContent = "Digite um Nick válido.";
+        return;
+      }
+
+      const existing = profilesMap[targetId];
+      if (!existing && rawPass.length < 3) {
+        profileFeedback.textContent = "Crie uma senha de pelo menos 3 caracteres.";
+        return;
+      }
+
+      if (existing && existing.passHash) {
+        const typedHash = await hashPassword(rawPass);
+        const savedHash = localStorage.getItem(SESSION_PASS_HASH_KEY);
+        const ok = (rawPass && typedHash === existing.passHash) || (!rawPass && savedHash === existing.passHash);
+        if (!ok) {
+          profileFeedback.textContent = "Senha incorreta para este perfil!";
+          return;
+        }
+      }
+
+      const passHashToSave = rawPass
+        ? await hashPassword(rawPass)
+        : existing?.passHash || (await hashPassword(rawPass));
+
+      // Migra cliques antigos se esse Nick ainda estiver no ranking legado
+      let migratedBonus = 0;
+      const legacyEntryKey = Object.keys(legacyRankingMap || {}).find(
+        (k) => k.toLowerCase() === cleanNick.toLowerCase()
+      );
+      if (legacyEntryKey && !claimedLegacyNicks.has(legacyEntryKey.toLowerCase())) {
+        migratedBonus = Number(legacyRankingMap[legacyEntryKey]) || 0;
+        claimedLegacyNicks.add(legacyEntryKey.toLowerCase());
+      }
+
+      const updatedProfile = {
+        id: targetId,
+        nick: cleanNick,
+        passHash: passHashToSave,
+        avatar: draftAvatar || "🤢",
+        anonimo: Boolean(anonToggleInput.checked),
+        cliques: (Number(existing?.cliques) || 0) + migratedBonus,
+        inbox: Array.isArray(existing?.inbox) ? existing.inbox : [],
+        updatedAt: Date.now()
+      };
 
       try {
-        const res = await fetch(userUrl);
-        const currentVal = Number(await res.json()) || 0;
-        const nextVal = Math.max(optimisticPrev + 1, currentVal + 1);
-
-        await fetch(userUrl, {
+        await fetch(`${DATABASE_URL}/foragordura/perfis/${encodeURIComponent(targetId)}.json`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(nextVal)
+          body: JSON.stringify(updatedProfile)
         });
 
-        rankingMap[clean] = nextVal;
-        renderRanking();
+        localStorage.setItem(SESSION_ID_KEY, targetId);
+        localStorage.setItem(SESSION_PASS_HASH_KEY, passHashToSave);
+
+        currentProfile = updatedProfile;
+        profilesMap[targetId] = updatedProfile;
+        refreshAccountSummaryUI();
+        rebuildRankingUI();
+        profilePassInput.value = "";
+        profileFeedback.textContent = migratedBonus > 0
+          ? `Perfil salvo! ${migratedBonus} cliques antigos puxados para ${cleanNick}.`
+          : "Perfil salvo com sucesso!";
       } catch (err) {
-        console.error("Erro ao somar clique do Nick:", err);
+        console.error("Erro ao salvar perfil:", err);
+        profileFeedback.textContent = "Erro ao salvar perfil.";
+      }
+    });
+
+    switchAccountBtn.addEventListener("click", async () => {
+      const loginId = prompt("Digite o ID da conta (ex.: FG-1234):");
+      if (!loginId) return;
+      const cleanId = loginId.trim().toUpperCase();
+      const target = profilesMap[cleanId];
+      if (!target) {
+        alert("ID não encontrado.");
+        return;
+      }
+      const typedPass = prompt("Digite a senha dessa conta:");
+      if (!typedPass) return;
+      const typedHash = await hashPassword(typedPass.trim());
+      if (target.passHash && typedHash !== target.passHash) {
+        alert("Senha incorreta!");
+        return;
+      }
+
+      localStorage.setItem(SESSION_ID_KEY, target.id);
+      localStorage.setItem(SESSION_PASS_HASH_KEY, target.passHash || "");
+      currentProfile = target;
+      refreshAccountSummaryUI();
+      rebuildRankingUI();
+      fillProfileFormFromCurrent();
+      profileFeedback.textContent = `Logado em ${target.nick} (${target.id}).`;
+    });
+
+    // =========================================================
+    // CAIXA DE ENTRADA + PRESENTES POR ID
+    // =========================================================
+    const GIFT_CATALOG = {
+      cliques_50: { label: "⚡ +50 Cliques Extras", bonusClicks: 50 },
+      cliques_150: { label: "🚀 +150 Cliques Extras", bonusClicks: 150 },
+      pato_fafa: { label: "🦆 Pato Oficial do Fafá", bonusClicks: 10 },
+      gordura_podre: { label: "🤢 Troféu Gordura Podre", bonusClicks: 25 }
+    };
+
+    function renderInbox() {
+      if (!currentProfile) {
+        inboxListEl.innerHTML =
+          '<div class="rank-empty">Crie ou entre no seu perfil para ver presentes.</div>';
+        return;
+      }
+
+      const items = Array.isArray(currentProfile.inbox) ? currentProfile.inbox : [];
+      inboxCountSpan.textContent = String(items.length);
+
+      if (!items.length) {
+        inboxListEl.innerHTML =
+          '<div class="rank-empty">Nenhum presente na caixa agora.</div>';
+        return;
+      }
+
+      inboxListEl.innerHTML = items
+        .map((g, index) => `
+          <div class="gift-item">
+            <div>
+              <div class="gift-title">${escapeHtml(g.label || "Presente")}</div>
+              <div class="gift-from">De: ${escapeHtml(g.fromNick || "Alguém")} (${escapeHtml(g.fromId || "")})</div>
+            </div>
+            <button class="btn-collect" data-gift-index="${index}" type="button">Coletar</button>
+          </div>
+        `)
+        .join("");
+
+      inboxListEl.querySelectorAll(".btn-collect").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const idx = Number(btn.dataset.giftIndex);
+          await collectGiftAt(idx);
+        });
+      });
+    }
+
+    async function collectGiftAt(index) {
+      if (!currentProfile) return;
+      const items = Array.isArray(currentProfile.inbox) ? [...currentProfile.inbox] : [];
+      const gift = items[index];
+      if (!gift) return;
+
+      items.splice(index, 1);
+      const bonus = Number(gift.bonusClicks) || 0;
+      const nextProfileClicks = (Number(currentProfile.cliques) || 0) + bonus;
+
+      const updated = {
+        ...currentProfile,
+        cliques: nextProfileClicks,
+        inbox: items
+      };
+
+      try {
+        await fetch(`${DATABASE_URL}/foragordura/perfis/${encodeURIComponent(currentProfile.id)}.json`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updated)
+        });
+
+        if (bonus > 0) {
+          const gRes = await fetch(`${DATABASE_URL}${NODE_PATH}`);
+          const gLatest = Number(await gRes.json()) || 0;
+          const nextGlobal = gLatest + bonus;
+          await fetch(`${DATABASE_URL}${NODE_PATH}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(nextGlobal)
+          });
+          renderCount(nextGlobal);
+        }
+
+        currentProfile = updated;
+        profilesMap[updated.id] = updated;
+        playClickSound();
+        refreshAccountSummaryUI();
+        rebuildRankingUI();
+        renderInbox();
+        giftFeedback.textContent = `Coletou: ${gift.label}${bonus > 0 ? ` (+${bonus} cliques)` : ""}!`;
+      } catch (err) {
+        console.error("Erro ao coletar presente:", err);
       }
     }
 
+    sendGiftBtn.addEventListener("click", async () => {
+      const targetId = (giftTargetIdInput.value || "").trim().toUpperCase();
+      const giftKey = giftTypeSelect.value;
+      const template = GIFT_CATALOG[giftKey] || GIFT_CATALOG.cliques_50;
+
+      if (!targetId) {
+        giftFeedback.textContent = "Digite o ID do destinatário.";
+        return;
+      }
+
+      const targetProfile = profilesMap[targetId];
+      if (!targetProfile) {
+        giftFeedback.textContent = "ID não encontrado nos perfis.";
+        return;
+      }
+
+      const nextInbox = Array.isArray(targetProfile.inbox) ? [...targetProfile.inbox] : [];
+      nextInbox.push({
+        id: "gift_" + Date.now(),
+        key: giftKey,
+        label: template.label,
+        bonusClicks: template.bonusClicks,
+        fromNick: currentProfile?.nick || "Anônimo",
+        fromId: currentProfile?.id || "GUEST",
+        sentAt: Date.now()
+      });
+
+      const updatedTarget = { ...targetProfile, inbox: nextInbox };
+
+      try {
+        await fetch(`${DATABASE_URL}/foragordura/perfis/${encodeURIComponent(targetId)}.json`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedTarget)
+        });
+
+        profilesMap[targetId] = updatedTarget;
+        if (currentProfile?.id === targetId) {
+          currentProfile = updatedTarget;
+          renderInbox();
+        }
+        playClickSound();
+        giftTargetIdInput.value = "";
+        giftFeedback.textContent = `Presente enviado para ${targetProfile.nick} (${targetId})!`;
+      } catch (err) {
+        console.error("Erro ao enviar presente:", err);
+        giftFeedback.textContent = "Erro ao enviar presente.";
+      }
+    });
+
+    // =========================================================
+    // CONTADOR #FORAGORDURA + ÁUDIO + REAÇÕES
+    // =========================================================
     function renderCount(val) {
       currentCount = Number(val) || 0;
       counterEl.textContent = currentCount.toLocaleString("pt-BR");
@@ -1231,16 +1910,25 @@
       }
     }
 
-    btnEl.addEventListener("click", async () => {
-      if (!currentNick) {
-        const typed = sanitizeNick(nickInput.value);
-        if (typed) {
-          applyNick(typed, false);
-        } else {
-          nickInput.focus();
-        }
-      }
+    async function incrementActiveProfileClick() {
+      if (!currentProfile || !currentProfile.id) return;
+      const nextPts = (Number(currentProfile.cliques) || 0) + 1;
+      currentProfile.cliques = nextPts;
+      profilesMap[currentProfile.id] = currentProfile;
+      rebuildRankingUI();
 
+      try {
+        await fetch(`${DATABASE_URL}/foragordura/perfis/${encodeURIComponent(currentProfile.id)}/cliques.json`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(nextPts)
+        });
+      } catch (err) {
+        console.error("Erro ao somar clique no perfil:", err);
+      }
+    }
+
+    btnEl.addEventListener("click", async () => {
       playClickSound();
       spawnDisgustEmoji(btnEl);
       spawnFloatingPhrase(btnEl);
@@ -1251,9 +1939,7 @@
       void counterEl.offsetWidth;
       counterEl.classList.add("bump");
 
-      if (currentNick) {
-        incrementNickScore(currentNick);
-      }
+      incrementActiveProfileClick();
 
       if (isSending) return;
       isSending = true;
@@ -1277,15 +1963,36 @@
       }
     });
 
-    const savedNick = localStorage.getItem(NICK_STORAGE_KEY);
-    if (savedNick) {
-      applyNick(savedNick, false);
-    }
+    openProfileBtn.addEventListener("click", () => {
+      playClickSound();
+      hideAllViews();
+      fillProfileFormFromCurrent();
+      profileView.classList.remove("hidden");
+    });
+
+    backFromProfileBtn.addEventListener("click", () => {
+      playClickSound();
+      hideAllViews();
+      counterView.classList.remove("hidden");
+    });
+
+    openInboxBtn.addEventListener("click", () => {
+      playClickSound();
+      hideAllViews();
+      renderInbox();
+      inboxView.classList.remove("hidden");
+    });
+
+    backFromInboxBtn.addEventListener("click", () => {
+      playClickSound();
+      hideAllViews();
+      counterView.classList.remove("hidden");
+    });
 
     fetchCount();
     listenRealtime();
-    fetchRanking();
-    listenRankingRealtime();
+    fetchProfilesAndLegacyRanking();
+    listenProfilesRealtime();
 
     // =========================================================
     // ARENA 2D: BOLAS + ANALÓGICO + TIRO ÚNICO + FILA/SAÍDA
@@ -1299,7 +2006,6 @@
     const hpGorduraBar = document.getElementById("hpGorduraBar");
     const hpFafaBar = document.getElementById("hpFafaBar");
     const arenaStatus = document.getElementById("arenaStatus");
-    const pickBox = document.getElementById("pickBox");
     const pickGorduraBtn = document.getElementById("pickGorduraBtn");
     const pickFafaBtn = document.getElementById("pickFafaBtn");
     const queueText = document.getElementById("queueText");
@@ -1999,8 +2705,7 @@
 
     openArenaBtn.addEventListener("click", async () => {
       playClickSound();
-      counterView.classList.add("hidden");
-      complaintsView.classList.add("hidden");
+      hideAllViews();
       arenaView.classList.remove("hidden");
 
       arenaState = await getArenaRemote();
@@ -2015,7 +2720,7 @@
       await leaveArena();
       stopArenaLoop();
       resetAnalog();
-      arenaView.classList.add("hidden");
+      hideAllViews();
       counterView.classList.remove("hidden");
     });
 
@@ -2158,15 +2863,14 @@
 
     openComplaintsBtn.addEventListener("click", () => {
       playClickSound();
-      counterView.classList.add("hidden");
-      arenaView.classList.add("hidden");
+      hideAllViews();
       complaintsView.classList.remove("hidden");
       fetchComplaints();
     });
 
     backFromComplaintsBtn.addEventListener("click", () => {
       playClickSound();
-      complaintsView.classList.add("hidden");
+      hideAllViews();
       counterView.classList.remove("hidden");
     });
 
