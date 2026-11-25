@@ -31,7 +31,7 @@
 
     .card {
       width: 100%;
-      max-width: 480px;
+      max-width: 490px;
       background: rgba(18, 18, 22, 0.94);
       border: 1px solid rgba(239, 68, 68, 0.25);
       border-radius: 24px;
@@ -64,7 +64,7 @@
     .subtitle {
       font-size: 13px;
       color: #a1a1aa;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .account-bar {
@@ -72,11 +72,11 @@
       border: 1px solid #27272a;
       border-radius: 16px;
       padding: 11px 13px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       text-align: left;
     }
 
@@ -130,6 +130,8 @@
       display: flex;
       gap: 6px;
       flex-shrink: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .btn-mini {
@@ -137,7 +139,7 @@
       color: #f4f4f5;
       border: 1px solid #383846;
       border-radius: 10px;
-      padding: 7px 10px;
+      padding: 7px 9px;
       font-size: 12px;
       font-weight: 800;
       cursor: pointer;
@@ -153,12 +155,61 @@
       color: #fde68a;
     }
 
+    .btn-mini.adm-pill {
+      border-color: rgba(168, 85, 247, 0.55);
+      color: #e9d5ff;
+      background: rgba(88, 28, 135, 0.35);
+    }
+
+    .wallet-bar {
+      background: #111116;
+      border: 1px solid #27272a;
+      border-radius: 14px;
+      padding: 10px 13px;
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .wallet-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .coins-pill {
+      font-weight: 900;
+      color: #fbbf24;
+      font-size: 13px;
+    }
+
+    .goal-text {
+      color: #a1a1aa;
+      font-size: 11px;
+    }
+
+    .goal-bg {
+      width: 100%;
+      height: 7px;
+      background: #24242e;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .goal-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #fbbf24, #ef4444);
+      transition: width 0.15s ease;
+    }
+
     .counter-box {
       background: #111115;
       border: 1px solid #27272a;
       border-radius: 18px;
       padding: 18px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .counter-label {
@@ -211,57 +262,45 @@
 
     .secondary-actions {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 13px;
     }
 
     .btn-arena {
       width: 100%;
       border: 1px solid rgba(251, 191, 36, 0.45);
-      border-radius: 15px;
-      padding: 13px 14px;
-      font-size: 14px;
+      border-radius: 14px;
+      padding: 12px 8px;
+      font-size: 13px;
       font-weight: 800;
-      letter-spacing: 0.02em;
       color: #fde68a;
       background: linear-gradient(180deg, rgba(120, 53, 15, 0.65) 0%, rgba(69, 26, 3, 0.85) 100%);
       cursor: pointer;
-      transition: transform 0.08s ease, filter 0.15s ease;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
     }
 
-    .btn-arena:hover {
-      filter: brightness(1.12);
-    }
-
-    .btn-arena:active {
-      transform: translateY(2px);
+    .btn-shop {
+      width: 100%;
+      border: 1px solid rgba(250, 204, 21, 0.45);
+      border-radius: 14px;
+      padding: 12px 8px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #fef08a;
+      background: linear-gradient(180deg, rgba(92, 68, 12, 0.7) 0%, rgba(42, 31, 6, 0.9) 100%);
+      cursor: pointer;
     }
 
     .btn-complaints {
       width: 100%;
       border: 1px solid rgba(248, 113, 113, 0.4);
-      border-radius: 15px;
-      padding: 13px 14px;
-      font-size: 14px;
+      border-radius: 14px;
+      padding: 12px 8px;
+      font-size: 13px;
       font-weight: 800;
-      letter-spacing: 0.02em;
       color: #fecaca;
       background: linear-gradient(180deg, rgba(60, 20, 28, 0.75) 0%, rgba(28, 12, 16, 0.9) 100%);
       cursor: pointer;
-      transition: transform 0.08s ease, filter 0.15s ease;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .btn-complaints:hover {
-      filter: brightness(1.12);
-    }
-
-    .btn-complaints:active {
-      transform: translateY(2px);
     }
 
     .rank-section {
@@ -297,7 +336,7 @@
       display: flex;
       flex-direction: column;
       gap: 7px;
-      max-height: 220px;
+      max-height: 210px;
       overflow-y: auto;
     }
 
@@ -463,7 +502,7 @@
     /* TELAS SECUNDÁRIAS / PAINÉIS */
     .panel-card {
       width: 100%;
-      max-width: 500px;
+      max-width: 510px;
       background: rgba(18, 18, 22, 0.95);
       border: 1px solid rgba(239, 68, 68, 0.3);
       border-radius: 22px;
@@ -627,14 +666,55 @@
     .gift-divider {
       border: none;
       border-top: 1px solid #27272a;
-      margin: 18px 0;
+      margin: 16px 0;
+    }
+
+    .shop-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+
+    .shop-item {
+      background: #13131b;
+      border: 1px solid #282836;
+      border-radius: 14px;
+      padding: 11px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .shop-item-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #fef08a;
+    }
+
+    .shop-item-desc {
+      font-size: 11px;
+      color: #a1a1aa;
+    }
+
+    .btn-buy {
+      background: linear-gradient(180deg, #eab308, #ca8a04);
+      color: #09090b;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 11px;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      white-space: nowrap;
     }
 
     .inbox-list {
       display: flex;
       flex-direction: column;
       gap: 9px;
-      max-height: 220px;
+      max-height: 210px;
       overflow-y: auto;
     }
 
@@ -670,6 +750,38 @@
       font-weight: 800;
       cursor: pointer;
       flex-shrink: 0;
+    }
+
+    .adm-box {
+      background: #151021;
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .adm-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .btn-adm {
+      border: 1px solid rgba(192, 132, 252, 0.45);
+      border-radius: 11px;
+      padding: 10px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #f3e8ff;
+      background: rgba(107, 33, 168, 0.45);
+      cursor: pointer;
+    }
+
+    .btn-adm.danger {
+      border-color: rgba(248, 113, 113, 0.5);
+      background: rgba(153, 27, 27, 0.45);
+      color: #fecaca;
     }
 
     /* ARENA 2D */
@@ -966,6 +1078,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 8px;
       margin-bottom: 5px;
       font-size: 13px;
     }
@@ -976,9 +1089,26 @@
       font-size: 14px;
     }
 
+    .complaint-meta-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .complaint-time {
       color: #71717a;
       font-size: 11px;
+    }
+
+    .btn-del-complaint {
+      background: rgba(185, 28, 28, 0.35);
+      border: 1px solid rgba(248, 113, 113, 0.45);
+      color: #fecaca;
+      border-radius: 8px;
+      padding: 3px 7px;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
     }
 
     .complaint-msg {
@@ -996,23 +1126,34 @@
   </style>
 </head>
 <body>
-  <!-- TELA 1: CONTADOR + CONTA/PERFIL + RANKING -->
+  <!-- TELA 1: CONTADOR + PERFIL + MOEDAS + RANKING -->
   <main id="counterView" class="card">
     <span class="tag">Contador Oficial</span>
     <h1>Aperte sem dó</h1>
-    <p class="subtitle">Cada clique soma no placar, no seu perfil e solta a reação.</p>
+    <p class="subtitle">A cada 25 cliques você ganha +10 moedas para funções e presentes.</p>
 
     <div class="account-bar">
       <div class="account-left">
         <div id="homeAvatar" class="avatar-mini">🤢</div>
         <div class="account-meta">
           <div id="homeNickLabel" class="account-nick">Sem conta ativa</div>
-          <div id="homeIdLabel" class="account-id">Crie ou entre com ID + senha</div>
+          <div id="homeIdLabel" class="account-id">Abra Perfil para criar ou entrar</div>
         </div>
       </div>
       <div class="account-actions">
         <button id="openInboxBtn" class="btn-mini inbox-badge" type="button">🎁 <span id="inboxCountSpan">0</span></button>
         <button id="openProfileBtn" class="btn-mini" type="button">Perfil</button>
+        <button id="openAdmBtn" class="btn-mini adm-pill hidden" type="button">ADM</button>
+      </div>
+    </div>
+
+    <div class="wallet-bar">
+      <div class="wallet-top">
+        <span id="coinsDisplay" class="coins-pill">🪙 0 moedas</span>
+        <span id="goalProgressText" class="goal-text">Meta: 0 / 25 cliques (+10 moedas)</span>
+      </div>
+      <div class="goal-bg">
+        <div id="goalProgressBar" class="goal-fill"></div>
       </div>
     </div>
 
@@ -1025,7 +1166,8 @@
 
     <div class="secondary-actions">
       <button id="openArenaBtn" class="btn-arena" type="button">Gordura X Fafá</button>
-      <button id="openComplaintsBtn" class="btn-complaints" type="button">Reclamações sobre o gordura</button>
+      <button id="openShopBtn" class="btn-shop" type="button">🪙 Loja & ID</button>
+      <button id="openComplaintsBtn" class="btn-complaints" type="button">Reclamações</button>
     </div>
 
     <div class="rank-section">
@@ -1047,7 +1189,7 @@
     </div>
   </main>
 
-  <!-- TELA 2: PERFIL ÚNICO + SENHA + FOTO + ANONIMATO (****) + TROCAR CONTA -->
+  <!-- TELA 2: PERFIL ÚNICO + SENHA + FOTO + ANONIMATO (****) -->
   <section id="profileView" class="panel-card hidden">
     <div class="panel-header">
       <div class="panel-title">Meu Perfil</div>
@@ -1070,12 +1212,12 @@
     </div>
 
     <div class="field-group">
-      <label class="field-label" for="profileIdDisplay">Seu ID único (mande para receber presentes)</label>
+      <label class="field-label" for="profileIdDisplay">Seu ID único</label>
       <input id="profileIdDisplay" class="text-input" type="text" readonly />
     </div>
 
     <div class="field-group">
-      <label class="field-label" for="editNickInput">Nick do perfil (se bater com Nick antigo, puxa os cliques!)</label>
+      <label class="field-label" for="editNickInput">Nick do perfil</label>
       <input id="editNickInput" class="text-input" type="text" maxlength="18" placeholder="Seu Nick..." />
     </div>
 
@@ -1087,7 +1229,7 @@
     <div class="anon-box">
       <div>
         <div style="font-size: 13px; font-weight: 800;">Modo anonimato (****)</div>
-        <div style="font-size: 11px; color: #a1a1aa;">Esconde seu Nick no ranking público mostrando ****</div>
+        <div style="font-size: 11px; color: #a1a1aa;">Esconde seu Nick no ranking mostrando ****</div>
       </div>
       <input id="anonToggleInput" type="checkbox" style="width: 20px; height: 20px; accent-color: #ef4444;" />
     </div>
@@ -1097,21 +1239,48 @@
     <div id="profileFeedback" class="helper-note"></div>
   </section>
 
-  <!-- TELA 3: CAIXA DE ENTRADA + ENVIAR PRESENTE POR ID -->
-  <section id="inboxView" class="panel-card hidden">
+  <!-- TELA 3: LOJA DE FUNÇÕES + ENVIAR PRESENTE ÚTIL POR ID -->
+  <section id="shopView" class="panel-card hidden">
     <div class="panel-header">
-      <div class="panel-title">Caixa de Presentes</div>
-      <button id="backFromInboxBtn" class="btn-small" type="button">Voltar</button>
+      <div class="panel-title">🪙 Loja & Presentes por ID</div>
+      <button id="backFromShopBtn" class="btn-small" type="button">Voltar</button>
     </div>
 
-    <div class="field-label">Seus presentes para coletar</div>
-    <div id="inboxList" class="inbox-list">
-      <div class="rank-empty">Nenhum presente na caixa agora.</div>
+    <div class="rating-summary">
+      <span>Seu saldo de moedas</span>
+      <span id="shopCoinsLabel" class="rating-avg">🪙 0</span>
+    </div>
+
+    <div class="field-label">Comprar função útil para você</div>
+    <div class="shop-grid">
+      <div class="shop-item">
+        <div>
+          <div class="shop-item-name">⚡ Recarga Turbo na Arena</div>
+          <div class="shop-item-desc">Recarga do tiro único cai para 450ms na próxima luta</div>
+        </div>
+        <button class="btn-buy" data-buy="turbo_reload" data-cost="15" type="button">15 🪙</button>
+      </div>
+
+      <div class="shop-item">
+        <div>
+          <div class="shop-item-name">💥 Tiro Pesado (+10 Dano)</div>
+          <div class="shop-item-desc">Seu tiro único causa 35 de dano em vez de 25</div>
+        </div>
+        <button class="btn-buy" data-buy="heavy_shot" data-cost="20" type="button">20 🪙</button>
+      </div>
+
+      <div class="shop-item">
+        <div>
+          <div class="shop-item-name">🚀 Pacote +50 Cliques</div>
+          <div class="shop-item-desc">Adiciona +50 cliques no seu perfil e no placar</div>
+        </div>
+        <button class="btn-buy" data-buy="clicks_50" data-cost="25" type="button">25 🪙</button>
+      </div>
     </div>
 
     <hr class="gift-divider" />
 
-    <div class="panel-title" style="font-size: 15px; margin-bottom: 10px;">Mandar presente por ID</div>
+    <div class="panel-title" style="font-size: 15px; margin-bottom: 10px;">Mandar presente útil por ID</div>
 
     <div class="field-group">
       <label class="field-label" for="giftTargetIdInput">ID do destinatário (ex.: FG-1234)</label>
@@ -1119,20 +1288,67 @@
     </div>
 
     <div class="field-group">
-      <label class="field-label" for="giftTypeSelect">Escolha o presente</label>
+      <label class="field-label" for="giftTypeSelect">Presente (custo em moedas — quem coleta já ganha a função/bônus)</label>
       <select id="giftTypeSelect" class="select-input">
-        <option value="cliques_50">⚡ Pacote +50 Cliques Extras</option>
-        <option value="cliques_150">🚀 Combo +150 Cliques Extras</option>
-        <option value="pato_fafa">🦆 Pato Oficial do Fafá</option>
-        <option value="gordura_podre">🤢 Troféu Gordura Podre</option>
+        <option value="turbo_reload">⚡ Recarga Turbo na Arena (15 🪙)</option>
+        <option value="heavy_shot">💥 Tiro Pesado +10 Dano (20 🪙)</option>
+        <option value="clicks_50">🚀 Pacote +50 Cliques (25 🪙)</option>
+        <option value="coins_20">🪙 +20 Moedas Extra (20 🪙)</option>
       </select>
     </div>
 
-    <button id="sendGiftBtn" class="btn-primary-action" type="button">Enviar presente</button>
-    <div id="giftFeedback" class="helper-note"></div>
+    <button id="sendGiftBtn" class="btn-primary-action" type="button">Enviar presente pelo ID</button>
+    <div id="shopFeedback" class="helper-note"></div>
   </section>
 
-  <!-- TELA 4: ARENA 2D (BOLAS + ANALÓGICO + TIRO ÚNICO) -->
+  <!-- TELA 4: CAIXA DE ENTRADA (COLETAR PRESENTES) -->
+  <section id="inboxView" class="panel-card hidden">
+    <div class="panel-header">
+      <div class="panel-title">🎁 Caixa de Entrada</div>
+      <button id="backFromInboxBtn" class="btn-small" type="button">Voltar</button>
+    </div>
+
+    <div class="field-label">Aperte Coletar para ativar o presente</div>
+    <div id="inboxList" class="inbox-list">
+      <div class="rank-empty">Nenhum presente na caixa agora.</div>
+    </div>
+    <div id="inboxFeedback" class="helper-note"></div>
+  </section>
+
+  <!-- TELA 5: PAINEL SECRETO ADM (APENAS FG-5176) -->
+  <section id="admView" class="panel-card hidden">
+    <div class="panel-header">
+      <div class="panel-title" style="color: #e9d5ff;">🛡️ Painel ADM</div>
+      <button id="backFromAdmBtn" class="btn-small" type="button">Voltar</button>
+    </div>
+
+    <div class="adm-box">
+      <div style="font-size: 13px; font-weight: 900; color: #f3e8ff; margin-bottom: 6px;">
+        Status: ADM Ativo (ID FG-5176) • Moedas Infinitas (∞)
+      </div>
+      <div style="font-size: 11px; color: #d8b4fe;">
+        Você aparece normal para os outros. Compras e presentes por ID não consomem suas moedas.
+      </div>
+
+      <div class="field-group" style="margin-top: 12px;">
+        <label class="field-label" for="admTargetIdInput">Dar moedas para outro ID</label>
+        <input id="admTargetIdInput" class="text-input" type="text" placeholder="Ex.: FG-2048" />
+      </div>
+
+      <div class="adm-grid-2">
+        <button id="admGiveCoinsBtn" class="btn-adm" type="button">+50 Moedas ao ID</button>
+        <button id="admResetArenaBtn" class="btn-adm danger" type="button">Limpar Arena 2D</button>
+      </div>
+      <div id="admFeedback" class="helper-note"></div>
+    </div>
+
+    <div class="panel-title" style="font-size: 15px; margin-bottom: 8px;">Apagar reclamações pesadas</div>
+    <div id="admComplaintsList" class="complaints-list">
+      <div class="empty-complaints">Carregando reclamações...</div>
+    </div>
+  </section>
+
+  <!-- TELA 6: ARENA 2D (BOLAS + ANALÓGICO + TIRO ÚNICO + UPGRADES) -->
   <section id="arenaView" class="arena-card hidden">
     <div class="arena-top">
       <div class="arena-title">Gordura X Fafá</div>
@@ -1163,7 +1379,7 @@
 
     <div id="arenaStatus" class="status-banner">Escolha Gordura ou Fafá para entrar (máx. 2 lutando).</div>
 
-    <div id="pickBox" class="pick-box">
+    <div class="pick-box">
       <button id="pickGorduraBtn" class="btn-pick btn-pick-gordura" type="button">Entrar como Gordura</button>
       <button id="pickFafaBtn" class="btn-pick btn-pick-fafa" type="button">Entrar como Fafá</button>
     </div>
@@ -1184,7 +1400,7 @@
     <div id="queueText" class="queue-info">Fila: ninguém esperando</div>
   </section>
 
-  <!-- TELA 5: RECLAMAÇÕES SOBRE O GORDURA -->
+  <!-- TELA 7: RECLAMAÇÕES SOBRE O GORDURA -->
   <section id="complaintsView" class="panel-card hidden">
     <div class="panel-header">
       <div class="panel-title">Reclamações sobre o gordura</div>
@@ -1226,6 +1442,10 @@
     const ARENA_PATH = "/foragordura/arena.json";
     const COMPLAINTS_PATH = "/foragordura/reclamacoes.json";
 
+    const ADM_ACCOUNT_ID = "FG-5176";
+    const COIN_GOAL_CLICKS = 25;
+    const COIN_GOAL_REWARD = 10;
+
     const SESSION_ID_KEY = "foragordura_session_id_v1";
     const SESSION_PASS_HASH_KEY = "foragordura_session_pass_v1";
 
@@ -1237,17 +1457,23 @@
 
     const counterView = document.getElementById("counterView");
     const profileView = document.getElementById("profileView");
+    const shopView = document.getElementById("shopView");
     const inboxView = document.getElementById("inboxView");
+    const admView = document.getElementById("admView");
     const arenaView = document.getElementById("arenaView");
     const complaintsView = document.getElementById("complaintsView");
 
     const openArenaBtn = document.getElementById("openArenaBtn");
+    const openShopBtn = document.getElementById("openShopBtn");
     const openComplaintsBtn = document.getElementById("openComplaintsBtn");
     const openProfileBtn = document.getElementById("openProfileBtn");
     const openInboxBtn = document.getElementById("openInboxBtn");
+    const openAdmBtn = document.getElementById("openAdmBtn");
 
     const backFromProfileBtn = document.getElementById("backFromProfileBtn");
+    const backFromShopBtn = document.getElementById("backFromShopBtn");
     const backFromInboxBtn = document.getElementById("backFromInboxBtn");
+    const backFromAdmBtn = document.getElementById("backFromAdmBtn");
     const backFromArenaBtn = document.getElementById("backFromArenaBtn");
     const backFromComplaintsBtn = document.getElementById("backFromComplaintsBtn");
 
@@ -1255,6 +1481,9 @@
     const homeNickLabel = document.getElementById("homeNickLabel");
     const homeIdLabel = document.getElementById("homeIdLabel");
     const inboxCountSpan = document.getElementById("inboxCountSpan");
+    const coinsDisplay = document.getElementById("coinsDisplay");
+    const goalProgressText = document.getElementById("goalProgressText");
+    const goalProgressBar = document.getElementById("goalProgressBar");
     const rankListEl = document.getElementById("rankList");
 
     const profileAvatarPreview = document.getElementById("profileAvatarPreview");
@@ -1267,11 +1496,20 @@
     const switchAccountBtn = document.getElementById("switchAccountBtn");
     const profileFeedback = document.getElementById("profileFeedback");
 
-    const inboxListEl = document.getElementById("inboxList");
+    const shopCoinsLabel = document.getElementById("shopCoinsLabel");
     const giftTargetIdInput = document.getElementById("giftTargetIdInput");
     const giftTypeSelect = document.getElementById("giftTypeSelect");
     const sendGiftBtn = document.getElementById("sendGiftBtn");
-    const giftFeedback = document.getElementById("giftFeedback");
+    const shopFeedback = document.getElementById("shopFeedback");
+
+    const inboxListEl = document.getElementById("inboxList");
+    const inboxFeedback = document.getElementById("inboxFeedback");
+
+    const admTargetIdInput = document.getElementById("admTargetIdInput");
+    const admGiveCoinsBtn = document.getElementById("admGiveCoinsBtn");
+    const admResetArenaBtn = document.getElementById("admResetArenaBtn");
+    const admFeedback = document.getElementById("admFeedback");
+    const admComplaintsList = document.getElementById("admComplaintsList");
 
     const counterEl = document.getElementById("counter");
     const btnEl = document.getElementById("actionBtn");
@@ -1286,10 +1524,16 @@
     let draftAvatar = "🤢";
     let claimedLegacyNicks = new Set();
 
+    function isCurrentUserAdm() {
+      return Boolean(currentProfile && String(currentProfile.id).toUpperCase() === ADM_ACCOUNT_ID);
+    }
+
     function hideAllViews() {
       counterView.classList.add("hidden");
       profileView.classList.add("hidden");
+      shopView.classList.add("hidden");
       inboxView.classList.add("hidden");
+      admView.classList.add("hidden");
       arenaView.classList.add("hidden");
       complaintsView.classList.add("hidden");
     }
@@ -1342,18 +1586,34 @@
       return profile.nick || "Sem Nick";
     }
 
-    function refreshAccountSummaryUI() {
+    function refreshWalletAndAccountUI() {
+      const adm = isCurrentUserAdm();
+      openAdmBtn.classList.toggle("hidden", !adm);
+
       if (currentProfile) {
         renderAvatarInto(homeAvatar, currentProfile.avatar);
         homeNickLabel.textContent = currentProfile.nick || "Sem Nick";
         homeIdLabel.textContent = `ID: ${currentProfile.id}${currentProfile.anonimo ? " • **** ativo" : ""}`;
         const pending = Array.isArray(currentProfile.inbox) ? currentProfile.inbox.length : 0;
         inboxCountSpan.textContent = String(pending);
+
+        const coinsVal = adm ? "∞" : String(Number(currentProfile.coins) || 0);
+        coinsDisplay.textContent = `🪙 ${coinsVal} moedas`;
+        shopCoinsLabel.textContent = `🪙 ${coinsVal}`;
+
+        const goalClicks = Number(currentProfile.goalClicks) || 0;
+        const pct = Math.min(100, Math.round((goalClicks / COIN_GOAL_CLICKS) * 100));
+        goalProgressText.textContent = `Meta: ${goalClicks} / ${COIN_GOAL_CLICKS} cliques (+${COIN_GOAL_REWARD} 🪙)`;
+        goalProgressBar.style.width = `${pct}%`;
       } else {
         renderAvatarInto(homeAvatar, "🤢");
         homeNickLabel.textContent = "Sem conta ativa";
         homeIdLabel.textContent = "Abra Perfil para criar ou entrar";
         inboxCountSpan.textContent = "0";
+        coinsDisplay.textContent = "🪙 0 moedas";
+        shopCoinsLabel.textContent = "🪙 0";
+        goalProgressText.textContent = `Meta: 0 / ${COIN_GOAL_CLICKS} cliques (+${COIN_GOAL_REWARD} 🪙)`;
+        goalProgressBar.style.width = "0%";
       }
     }
 
@@ -1361,7 +1621,6 @@
       const combined = [];
       const claimedNames = new Set();
 
-      // Perfis cadastrados
       Object.values(profilesMap || {}).forEach((p) => {
         if (!p || !p.id) return;
         const pts = Number(p.cliques) || 0;
@@ -1377,7 +1636,6 @@
         }
       });
 
-      // Cliques antigos do ranking que ainda não foram reivindicados por um perfil
       Object.entries(legacyRankingMap || {}).forEach(([nickName, ptsVal]) => {
         const pts = Number(ptsVal) || 0;
         if (pts <= 0) return;
@@ -1422,6 +1680,15 @@
         .join("");
     }
 
+    async function saveProfileToFirebase(profileObj) {
+      if (!profileObj || !profileObj.id) return;
+      await fetch(`${DATABASE_URL}/foragordura/perfis/${encodeURIComponent(profileObj.id)}.json`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(profileObj)
+      });
+    }
+
     async function fetchProfilesAndLegacyRanking() {
       try {
         const [pRes, rRes] = await Promise.all([
@@ -1443,11 +1710,17 @@
         if (savedId && profilesMap[savedId]) {
           const candidate = profilesMap[savedId];
           if (!candidate.passHash || candidate.passHash === savedHash) {
-            currentProfile = candidate;
+            currentProfile = {
+              coins: 0,
+              goalClicks: 0,
+              perks: { turboReload: false, heavyShot: false },
+              inbox: [],
+              ...candidate
+            };
           }
         }
 
-        refreshAccountSummaryUI();
+        refreshWalletAndAccountUI();
         rebuildRankingUI();
         renderInbox();
       } catch (err) {
@@ -1464,9 +1737,15 @@
             profilesMap = payload.data;
             const savedId = localStorage.getItem(SESSION_ID_KEY);
             if (savedId && profilesMap[savedId]) {
-              currentProfile = profilesMap[savedId];
+              currentProfile = {
+                coins: 0,
+                goalClicks: 0,
+                perks: { turboReload: false, heavyShot: false },
+                inbox: [],
+                ...profilesMap[savedId]
+              };
             }
-            refreshAccountSummaryUI();
+            refreshWalletAndAccountUI();
             rebuildRankingUI();
             renderInbox();
           } else if (payload && payload.path && payload.path !== "/") {
@@ -1481,6 +1760,9 @@
       }
     }
 
+    // =========================================================
+    // PERFIL + SENHA + FOTO + ANONIMATO (****)
+    // =========================================================
     function fillProfileFormFromCurrent() {
       if (currentProfile) {
         profileIdDisplay.value = currentProfile.id;
@@ -1536,7 +1818,7 @@
     saveProfileBtn.addEventListener("click", async () => {
       const cleanNick = sanitizeNick(editNickInput.value);
       const rawPass = profilePassInput.value.trim();
-      const targetId = (profileIdDisplay.value || "").trim() || generateAccountId();
+      const targetId = (profileIdDisplay.value || "").trim().toUpperCase() || generateAccountId();
 
       if (!cleanNick) {
         profileFeedback.textContent = "Digite um Nick válido.";
@@ -1563,7 +1845,6 @@
         ? await hashPassword(rawPass)
         : existing?.passHash || (await hashPassword(rawPass));
 
-      // Migra cliques antigos se esse Nick ainda estiver no ranking legado
       let migratedBonus = 0;
       const legacyEntryKey = Object.keys(legacyRankingMap || {}).find(
         (k) => k.toLowerCase() === cleanNick.toLowerCase()
@@ -1580,23 +1861,21 @@
         avatar: draftAvatar || "🤢",
         anonimo: Boolean(anonToggleInput.checked),
         cliques: (Number(existing?.cliques) || 0) + migratedBonus,
+        coins: Number(existing?.coins) || 0,
+        goalClicks: Number(existing?.goalClicks) || 0,
+        perks: existing?.perks || { turboReload: false, heavyShot: false },
         inbox: Array.isArray(existing?.inbox) ? existing.inbox : [],
         updatedAt: Date.now()
       };
 
       try {
-        await fetch(`${DATABASE_URL}/foragordura/perfis/${encodeURIComponent(targetId)}.json`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(updatedProfile)
-        });
-
+        await saveProfileToFirebase(updatedProfile);
         localStorage.setItem(SESSION_ID_KEY, targetId);
         localStorage.setItem(SESSION_PASS_HASH_KEY, passHashToSave);
 
         currentProfile = updatedProfile;
         profilesMap[targetId] = updatedProfile;
-        refreshAccountSummaryUI();
+        refreshWalletAndAccountUI();
         rebuildRankingUI();
         profilePassInput.value = "";
         profileFeedback.textContent = migratedBonus > 0
@@ -1627,22 +1906,170 @@
 
       localStorage.setItem(SESSION_ID_KEY, target.id);
       localStorage.setItem(SESSION_PASS_HASH_KEY, target.passHash || "");
-      currentProfile = target;
-      refreshAccountSummaryUI();
+      currentProfile = {
+        coins: 0,
+        goalClicks: 0,
+        perks: { turboReload: false, heavyShot: false },
+        inbox: [],
+        ...target
+      };
+      refreshWalletAndAccountUI();
       rebuildRankingUI();
       fillProfileFormFromCurrent();
       profileFeedback.textContent = `Logado em ${target.nick} (${target.id}).`;
     });
 
     // =========================================================
-    // CAIXA DE ENTRADA + PRESENTES POR ID
+    // LOJA DE FUNÇÕES + PRESENTES ÚTEIS POR ID + CAIXA DE ENTRADA
     // =========================================================
-    const GIFT_CATALOG = {
-      cliques_50: { label: "⚡ +50 Cliques Extras", bonusClicks: 50 },
-      cliques_150: { label: "🚀 +150 Cliques Extras", bonusClicks: 150 },
-      pato_fafa: { label: "🦆 Pato Oficial do Fafá", bonusClicks: 10 },
-      gordura_podre: { label: "🤢 Troféu Gordura Podre", bonusClicks: 25 }
+    const ITEMS_CONFIG = {
+      turbo_reload: {
+        label: "⚡ Recarga Turbo na Arena",
+        cost: 15,
+        grantToProfile(p) {
+          p.perks = { ...(p.perks || {}), turboReload: true };
+        }
+      },
+      heavy_shot: {
+        label: "💥 Tiro Pesado (+10 Dano)",
+        cost: 20,
+        grantToProfile(p) {
+          p.perks = { ...(p.perks || {}), heavyShot: true };
+        }
+      },
+      clicks_50: {
+        label: "🚀 Pacote +50 Cliques",
+        cost: 25,
+        bonusClicks: 50,
+        grantToProfile(p) {
+          p.cliques = (Number(p.cliques) || 0) + 50;
+        }
+      },
+      coins_20: {
+        label: "🪙 +20 Moedas Extra",
+        cost: 20,
+        bonusCoins: 20,
+        grantToProfile(p) {
+          p.coins = (Number(p.coins) || 0) + 20;
+        }
+      }
     };
+
+    function canSpendCoins(cost) {
+      if (!currentProfile) return false;
+      if (isCurrentUserAdm()) return true;
+      return (Number(currentProfile.coins) || 0) >= cost;
+    }
+
+    async function deductCoinsIfNotAdm(cost) {
+      if (!currentProfile || isCurrentUserAdm()) return;
+      currentProfile.coins = Math.max(0, (Number(currentProfile.coins) || 0) - cost);
+      profilesMap[currentProfile.id] = currentProfile;
+      await saveProfileToFirebase(currentProfile);
+      refreshWalletAndAccountUI();
+    }
+
+    async function addGlobalClicksBonus(amount) {
+      if (!amount || amount <= 0) return;
+      const gRes = await fetch(`${DATABASE_URL}${NODE_PATH}`);
+      const gLatest = Number(await gRes.json()) || 0;
+      const nextGlobal = gLatest + amount;
+      await fetch(`${DATABASE_URL}${NODE_PATH}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(nextGlobal)
+      });
+      renderCount(nextGlobal);
+    }
+
+    document.querySelectorAll(".btn-buy").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        if (!currentProfile) {
+          shopFeedback.textContent = "Crie ou entre no seu perfil primeiro.";
+          return;
+        }
+
+        const key = btn.dataset.buy;
+        const cfg = ITEMS_CONFIG[key];
+        if (!cfg) return;
+
+        if (!canSpendCoins(cfg.cost)) {
+          shopFeedback.textContent = `Moedas insuficientes! Precisa de ${cfg.cost} 🪙.`;
+          return;
+        }
+
+        playClickSound();
+        await deductCoinsIfNotAdm(cfg.cost);
+
+        const nextP = {
+          ...currentProfile,
+          perks: { ...(currentProfile.perks || {}) }
+        };
+        cfg.grantToProfile(nextP);
+
+        if (cfg.bonusClicks) {
+          await addGlobalClicksBonus(cfg.bonusClicks);
+        }
+
+        currentProfile = nextP;
+        profilesMap[nextP.id] = nextP;
+        await saveProfileToFirebase(nextP);
+        refreshWalletAndAccountUI();
+        rebuildRankingUI();
+        shopFeedback.textContent = `Comprou: ${cfg.label}! Já está ativo/aplicado.`;
+      });
+    });
+
+    sendGiftBtn.addEventListener("click", async () => {
+      if (!currentProfile) {
+        shopFeedback.textContent = "Crie ou entre no seu perfil primeiro.";
+        return;
+      }
+
+      const targetId = (giftTargetIdInput.value || "").trim().toUpperCase();
+      const giftKey = giftTypeSelect.value;
+      const cfg = ITEMS_CONFIG[giftKey];
+      if (!targetId || !cfg) {
+        shopFeedback.textContent = "Digite o ID do destinatário.";
+        return;
+      }
+
+      const targetProfile = profilesMap[targetId];
+      if (!targetProfile) {
+        shopFeedback.textContent = "ID não encontrado.";
+        return;
+      }
+
+      if (!canSpendCoins(cfg.cost)) {
+        shopFeedback.textContent = `Você precisa de ${cfg.cost} 🪙 para mandar esse presente.`;
+        return;
+      }
+
+      playClickSound();
+      await deductCoinsIfNotAdm(cfg.cost);
+
+      const nextInbox = Array.isArray(targetProfile.inbox) ? [...targetProfile.inbox] : [];
+      nextInbox.push({
+        id: "gift_" + Date.now() + "_" + Math.random().toString(36).slice(2, 5),
+        key: giftKey,
+        label: cfg.label,
+        fromNick: currentProfile.nick || "Jogador",
+        fromId: currentProfile.id,
+        sentAt: Date.now()
+      });
+
+      const updatedTarget = { ...targetProfile, inbox: nextInbox };
+      await saveProfileToFirebase(updatedTarget);
+      profilesMap[targetId] = updatedTarget;
+
+      if (currentProfile.id === targetId) {
+        currentProfile = updatedTarget;
+        renderInbox();
+      }
+
+      giftTargetIdInput.value = "";
+      shopFeedback.textContent = `Presente "${cfg.label}" enviado para ${targetProfile.nick} (${targetId})!`;
+    });
 
     function renderInbox() {
       if (!currentProfile) {
@@ -1687,98 +2114,37 @@
       if (!gift) return;
 
       items.splice(index, 1);
-      const bonus = Number(gift.bonusClicks) || 0;
-      const nextProfileClicks = (Number(currentProfile.cliques) || 0) + bonus;
-
-      const updated = {
+      const cfg = ITEMS_CONFIG[gift.key];
+      const nextP = {
         ...currentProfile,
-        cliques: nextProfileClicks,
+        perks: { ...(currentProfile.perks || {}) },
         inbox: items
       };
 
+      if (cfg && typeof cfg.grantToProfile === "function") {
+        cfg.grantToProfile(nextP);
+      }
+
+      if (cfg && cfg.bonusClicks) {
+        await addGlobalClicksBonus(cfg.bonusClicks);
+      }
+
       try {
-        await fetch(`${DATABASE_URL}/foragordura/perfis/${encodeURIComponent(currentProfile.id)}.json`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(updated)
-        });
-
-        if (bonus > 0) {
-          const gRes = await fetch(`${DATABASE_URL}${NODE_PATH}`);
-          const gLatest = Number(await gRes.json()) || 0;
-          const nextGlobal = gLatest + bonus;
-          await fetch(`${DATABASE_URL}${NODE_PATH}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(nextGlobal)
-          });
-          renderCount(nextGlobal);
-        }
-
-        currentProfile = updated;
-        profilesMap[updated.id] = updated;
+        await saveProfileToFirebase(nextP);
+        currentProfile = nextP;
+        profilesMap[nextP.id] = nextP;
         playClickSound();
-        refreshAccountSummaryUI();
+        refreshWalletAndAccountUI();
         rebuildRankingUI();
         renderInbox();
-        giftFeedback.textContent = `Coletou: ${gift.label}${bonus > 0 ? ` (+${bonus} cliques)` : ""}!`;
+        inboxFeedback.textContent = `Coletado e ativado: ${gift.label}!`;
       } catch (err) {
         console.error("Erro ao coletar presente:", err);
       }
     }
 
-    sendGiftBtn.addEventListener("click", async () => {
-      const targetId = (giftTargetIdInput.value || "").trim().toUpperCase();
-      const giftKey = giftTypeSelect.value;
-      const template = GIFT_CATALOG[giftKey] || GIFT_CATALOG.cliques_50;
-
-      if (!targetId) {
-        giftFeedback.textContent = "Digite o ID do destinatário.";
-        return;
-      }
-
-      const targetProfile = profilesMap[targetId];
-      if (!targetProfile) {
-        giftFeedback.textContent = "ID não encontrado nos perfis.";
-        return;
-      }
-
-      const nextInbox = Array.isArray(targetProfile.inbox) ? [...targetProfile.inbox] : [];
-      nextInbox.push({
-        id: "gift_" + Date.now(),
-        key: giftKey,
-        label: template.label,
-        bonusClicks: template.bonusClicks,
-        fromNick: currentProfile?.nick || "Anônimo",
-        fromId: currentProfile?.id || "GUEST",
-        sentAt: Date.now()
-      });
-
-      const updatedTarget = { ...targetProfile, inbox: nextInbox };
-
-      try {
-        await fetch(`${DATABASE_URL}/foragordura/perfis/${encodeURIComponent(targetId)}.json`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(updatedTarget)
-        });
-
-        profilesMap[targetId] = updatedTarget;
-        if (currentProfile?.id === targetId) {
-          currentProfile = updatedTarget;
-          renderInbox();
-        }
-        playClickSound();
-        giftTargetIdInput.value = "";
-        giftFeedback.textContent = `Presente enviado para ${targetProfile.nick} (${targetId})!`;
-      } catch (err) {
-        console.error("Erro ao enviar presente:", err);
-        giftFeedback.textContent = "Erro ao enviar presente.";
-      }
-    });
-
     // =========================================================
-    // CONTADOR #FORAGORDURA + ÁUDIO + REAÇÕES
+    // CONTADOR #FORAGORDURA + META DE MOEDAS + ÁUDIO + REAÇÕES
     // =========================================================
     function renderCount(val) {
       currentCount = Number(val) || 0;
@@ -1910,21 +2276,31 @@
       }
     }
 
-    async function incrementActiveProfileClick() {
+    async function incrementActiveProfileClickAndGoal() {
       if (!currentProfile || !currentProfile.id) return;
+
       const nextPts = (Number(currentProfile.cliques) || 0) + 1;
+      let goalClicks = (Number(currentProfile.goalClicks) || 0) + 1;
+      let coins = Number(currentProfile.coins) || 0;
+
+      if (goalClicks >= COIN_GOAL_CLICKS) {
+        const earnedCycles = Math.floor(goalClicks / COIN_GOAL_CLICKS);
+        goalClicks = goalClicks % COIN_GOAL_CLICKS;
+        coins += earnedCycles * COIN_GOAL_REWARD;
+      }
+
       currentProfile.cliques = nextPts;
+      currentProfile.goalClicks = goalClicks;
+      currentProfile.coins = coins;
       profilesMap[currentProfile.id] = currentProfile;
+
+      refreshWalletAndAccountUI();
       rebuildRankingUI();
 
       try {
-        await fetch(`${DATABASE_URL}/foragordura/perfis/${encodeURIComponent(currentProfile.id)}/cliques.json`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(nextPts)
-        });
+        await saveProfileToFirebase(currentProfile);
       } catch (err) {
-        console.error("Erro ao somar clique no perfil:", err);
+        console.error("Erro ao salvar clique/moedas:", err);
       }
     }
 
@@ -1939,7 +2315,7 @@
       void counterEl.offsetWidth;
       counterEl.classList.add("bump");
 
-      incrementActiveProfileClick();
+      incrementActiveProfileClickAndGoal();
 
       if (isSending) return;
       isSending = true;
@@ -1976,9 +2352,24 @@
       counterView.classList.remove("hidden");
     });
 
+    openShopBtn.addEventListener("click", () => {
+      playClickSound();
+      hideAllViews();
+      refreshWalletAndAccountUI();
+      shopFeedback.textContent = "";
+      shopView.classList.remove("hidden");
+    });
+
+    backFromShopBtn.addEventListener("click", () => {
+      playClickSound();
+      hideAllViews();
+      counterView.classList.remove("hidden");
+    });
+
     openInboxBtn.addEventListener("click", () => {
       playClickSound();
       hideAllViews();
+      inboxFeedback.textContent = "";
       renderInbox();
       inboxView.classList.remove("hidden");
     });
@@ -1995,7 +2386,7 @@
     listenProfilesRealtime();
 
     // =========================================================
-    // ARENA 2D: BOLAS + ANALÓGICO + TIRO ÚNICO + FILA/SAÍDA
+    // ARENA 2D: BOLAS + ANALÓGICO + TIRO ÚNICO + UPGRADES
     // =========================================================
     const myId = "p_" + Math.random().toString(36).slice(2, 9);
     const canvas = document.getElementById("arenaCanvas");
@@ -2016,9 +2407,11 @@
     const ammoHint = document.getElementById("ammoHint");
 
     const STALE_MS = 8500;
-    const RELOAD_MS = 950;
+    const BASE_RELOAD_MS = 950;
+    const TURBO_RELOAD_MS = 450;
     const BULLET_SPEED = 8.5;
-    const BULLET_DAMAGE = 25;
+    const BASE_DAMAGE = 25;
+    const HEAVY_DAMAGE = 35;
 
     function createFreshArena(message = "Escolha Gordura ou Fafá para começar!") {
       return {
@@ -2044,6 +2437,14 @@
 
     let analogVec = { x: 0, y: 0, active: false, pointerId: null };
     let keysDown = { left: false, right: false, up: false, down: false };
+
+    function getMyReloadMs() {
+      return currentProfile?.perks?.turboReload ? TURBO_RELOAD_MS : BASE_RELOAD_MS;
+    }
+
+    function getMyBulletDamage() {
+      return currentProfile?.perks?.heavyShot ? HEAVY_DAMAGE : BASE_DAMAGE;
+    }
 
     function getMyRole(state = arenaState) {
       if (state.fighters?.gordura?.id === myId) return "gordura";
@@ -2307,7 +2708,7 @@
       );
       if (activeMyBullets.length >= 1) return;
 
-      nextReloadAt = now + RELOAD_MS;
+      nextReloadAt = now + getMyReloadMs();
       playShotSound();
 
       let dx = me.aimX ?? (role === "gordura" ? 1 : -1);
@@ -2320,6 +2721,7 @@
       const bullet = {
         id: "b_" + now + "_" + Math.random().toString(36).slice(2, 6),
         owner: role,
+        dmg: getMyBulletDamage(),
         x: me.x + dx * (radius + 8),
         y: me.y + dy * (radius + 8),
         vx: dx * BULLET_SPEED,
@@ -2358,7 +2760,13 @@
         ammoHint.textContent = `Recarregando tiro... (${rem}s)`;
       } else if (role && arenaState.status === "fighting") {
         btnShoot.disabled = false;
-        ammoHint.textContent = "Tiro único pronto!";
+        const perksLabel = [
+          currentProfile?.perks?.turboReload ? "Turbo" : "",
+          currentProfile?.perks?.heavyShot ? "+10 Dano" : ""
+        ]
+          .filter(Boolean)
+          .join(" • ");
+        ammoHint.textContent = perksLabel ? `Pronto (${perksLabel})` : "Tiro único pronto!";
       } else {
         btnShoot.disabled = true;
         ammoHint.textContent = "Aguardando luta para atirar";
@@ -2408,7 +2816,8 @@
             const dist = Math.hypot(b.x - target.x, b.y - target.y);
             if (dist <= targetRadius + 6) {
               if (target.id === myId || arenaState.fighters[b.owner]?.id === myId) {
-                target.hp = Math.max(0, (target.hp ?? 100) - BULLET_DAMAGE);
+                const hitDmg = Number(b.dmg) || BASE_DAMAGE;
+                target.hp = Math.max(0, (target.hp ?? 100) - hitDmg);
                 if (target.hp <= 0 && arenaState.status === "fighting") {
                   arenaState.status = "finished";
                   arenaState.winner = b.owner;
@@ -2746,7 +3155,7 @@
     });
 
     // =========================================================
-    // RECLAMAÇÕES SOBRE O GORDURA (QUANTAS QUISER + 1 A 5 ESTRELAS)
+    // RECLAMAÇÕES + MODERAÇÃO ADM
     // =========================================================
     const ratingSummaryText = document.getElementById("ratingSummaryText");
     const starButtons = Array.from(document.querySelectorAll(".star-btn"));
@@ -2784,8 +3193,27 @@
       }
     }
 
+    async function deleteComplaintById(complaintId) {
+      if (!isCurrentUserAdm()) return;
+      const filtered = (complaintsData || []).filter((c) => c.id !== complaintId);
+      try {
+        await fetch(`${DATABASE_URL}${COMPLAINTS_PATH}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(filtered)
+        });
+        complaintsData = filtered;
+        renderComplaints();
+        renderAdmComplaints();
+      } catch (err) {
+        console.error("Erro ao apagar reclamação:", err);
+      }
+    }
+
     function renderComplaints() {
       const list = Array.isArray(complaintsData) ? complaintsData : [];
+      const adm = isCurrentUserAdm();
+
       if (!list.length) {
         ratingSummaryText.textContent = "★ 0.0 (0)";
         complaintsList.innerHTML =
@@ -2802,17 +3230,55 @@
         .map((item) => {
           const starsCount = Math.max(1, Math.min(5, Number(item.stars) || 1));
           const starsVisual = "★".repeat(starsCount) + "☆".repeat(5 - starsCount);
+          const delBtn = adm
+            ? `<button class="btn-del-complaint" data-del-id="${escapeHtml(item.id)}" type="button">Apagar</button>`
+            : "";
           return `
             <div class="complaint-item">
               <div class="complaint-item-top">
                 <span class="complaint-stars">${starsVisual} (${starsCount}/5)</span>
-                <span class="complaint-time">${formatShortTime(item.createdAt)}</span>
+                <div class="complaint-meta-right">
+                  <span class="complaint-time">${formatShortTime(item.createdAt)}</span>
+                  ${delBtn}
+                </div>
               </div>
               <div class="complaint-msg">${escapeHtml(item.text || "")}</div>
             </div>
           `;
         })
         .join("");
+
+      if (adm) {
+        complaintsList.querySelectorAll(".btn-del-complaint").forEach((b) => {
+          b.addEventListener("click", () => deleteComplaintById(b.dataset.delId));
+        });
+      }
+    }
+
+    function renderAdmComplaints() {
+      const list = Array.isArray(complaintsData) ? complaintsData : [];
+      if (!list.length) {
+        admComplaintsList.innerHTML =
+          '<div class="empty-complaints">Nenhuma reclamação para moderar.</div>';
+        return;
+      }
+
+      const sorted = [...list].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+      admComplaintsList.innerHTML = sorted
+        .map((item) => `
+          <div class="complaint-item">
+            <div class="complaint-item-top">
+              <span class="complaint-stars">${Number(item.stars) || 1}/5 ★</span>
+              <button class="btn-del-complaint" data-adm-del="${escapeHtml(item.id)}" type="button">Apagar</button>
+            </div>
+            <div class="complaint-msg">${escapeHtml(item.text || "")}</div>
+          </div>
+        `)
+        .join("");
+
+      admComplaintsList.querySelectorAll("[data-adm-del]").forEach((b) => {
+        b.addEventListener("click", () => deleteComplaintById(b.dataset.admDel));
+      });
     }
 
     async function fetchComplaints() {
@@ -2821,6 +3287,7 @@
         const data = await res.json();
         complaintsData = Array.isArray(data) ? data : data ? Object.values(data) : [];
         renderComplaints();
+        if (isCurrentUserAdm()) renderAdmComplaints();
       } catch (err) {
         console.error("Erro ao carregar reclamações:", err);
       }
@@ -2872,6 +3339,44 @@
       playClickSound();
       hideAllViews();
       counterView.classList.remove("hidden");
+    });
+
+    openAdmBtn.addEventListener("click", () => {
+      if (!isCurrentUserAdm()) return;
+      playClickSound();
+      hideAllViews();
+      admFeedback.textContent = "";
+      admView.classList.remove("hidden");
+      fetchComplaints();
+    });
+
+    backFromAdmBtn.addEventListener("click", () => {
+      playClickSound();
+      hideAllViews();
+      counterView.classList.remove("hidden");
+    });
+
+    admGiveCoinsBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      const targetId = (admTargetIdInput.value || "").trim().toUpperCase();
+      const target = profilesMap[targetId];
+      if (!target) {
+        admFeedback.textContent = "ID não encontrado.";
+        return;
+      }
+      const updated = {
+        ...target,
+        coins: (Number(target.coins) || 0) + 50
+      };
+      await saveProfileToFirebase(updated);
+      profilesMap[targetId] = updated;
+      admFeedback.textContent = `+50 moedas enviadas para ${target.nick} (${targetId})!`;
+    });
+
+    admResetArenaBtn.addEventListener("click", async () => {
+      if (!isCurrentUserAdm()) return;
+      await putArenaRemote(createFreshArena("Arena limpa pelo ADM."));
+      admFeedback.textContent = "Arena 2D resetada com sucesso!";
     });
 
     fetchComplaints();
